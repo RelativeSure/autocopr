@@ -6,8 +6,6 @@ Release:    1%{?dist}
 Summary:    dev tools, env vars, task runner
 
 License:    MIT
-# https://github.com/jdx/mise/releases/download/v2024.11.4/mise-v2024.11.4-linux-x64-musl.tar.gz
-# https://raw.githubusercontent.com/jdx/mise/v2024.11.4/README.md
 URL:        https://github.com/jdx/mise
 Source:     %{url}/releases/download/v%{version}/%{name}-v%{version}-linux-x64-musl.tar.gz
 Source1:    https://raw.githubusercontent.com/jdx/mise/v%{version}/README.md
@@ -23,9 +21,7 @@ mise manages environment variables letting you specify configuration like AWS_AC
 mise is a task runner that can be used to share common tasks within a project among developers and make things like running tasks on file changes easy.
 
 %prep
-# This source file doesn't have a high level directory, so create one
 %autosetup -c
-# Get the manpage in the build dir
 cp %{SOURCE1} CONFIGURATION.md
 cp %{SOURCE2} .
 cp %{SOURCE3} .
@@ -33,7 +29,9 @@ cp %{SOURCE3} .
 %build
 
 %install
-install -p -D %{name} %{buildroot}%{_bindir}/%{name}
+# Ensure the source binary is in the expected location
+mkdir -p %{buildroot}%{_bindir}
+install -p -D %{_builddir}/%{name}-v%{version}-linux-x64-musl/%{name} %{buildroot}%{_bindir}/%{name}
 
 # Shell completions
 install -pvD -m 0644 %{name}.bash %{buildroot}%{bash_completions_dir}/%{name}
