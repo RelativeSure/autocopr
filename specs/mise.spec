@@ -33,7 +33,7 @@ cp %{SOURCE3} .
 %build
 
 %install
-install -p -D %{name} %{buildroot}%{_bindir}/bin/%{name}
+install -p -D %{name} %{buildroot}%{_bindir}/%{name}
 
 # Shell completions
 install -pvD -m 0644 %{name}.bash %{buildroot}%{bash_completions_dir}/%{name}
@@ -41,6 +41,6 @@ install -pvD -m 0644 %{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fi
 
 %files
 %doc CONFIGURATION.md
-%{_bindir}/bin/%{name}
+%{_bindir}/%{name}
 %{bash_completions_dir}/%{name}
 %{fish_completions_dir}/%{name}.fish
