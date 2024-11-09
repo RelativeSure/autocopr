@@ -22,7 +22,7 @@ mise is a task runner that can be used to share common tasks within a project am
 
 %prep
 #%autosetup -c
-%autosetup -T -D -c -a 01
+%autosetup
 
 cp %{SOURCE1} CONFIGURATION.md
 cp %{SOURCE2} .
