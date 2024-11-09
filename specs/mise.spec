@@ -21,7 +21,9 @@ mise manages environment variables letting you specify configuration like AWS_AC
 mise is a task runner that can be used to share common tasks within a project among developers and make things like running tasks on file changes easy.
 
 %prep
-%autosetup -c
+#%autosetup -c
+%autosetup -T -D -c -a 01
+
 cp %{SOURCE1} CONFIGURATION.md
 cp %{SOURCE2} .
 cp %{SOURCE3} .
