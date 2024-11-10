@@ -25,7 +25,8 @@ jobs:
           echo $CHANGED_FILES
           for file in $CHANGED_FILES; do
             echo "Processing file: $file"
-            curl -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST https://copr.fedorainfracloud.org/webhooks/custom/152231/a025026f-7749-4916-896e-ce5b2065c1e3/$file
+            curl -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST $WEBHOOK_URL/$file
           done
         env:
           CHANGED_FILES: ${{ steps.changes.outputs.CHANGED_FILES }}
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
