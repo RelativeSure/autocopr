@@ -1,0 +1,31 @@
+name: File Change Webhook
+
+on:
+  push:
+    branches:
+      - "master"
+    paths:
+      - "specs/*"
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get Changed Files
+        id: changes
+        run: |
+          git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | cut -c 7- | cut -c -5 >> "$GITHUB_OUTPUT"
+
+      - name: Send Webhook
+        run: |
+          echo "Processing webhooks for..."
+          echo $CHANGED_FILES
+          for file in $CHANGED_FILES; do
+            echo "Processing file: $file"
+            curl -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST https://copr.fedorainfracloud.org/webhooks/custom/152231/a025026f-7749-4916-896e-ce5b2065c1e3/$file
+          done
+        env:
+          CHANGED_FILES: ${{ steps.changes.outputs.CHANGED_FILES }}
