@@ -24,14 +24,12 @@ Here are some potential reasons for defining your CLI with a Usage spec:
 
 %prep
 %autosetup -c -n %{name}
-ls -la
 
 cp %{SOURCE1} CONFIGURATION.md
 
 %build
 
 %install
-ls -la
 # Ensure the source binary is in the expected location
 install -p -D %{name} %{buildroot}%{_bindir}/%{name}
 
