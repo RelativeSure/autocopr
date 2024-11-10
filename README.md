@@ -19,45 +19,45 @@
 
 #### atuin
 
-<https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/atuin/status_image/last_build.png>
+![atuin status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/atuin/status_image/last_build.png)
 [Upstream](https://github.com/atuinsh/atuin)
 
 #### bottom
 
-<https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png>
+![bottom status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png)
 [Upstream](https://github.com/ClementTsang/bottom)
 
 #### fnm
 
-<https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/fnm/status_image/last_build.png>
+![fnm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/fnm/status_image/last_build.png)
 [Upstream](https://github.com/Schniz/fnm)
 
 #### mise
 
-<https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png>
+![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 [Upstream](https://github.com/jdx/mise)
 
 #### rust-tealdeer
 
-<https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/rust-tealdeer/status_image/last_build.png>
+![rust-tealdeer status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/rust-tealdeer/status_image/last_build.png)
 [Upstream](https://crates.io/crates/tealdeer)
 
 #### starship
 
-<https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/starship/status_image/last_build.png>
+![starship status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/starship/status_image/last_build.png)
 [Upstream](https://github.com/starship/starship)
 
 #### wezterm
 
-<https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/wezterm/status_image/last_build.png>
+![wezterm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/wezterm/status_image/last_build.png)
 [Upstream](https://github.com/wez/wezterm)
 
 #### zellij
 
-<https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/zellij/status_image/last_build.png>
+![zellij status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/zellij/status_image/last_build.png)
 [Upstream](https://github.com/zellij-org/zellij)
 
 #### zenith
 
-<https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/zenith/status_image/last_build.png>
+![zenith status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/zenith/status_image/last_build.png)
 [Upstream](https://github.com/bvaisvil/zenith/)
