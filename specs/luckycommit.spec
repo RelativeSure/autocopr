@@ -3,7 +3,7 @@
 Name:    lucky-commit
 Version: 2.2.3
 Release: 1%{?dist}
-Summary: A specification for CLIs
+Summary: Make your git commits lucky!
 
 License:    MIT
 # https://github.com/not-an-aardvark/lucky-commit/archive/refs/tags/v2.2.3.tar.gz
