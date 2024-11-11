@@ -29,8 +29,8 @@ cp %{SOURCE1} CONFIGURATION.md
 
 %install
 ls -la
-ls -la %{name}
-ls -la %{name}/*
+ls -la %{name}-%{version}
+ls -la %{name}-%{version}/*
 # Ensure the source binary is in the expected location
 #install -p -D %{name} %{buildroot}%{_bindir}/%{name}
 
