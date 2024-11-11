@@ -19,7 +19,7 @@ lucky-commit amends your commit messages by adding a few characters of various t
 By default, it will look for a commit hash starting with "0000000".
 
 %prep
-%autosetup -n %{name}
+%autosetup -c -n %{name}
 
 cp %{SOURCE1} CONFIGURATION.md
 
@@ -27,6 +27,9 @@ cp %{SOURCE1} CONFIGURATION.md
 #cargo build --release
 
 %install
+ls -la
+ls -la %{name}
+ls -la %{name}/*
 # Ensure the source binary is in the expected location
 #install -p -D %{name} %{buildroot}%{_bindir}/%{name}
 
