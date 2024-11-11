@@ -23,12 +23,19 @@ By default, it will look for a commit hash starting with "0000000".
 
 cp %{SOURCE1} CONFIGURATION.md
 
-%build
-cargo build --release
+#%build
+#cargo build --release
 
 %install
 # Ensure the source binary is in the expected location
-install -p -D %{name} %{buildroot}%{_bindir}/%{name}
+#install -p -D %{name} %{buildroot}%{_bindir}/%{name}
+
+export CARGO_PROFILE_RELEASE_BUILD_OVERRIDE_OPT_LEVEL=3
+cargo install --root=%{buildroot}%
+
+rm -f %{buildroot}%{_prefix}/.crates.toml \
+    %{buildroot}%{_prefix}/.crates2.json
+strip --strip-all %{buildroot}%{_bindir}/*
 
 %files
 %doc CONFIGURATION.md
