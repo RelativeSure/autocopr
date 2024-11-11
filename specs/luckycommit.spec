@@ -30,12 +30,9 @@ cp %{SOURCE1} CONFIGURATION.md
 %install
 ls -la
 ls -la %{name}-%{version}
-ls -la %{name}-%{version}/*
-# Ensure the source binary is in the expected location
-#install -p -D %{name} %{buildroot}%{_bindir}/%{name}
 
 export CARGO_PROFILE_RELEASE_BUILD_OVERRIDE_OPT_LEVEL=3
-cargo install --root=%{buildroot}%
+  cargo install --root=%{buildroot}%{_prefix} --path=.
 
 rm -f %{buildroot}%{_prefix}/.crates.toml \
     %{buildroot}%{_prefix}/.crates2.json
