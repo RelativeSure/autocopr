@@ -32,6 +32,7 @@ cp %{SOURCE1} CONFIGURATION.md
 ls -la
 pwd
 ls -la %{name}-%{version}
+ls -la %{buildroot}
 
 export CARGO_PROFILE_RELEASE_BUILD_OVERRIDE_OPT_LEVEL=3
   cargo install --root=%{buildroot}%{_bindir} --path=%{name}-%{version} --locked --no-default-features
