@@ -13,6 +13,11 @@ Source1: https://github.com/not-an-aardvark/lucky-commit/blob/v%{version}/README
 
 BuildRequires: cargo
 BuildRequires: rust
+BuildRequires: intel-oneapi-runtime-opencl # = note: /usr/bin/ld: cannot find -lOpenCL: No such file or directory
+#          collect2: error: ld returned 1 exit status
+          
+
+error: could not compile `lucky_commit` (bin "lucky_commit") due to 1 previous error
 
 %description
 lucky-commit amends your commit messages by adding a few characters of various types of whitespace, and keeps trying new messages until it finds a good hash.
