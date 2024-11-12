@@ -20,6 +20,7 @@ By default, it will look for a commit hash starting with "0000000".
 
 %prep
 ls -la
+pwd
 %autosetup -c
 
 cp %{SOURCE1} CONFIGURATION.md
@@ -29,10 +30,11 @@ cp %{SOURCE1} CONFIGURATION.md
 
 %install
 ls -la
+pwd
 ls -la %{name}-%{version}
 
 export CARGO_PROFILE_RELEASE_BUILD_OVERRIDE_OPT_LEVEL=3
-  cargo install --root=%{buildroot}%{_prefix} --path=.
+  cargo install --root=%{buildroot}%{_prefix} --path=%{name}-%{version}
 
 rm -f %{buildroot}%{_prefix}/.crates.toml \
     %{buildroot}%{_prefix}/.crates2.json
