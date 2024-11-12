@@ -34,7 +34,7 @@ pwd
 ls -la %{name}-%{version}
 
 export CARGO_PROFILE_RELEASE_BUILD_OVERRIDE_OPT_LEVEL=3
-  cargo install --root=%{buildroot}%{_prefix} --path=%{name}-%{version} --locked --no-default-features
+  cargo install --root=%{buildroot}%{_bindir} --path=%{name}-%{version} --locked --no-default-features
 
 rm -f %{buildroot}%{_prefix}/.crates.toml \
     %{buildroot}%{_prefix}/.crates2.json
