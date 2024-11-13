@@ -28,8 +28,9 @@ uv is backed by Astral, the creators of Ruff.
 
 %prep
 ls -la
+ls -la %{name} || true
 %autosetup -c -n %{name}
-ls -la %{name}
+ls -la
 
 cp %{SOURCE1} CONFIGURATION.md
 
