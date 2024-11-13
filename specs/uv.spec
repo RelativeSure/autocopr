@@ -27,15 +27,20 @@ Highlights
 uv is backed by Astral, the creators of Ruff.
 
 %prep
+ls -la
 %autosetup -c -n %{name}
+ls -la %{name}
 
 cp %{SOURCE1} CONFIGURATION.md
 
 %build
 
 %install
+ls -la
 # Ensure the source binary is in the expected location
 install -p -D %{name} %{buildroot}%{_bindir}/%{name}
+ls -la %{buildroot}
+ls -la %{buildroot}%{_bindir}
 
 %files
 %doc CONFIGURATION.md
