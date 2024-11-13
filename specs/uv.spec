@@ -6,7 +6,6 @@ Release: 1%{?dist}
 Summary: An extremely fast Python package and project manager, written in Rust.
 
 License:    MIT
-# https://github.com/astral-sh/uv/releases/download/0.5.1/uv-x86_64-unknown-linux-musl.tar.gz
 URL:        https://github.com/astral-sh/uv
 Source:     %{url}/releases/download/%{version}/%{name}-x86_64-unknown-linux-musl.tar.gz
 Source1:    https://raw.githubusercontent.com/astral-sh/uv/%{version}/README.md
@@ -27,22 +26,15 @@ Highlights
 uv is backed by Astral, the creators of Ruff.
 
 %prep
-ls -la
-ls -la %{name} || true
 %autosetup -c -n %{name}
-ls -la
 
 cp %{SOURCE1} CONFIGURATION.md
 
 %build
 
 %install
-ls -la
-ls -la uv-x86_64-unknown-linux-musl
 # Ensure the source binary is in the expected location
 install -p -D %{name}-x86_64-unknown-linux-musl/%{name} %{buildroot}%{_bindir}/%{name}
-ls -la %{buildroot}
-ls -la %{buildroot}%{_bindir}
 
 %files
 %doc CONFIGURATION.md
