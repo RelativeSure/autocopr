@@ -38,9 +38,9 @@ cp %{SOURCE1} CONFIGURATION.md
 
 %install
 ls -la
-# uv-x86_64-unknown-linux-musl
+ls -la uv-x86_64-unknown-linux-musl
 # Ensure the source binary is in the expected location
-install -p -D %{name}-x86_64-unknown-linux-musl %{buildroot}%{_bindir}/%{name}
+install -p -D %{name}-x86_64-unknown-linux-musl/%{name} %{buildroot}%{_bindir}/%{name}
 ls -la %{buildroot}
 ls -la %{buildroot}%{_bindir}
 
