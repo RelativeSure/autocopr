@@ -3,47 +3,40 @@
 Name:    uv
 Version: 0.5.1
 Release: 1%{?dist}
-Summary: Fast and simple Node.js version manager, built in Rust
+Summary: An extremely fast Python package and project manager, written in Rust.
 
-License:    GPL v3
+License:    MIT
+# https://github.com/astral-sh/uv/releases/download/0.5.1/uv-x86_64-unknown-linux-musl.tar.gz
 URL:        https://github.com/astral-sh/uv
-Source0:    %{url}/archive/refs/tags/v%{version}.tar.gz
-
-BuildRequires: cargo >= 1.40
-BuildRequires: rust >= 1.40
-BuildRequires: gcc
-BuildRequires: python3-devel
-BuildRequires: cmake
-BuildRequires: openssl-devel
-BuildRequires: perl-devel
-BuildRequires: openssl-perl
-BuildRequires: perl-FindBin
-BuildRequires: perl-IPC-Cmd
+Source:     %{url}/releases/download/v%{version}/%{name}-x86_64-unknown-linux-musl.tar.gz
+Source1:    https://raw.githubusercontent.com/astral-sh/uv/v%{version}/README.md
 
 %description
-%{summary}
+Highlights
+🚀 A single tool to replace pip, pip-tools, pipx, poetry, pyenv, twine, virtualenv, and more.
+⚡️ 10-100x faster than pip.
+🐍 Installs and manages Python versions.
+🛠️ Runs and installs Python applications.
+❇️ Runs scripts, with support for inline dependency metadata.
+🗂️ Provides comprehensive project management, with a universal lockfile.
+🔩 Includes a pip-compatible interface for a performance boost with a familiar CLI.
+🏢 Supports Cargo-style workspaces for scalable projects.
+💾 Disk-space efficient, with a global cache for dependency deduplication.
+⏬ Installable without Rust or Python via curl or pip.
+🖥️ Supports macOS, Linux, and Windows.
+uv is backed by Astral, the creators of Ruff.
 
 %prep
-%autosetup -p1
-%if 0%{?el8}
-  curl https://sh.rustup.rs -sSf | sh -s -- --profile minimal -y
-%endif
+%autosetup -c -n %{name}
 
+cp %{SOURCE1} CONFIGURATION.md
+
+%build
 
 %install
-export CARGO_PROFILE_RELEASE_BUILD_OVERRIDE_OPT_LEVEL=3
-%if 0%{?el8}
-  $HOME/.cargo/bin/cargo install --root=%{buildroot}%{_prefix} --path=.
-%else
-  cargo install --root=%{buildroot}%{_prefix} --path=.
-%endif
-
-rm -f %{buildroot}%{_prefix}/.crates.toml \
-    %{buildroot}%{_prefix}/.crates2.json
-strip --strip-all %{buildroot}%{_bindir}/*
-
+# Ensure the source binary is in the expected location
+install -p -D %{name} %{buildroot}%{_bindir}/%{name}
 
 %files
-#%license LICENSE.md
-#%doc README.md
+%doc CONFIGURATION.md
 %{_bindir}/%{name}
