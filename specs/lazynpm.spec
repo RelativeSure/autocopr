@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    lazynpm
-Version: 0.4.1
+Version: 0.1.4
 Release: 1%{?dist}
 Summary: terminal UI for npm
 
