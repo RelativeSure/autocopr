@@ -21,6 +21,10 @@ permissions:
   # Needs to write to this repo
   contents: write
 
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   notify:
     runs-on: ubuntu-latest
@@ -37,6 +41,9 @@ jobs:
           WEBHOOK: ${{ secrets.WEBHOOK_URL }}
         run: ./scripts/copr_webhook.sh $WEBHOOK ${{ github.sha }}
 
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -48,7 +55,7 @@ jobs:
           pip install markdown
 
       - name: Update README.md file
-        run: python scripts/python_create_readme.py
+        run: ls -la && python ./scripts/python_create_readme.py
 
       - name: Commit changes
         run: |
