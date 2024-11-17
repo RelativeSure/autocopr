@@ -4,10 +4,12 @@ import pathlib
 import markdown
 
 # Specify the directory path
-dir_path = pathlib.Path('specs/')
+#dir_path = pathlib.Path('specs/')
+dir_path = pathlib.Path('.')
 
 # Use glob to retrieve a list of files
-files = dir_path.glob('**/*.spec')  # only match .spec files
+#files = dir_path.glob('**/*.spec')  # only match .spec files
+files = dir_path.glob('specs/**/*.spec')  # only match .spec files
 
 # Sort the files by filename (natural sort)
 sorted_files = sorted(files, key=lambda x: x.name)
@@ -39,22 +41,23 @@ For any issues or questions related to python scripts, please go to upstream rep
 
 <details open>
 
-<summary>Status badges on COPR builds</summary>\n
+<summary>Status badges on COPR builds</summary>
 """
 
 for name, url in name_url_pairs:
     readme_content += f"""
 ### {name}
 
-![{name} status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/{name}/status_image/last_build.png) 
-[Upstream]({url})\n
-    """
+![{name} status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/{name}/status_image/last_build.png)
+[Upstream]({url})
+"""
 
 # Convert markdown content to HTML (optional, for further use)
 #html_content = markdown.markdown(markdown_content)
 
 # Write markdown content to README.md
-readme_path = pathlib.Path("../README.md")
+#readme_path = pathlib.Path("../README.md")
+readme_path = pathlib.Path("README.md")
 with readme_path.open("w", encoding="utf-8") as readme_file:
     readme_file.write(readme_content)
 
