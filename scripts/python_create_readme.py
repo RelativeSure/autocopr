@@ -4,11 +4,9 @@ import pathlib
 import markdown
 
 # Specify the directory path
-#dir_path = pathlib.Path('specs/')
 dir_path = pathlib.Path('.')
 
 # Use glob to retrieve a list of files
-#files = dir_path.glob('**/*.spec')  # only match .spec files
 files = dir_path.glob('specs/**/*.spec')  # only match .spec files
 
 # Sort the files by filename (natural sort)
@@ -52,11 +50,10 @@ for name, url in name_url_pairs:
 [Upstream]({url})
 """
 
-# Convert markdown content to HTML (optional, for further use)
+# Example of how to convert markdown content to HTML (optional, for further use)
 #html_content = markdown.markdown(markdown_content)
 
 # Write markdown content to README.md
-#readme_path = pathlib.Path("../README.md")
 readme_path = pathlib.Path("README.md")
 with readme_path.open("w", encoding="utf-8") as readme_file:
     readme_file.write(readme_content)

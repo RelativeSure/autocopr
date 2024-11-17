@@ -26,20 +26,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  #notify:
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - name: Checkout code
-  #      uses: actions/checkout@v4
-  #      with:
-  #        fetch-depth: 5
-  #        ref: master
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 3
+          ref: master
 
-  #    - name: Get changes and send webhook to COPR
-  #      shell: bash
-  #      env:
-  #        WEBHOOK: ${{ secrets.WEBHOOK_URL }}
-  #      run: ./scripts/copr_webhook.sh $WEBHOOK ${{ github.sha }}
+      - name: Get changes and send webhook to COPR
+        shell: bash
+        env:
+          WEBHOOK: ${{ secrets.WEBHOOK_URL }}
+        run: ./scripts/copr_webhook.sh $WEBHOOK ${{ github.sha }}
 
   update-readme:
     runs-on: ubuntu-latest
