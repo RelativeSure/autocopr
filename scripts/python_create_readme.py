@@ -45,7 +45,7 @@ for name, url in name_url_pairs:
     readme_content += f"""
 ### {name}
 
-![{name} status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/{name}/status_image/last_build.png) # noqa: E501
+![{name} status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/{name}/status_image/last_build.png)
 [Upstream]({url})
 """
 
