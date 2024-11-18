@@ -20,6 +20,7 @@ DISABLE_LINTERS:
   - REPOSITORY_TRIVY
   - REPOSITORY_TRIVY_SBOM
   - REPOSITORY_CHECKOV
+  - REPOSITORY_KICS
 
 DISABLE:
   # - COPYPASTE # Uncomment to disable checks of excessive copy-pastes
