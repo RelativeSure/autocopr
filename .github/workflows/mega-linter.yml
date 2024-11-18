@@ -48,8 +48,6 @@ jobs:
       pull-requests: write
       security-events: write
 
-    container:
-      image: ubuntu:latest
     steps:
       - name: "Cleanup build folder"
         run: |
