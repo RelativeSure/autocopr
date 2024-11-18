@@ -38,7 +38,7 @@ concurrency:
 jobs:
   megalinter:
     name: MegaLinter
-    runs-on: self-hosted
+    runs-on: [self-hosted, ubuntu-latest]
 
     # Give the default GITHUB_TOKEN write permission to commit and push, comment
     # issues, and post new Pull Requests; remove the ones you do not need
@@ -49,6 +49,11 @@ jobs:
       security-events: write
 
     steps:
+      - name: Clean the workspace
+        uses: docker://alpine
+        with:
+          args: /bin/sh -c "rm -rf /github/workspace/.* || rm -rf /github/workspace/*"
+
       # Git Checkout
       - name: Checkout Code
         uses: actions/checkout@v4
