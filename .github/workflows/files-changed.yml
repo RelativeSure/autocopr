@@ -30,7 +30,7 @@ jobs:
   notify:
     runs-on: self-hosted
     container:
-      image: ubuntu:latest
+      image: ubuntu/python:3.12-24.04_stable
     steps:
       - name: "Cleanup build folder"
         run: |
@@ -54,7 +54,7 @@ jobs:
   update-readme:
     runs-on: self-hosted
     container:
-      image: ubuntu:latest
+      image: ubuntu/python:3.12-24.04_stable
     steps:
       - name: "Cleanup build folder"
         run: |
