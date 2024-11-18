@@ -15,11 +15,15 @@ jobs:
     name: update
     runs-on: self-hosted
 
+    container:
+      image: ubuntu:latest
     steps:
-      - name: Clean the workspace
-        uses: docker://alpine
-        with:
-          args: /bin/sh -c "rm -rf /github/workspace/.* || rm -rf /github/workspace/*"
+      - name: "Cleanup build folder"
+        run: |
+          ls -la ./
+          rm -rf ./* || true
+          rm -rf ./.??* || true
+          ls -la ./
 
       - uses: actions/checkout@v4
 

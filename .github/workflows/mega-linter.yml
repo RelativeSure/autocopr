@@ -48,11 +48,15 @@ jobs:
       pull-requests: write
       security-events: write
 
+    container:
+      image: ubuntu:latest
     steps:
-      - name: Clean the workspace
-        uses: docker://alpine
-        with:
-          args: /bin/sh -c "rm -rf /github/workspace/.* || rm -rf /github/workspace/*"
+      - name: "Cleanup build folder"
+        run: |
+          ls -la ./
+          rm -rf ./* || true
+          rm -rf ./.??* || true
+          ls -la ./
 
       # Git Checkout
       - name: Checkout Code

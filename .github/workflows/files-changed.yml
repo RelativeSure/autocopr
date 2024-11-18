@@ -29,11 +29,15 @@ concurrency:
 jobs:
   notify:
     runs-on: self-hosted
+    container:
+      image: ubuntu:latest
     steps:
-      - name: Clean the workspace
-        uses: docker://alpine
-        with:
-          args: /bin/sh -c "rm -rf /github/workspace/.* || rm -rf /github/workspace/*"
+      - name: "Cleanup build folder"
+        run: |
+          ls -la ./
+          rm -rf ./* || true
+          rm -rf ./.??* || true
+          ls -la ./
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -49,11 +53,15 @@ jobs:
 
   update-readme:
     runs-on: self-hosted
+    container:
+      image: ubuntu:latest
     steps:
-      - name: Clean the workspace
-        uses: docker://alpine
-        with:
-          args: /bin/sh -c "rm -rf /github/workspace/.* || rm -rf /github/workspace/*"
+      - name: "Cleanup build folder"
+        run: |
+          ls -la ./
+          rm -rf ./* || true
+          rm -rf ./.??* || true
+          ls -la ./
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -91,6 +99,7 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Finalize
         if: failure()
-        run: echo "Workflow completed. No changes were necessary."
+        run: echo "Workflow completed. No changes were necessary." && exit 0
