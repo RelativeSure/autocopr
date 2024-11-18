@@ -13,7 +13,7 @@ permissions:
 jobs:
   update:
     name: update
-    runs-on: [self-hosted, ubuntu-latest]
+    runs-on: self-hosted
 
     steps:
       - name: Clean the workspace
