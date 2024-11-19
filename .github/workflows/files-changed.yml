@@ -99,6 +99,7 @@ jobs:
             echo "**No changes to README.md with python script to commit**"
             exit 0
           else
+            	git config --global --add safe.directory /__w/autocopr/autocopr
             git add README.md
             git commit -m "Update README.md with the list of spec files"
             git push
