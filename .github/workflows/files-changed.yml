@@ -43,7 +43,6 @@ jobs:
         run: |
           apt-get update
           apt-get install -y lsb-release git python3
-          apt-get install python -y || true
           apt-get clean all
 
       - name: Checkout code
@@ -69,15 +68,12 @@ jobs:
           rm -rf ./* || true
           rm -rf ./.??* || true
           ls -la ./
-
+      
       - name: Install dependencies
-        shell: bash
         run: |
           apt-get update
-          apt-get install -y lsb-release git
+          apt-get install -y lsb-release git python3
           apt-get clean all
-          python -m pip install --upgrade pip
-          pip install markdown
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -92,7 +88,7 @@ jobs:
           cache: "pip"
 
       - name: Update README.md file
-        run: python scripts/python_create_readme.py
+        run: python3 scripts/python_create_readme.py
 
       - name: Commit and push changes
         shell: bash
