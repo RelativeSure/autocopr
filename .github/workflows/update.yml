@@ -13,14 +13,9 @@ permissions:
 jobs:
   update:
     name: update
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Clean the workspace
-        uses: docker://alpine
-        with:
-          args: /bin/sh -c "rm -rf /github/workspace/.* || rm -rf /github/workspace/*"
-
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5
@@ -52,4 +47,4 @@ jobs:
       - name: Check and update spec files
         run: python -m autocopr.autocopr --verbose --in-place --push specs
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.KUBEARCHITECTBOT_TOKEN || secrets.GITHUB_TOKEN }}
