@@ -35,7 +35,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          persist-credentials: false
           fetch-depth: 3
           ref: master
 
