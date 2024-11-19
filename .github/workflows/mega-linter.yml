@@ -47,6 +47,7 @@ jobs:
       issues: write
       pull-requests: write
       security-events: write
+      workflows: write
 
     steps:
       - name: Clean the workspace
