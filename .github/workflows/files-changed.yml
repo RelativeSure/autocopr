@@ -40,7 +40,11 @@ jobs:
           ls -la ./
 
       - name: Install dependencies
-        run: apt-get update && apt-get install -y lsb-release && apt-get clean all
+        shell: bash
+        run: |
+          apt-get update
+          apt-get install -y lsb-release git
+          apt-get clean all
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -66,8 +70,12 @@ jobs:
           rm -rf ./.??* || true
           ls -la ./
 
-      - name: Install dependencies
-        run: apt-get update && apt-get install -y lsb-release && apt-get clean all
+     - name: Install dependencies
+       shell: bash
+       run: |
+          apt-get update
+          apt-get install -y lsb-release git
+          apt-get clean all
 
       - name: Checkout code
         uses: actions/checkout@v4
