@@ -42,7 +42,8 @@ jobs:
       - name: Install dependencies
         run: |
           apt-get update
-          apt-get install -y lsb-release git
+          apt-get install -y lsb-release git python3
+          apt-get install python -y || true
           apt-get clean all
 
       - name: Checkout code
