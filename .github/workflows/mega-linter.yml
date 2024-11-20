@@ -31,10 +31,6 @@ env:
   # or posted in a PR (pull_request)
   APPLY_FIXES_MODE: pull_request
 
-concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}
-  cancel-in-progress: true
-
 jobs:
   megalinter:
     name: MegaLinter
