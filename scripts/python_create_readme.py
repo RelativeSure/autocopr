@@ -51,7 +51,7 @@ readme_content = """# Autocopr forked repo
 
 for name, url, version in name_url_pairs:
     readme_content += f"""
-### {name} Version {version}
+### {name} version {version}
 
 ![{name} status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/{name}/status_image/last_build.png)
 [Upstream]({url})
