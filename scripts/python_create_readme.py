@@ -26,18 +26,13 @@ for file in sorted_files:
             elif line.startswith("URL:"):
                 url = line.split(":", 1)[1].strip()
             elif line.startswith("Version:"):
-                print(line)
                 version = line.split(":", 1)[1].strip()
-                print(version)
             # Break the loop if both Name, URL and version are found
             if name and url and version:
                 break
     if name and url and version:
-        print(name)
-        print(url)
-        print(version)
         name_url_pairs.append((name, url, version))
-        print(f"Processed: {file.name} -> Name: {name}, URL: {url}, Version: {version}")
+        print(f"Processed: {file.name} -> Name: {name}, Version: {version}, URL: {url}")
 
 # Create markdown content for README.md
 readme_content = """# Autocopr forked repo
