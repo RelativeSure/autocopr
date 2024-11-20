@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    mise
-Version: 2024.11.17
+Version: 2024.11.18
 Release: 1%{?dist}
 Summary: dev tools, env vars, task runner
 
