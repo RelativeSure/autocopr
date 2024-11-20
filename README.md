@@ -85,3 +85,8 @@
 
 ![zellij status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/zellij/status_image/last_build.png)
 [Upstream](https://github.com/zellij-org/zellij)
+
+### zenith version 0.14.1
+
+![zenith status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/zenith/status_image/last_build.png)
+[Upstream](https://github.com/bvaisvil/zenith)
