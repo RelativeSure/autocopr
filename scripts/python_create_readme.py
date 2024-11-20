@@ -26,11 +26,16 @@ for file in sorted_files:
             elif line.startswith("URL:"):
                 url = line.split(":", 1)[1].strip()
             elif line.startswith("Version:"):
+                print(line)
                 version = line.split(":", 1)[1].strip()
+                print(version)
             # Break the loop if both Name, URL and version are found
             if name and url and version:
                 break
     if name and url and version:
+        print(name)
+        print(url)
+        print(version)
         name_url_pairs.append((name, url, version))
         print(f"Processed: {file.name} -> Name: {name}, URL: {url}, Version: {version}")
 
@@ -44,7 +49,7 @@ readme_content = """# Autocopr forked repo
 <summary>Status badges on COPR builds</summary>
 """
 
-for name, url in name_url_pairs:
+for name, url, version in name_url_pairs:
     readme_content += f"""
 ### {name} Version {version}
 
