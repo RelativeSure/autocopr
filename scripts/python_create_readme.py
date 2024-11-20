@@ -18,18 +18,21 @@ name_url_pairs = []
 for file in sorted_files:
     name = None
     url = None
+    version = None
     with file.open("r", encoding="utf-8") as spec_file:
         for line in spec_file:
             if line.startswith("Name:"):
                 name = line.split(":", 1)[1].strip()
             elif line.startswith("URL:"):
                 url = line.split(":", 1)[1].strip()
-            # Break the loop if both Name and URL are found
-            if name and url:
+            elif line.startswith("Version:"):
+                version = line.split(":", 1)[1].strip()
+            # Break the loop if both Name, URL and version are found
+            if name and url and version:
                 break
-    if name and url:
-        name_url_pairs.append((name, url))
-        print(f"Processed: {file.name} -> Name: {name}, URL: {url}")
+    if name and url and version:
+        name_url_pairs.append((name, url, version))
+        print(f"Processed: {file.name} -> Name: {name}, URL: {url}, Version: {version}")
 
 # Create markdown content for README.md
 readme_content = """# Autocopr forked repo
@@ -43,7 +46,7 @@ readme_content = """# Autocopr forked repo
 
 for name, url in name_url_pairs:
     readme_content += f"""
-### {name}
+### {name} Version {version}
 
 ![{name} status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/{name}/status_image/last_build.png)
 [Upstream]({url})
