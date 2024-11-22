@@ -71,6 +71,11 @@
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 [Upstream](https://github.com/yorukot/superfile)
 
+### topgrade version 16.0.1
+
+![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
+[Upstream](https://github.com/topgrade-rs/topgrade)
+
 ### usage version 1.3.2
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
