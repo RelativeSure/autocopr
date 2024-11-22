@@ -56,7 +56,7 @@
 ![lazynpm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazynpm/status_image/last_build.png)
 [Upstream](https://github.com/jesseduffield/lazynpm)
 
-### mise version 2024.11.19
+### mise version 2024.11.23
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 [Upstream](https://github.com/jdx/mise)
@@ -66,7 +66,7 @@
 ![starship status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/starship/status_image/last_build.png)
 [Upstream](https://github.com/starship/starship)
 
-### superfile version 1.1.5
+### superfile version 1.1.6
 
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 [Upstream](https://github.com/yorukot/superfile)
