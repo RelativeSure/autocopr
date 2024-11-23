@@ -28,7 +28,7 @@ def source_dict(
     return source_dict_pkg
 
 
-def main():
+def thirdparty_packages_dict():
     thirdparty_packages = {
         "packages": [
             Git_package(
@@ -52,7 +52,7 @@ def main():
                     subdirectory="/anda/devs/zed/stable",
                     specfile="zed.spec",
                 ),
-            ),
+            )._asdict(),
             Git_package(
                 "zed-preview",
                 source_dict(
@@ -60,14 +60,14 @@ def main():
                     subdirectory="/anda/devs/zed/preview",
                     specfile="zed-preview.spec",
                 ),
-            ),
+            )._asdict(),
         ]
     }
-    print(thirdparty_packages["packages"])
-    print(type(thirdparty_packages))
-    print(type(thirdparty_packages["packages"]))
+    # print(thirdparty_packages["packages"])
+    # print(type(thirdparty_packages))
+    # print(type(thirdparty_packages["packages"]))
     return thirdparty_packages
 
 
 if __name__ == "__main__":
-    main()  # This calls your main function
+    thirdparty_packages_dict()  # This calls your main function

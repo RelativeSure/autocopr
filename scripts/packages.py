@@ -7,7 +7,7 @@ def packagelist():
     dir_path = pathlib.Path(".")
 
     # Use glob to retrieve a list of files
-    files = dir_path.glob("specs/**/*.spec")  # only match .spec files
+    files = dir_path.glob("specs/*.spec")  # only match .spec files
 
     # Sort the files by filename (natural sort)
     sorted_files = sorted(files, key=lambda x: x.name)
