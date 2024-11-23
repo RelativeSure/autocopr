@@ -1,7 +1,7 @@
 #!/bin/env python3
-
 import pathlib
-from packages import packagelist
+from scripts.packages import packagelist
+
 package_array = packagelist()
 
 # Create markdown content for README.md

@@ -1,5 +1,4 @@
 #!/bin/env python3
-
 import pathlib
 
 def packagelist():
@@ -34,8 +33,11 @@ def packagelist():
                     break
         if name and url and version:
             name_url_pairs.append((name, url, version))
-            print(f"Processed: {file.name} -> Name: {name}, Version: {version}, URL: {url}")
+            print(
+                f"Processed: {file.name} -> Name: {name}, Version: {version}, URL: {url}"
+            )
     return name_url_pairs
 
-if __name__ == '__main__':
-    packagelist() # This calls your main function
+
+if __name__ == "__main__":
+    packagelist()  # This calls your main function
