@@ -1,7 +1,7 @@
 #!/bin/env python3
 import pathlib
 
-from scripts.packages import packagelist
+from packages import packagelist
 
 package_array = packagelist()
 
