@@ -12,7 +12,7 @@ client = Client.create_from_config_file()
 for name, url, version in package_array:
     client.package_proxy.edit(
         "relativesure", # owner name
-        "python-test", # project name
+        "all-packages", # project name
         name, # package name
         "scm", # source type
         {'clone_url': 'https://github.com/RelativeSure/autocopr', 'subdirectory': 'specs', 'spec': f"{name}.spec", 'scm_type': 'git', 'source_build_method': 'rpkg'} # source dict
