@@ -8,7 +8,6 @@ package_array = packagelist()
 # COPR API Client
 client = Client.create_from_config_file()
 
-
 # COPR add packages
 for name, url, version in package_array:
     client.package_proxy.edit(
