@@ -11,7 +11,11 @@ def main():
 
     # List of fedora versions
     fedora_version_list = ["fedora-40-x86_64", "fedora-41-x86_64"]
-    fedora_rawhide_version_list = ["fedora-40-x86_64", "fedora-41-x86_64", "fedora-rawhide-x86_64"]
+    fedora_rawhide_version_list = [
+        "fedora-40-x86_64",
+        "fedora-41-x86_64",
+        "fedora-rawhide-x86_64",
+    ]
 
     # List of thirdparty packages
     thirdparty_package_array = ["rust-tealdeer", "wezterm", "zed", "zed-preview"]
@@ -65,11 +69,12 @@ $`sudo dnf install"""
     # Add additional_repos for fedora released versions
     for chroot_name in fedora_version_list:
         client.project_chroot_proxy.edit(
-            "relativesure", # ownername
-            "all-packages", # projectname
-            chroot_name,    # chroots without rawhide
+            "relativesure",  # ownername
+            "all-packages",  # projectname
+            chroot_name,  # chroots without rawhide
             additional_repos="https://repos.fyralabs.com/terra$releasever/",
         )
+
 
 if __name__ == "__main__":
     main()

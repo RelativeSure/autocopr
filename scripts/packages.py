@@ -1,6 +1,7 @@
 #!/bin/env python3
 import pathlib
 
+
 def packagelist():
     # Specify the directory path
     dir_path = pathlib.Path(".")
