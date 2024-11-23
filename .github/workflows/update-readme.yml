@@ -41,7 +41,7 @@ jobs:
           pip3 install markdown
 
       - name: Update README.md file
-        run: python3 scripts/python_create_readme.py
+        run: python3 scripts/create_readme.py
 
       - name: Commit files
         run: |
