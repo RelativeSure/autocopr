@@ -6,50 +6,35 @@
 name: File Change Webhook
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - "master"
-      - "main"
+      - master
     paths:
       - "specs/*"
+      - ".github/workflows/*"
+  workflow_run:
+    workflows: [Update spec files]
+    types:
+      - completed
+
+permissions:
+  # Needs to write to this repo
+  contents: write
+  pull-requests: write
 
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
-          fetch-depth: 5
+          fetch-depth: 3
           ref: master
 
-      - name: Get Changed Files
-        id: changes
-        shell: bash
-        run: |
-          files_changed=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep '.spec')
-          echo "Files changed: $files_changed"
-          for file in "$files_changed"; do
-            echo "Processing file: $file"
-            filename=$(basename "$file")
-            filename_without_ext="${filename%.*}"
-            echo "CHANGED_FILES=$filename_without_ext" >> "$GITHUB_OUTPUT"
-            echo "Added $filename_without_ext to GITHUB_OUTPUT"
-          done
-
-      - name: Send Webhook
+      - name: Get changes and send webhook to COPR
         shell: bash
         env:
-          CHANGED_FILES: ${{ steps.changes.outputs.CHANGED_FILES }}
           WEBHOOK: ${{ secrets.WEBHOOK_URL }}
-        run: |
-          echo "Processing webhooks for..."
-          echo "$CHANGED_FILES"
-          for file in "$CHANGED_FILES"; do
-            echo "Processing file: $file"
-            filename=$(basename "$file")
-            filename_without_ext="${filename%.*}"
-            echo "Completed processing of $filename_without_ext. Now sending copr webhook of package $filename_without_ext"
-            curl -i -H "Accept: application/json" -H "Content-Type:application/json" -X POST "$WEBHOOK/$filename_without_ext/"
-            sleep 5
-          done
+        run: ./scripts/copr_webhook.sh "$WEBHOOK" "${{ github.sha }}"

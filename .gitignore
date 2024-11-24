@@ -1,2 +1,6 @@
 __pycache__/
 graphql_id_cache.json
+
+specs/test/*
+
+megalinter-reports/
