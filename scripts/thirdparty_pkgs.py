@@ -3,7 +3,7 @@
 from collections import namedtuple
 
 Git_package = namedtuple(
-    "Package",
+    "Git_package",
     ["name", "source_dict"],
 )
 
