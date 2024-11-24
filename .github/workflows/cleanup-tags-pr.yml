@@ -18,4 +18,4 @@ jobs:
       - name: Cleanup
         uses: digicert/prune_old_branches_action@v9
         with:
-          numTags: '10'
+          numTags: "10"
