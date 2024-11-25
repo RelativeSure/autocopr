@@ -56,7 +56,7 @@
 ![lazynpm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazynpm/status_image/last_build.png)
 [Upstream](https://github.com/jesseduffield/lazynpm)
 
-### mise version 2024.11.27
+### mise version 2024.11.28
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 [Upstream](https://github.com/jdx/mise)
