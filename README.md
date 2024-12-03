@@ -16,7 +16,7 @@
 ![bottom status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png)
 [Upstream](https://github.com/ClementTsang/bottom)
 
-### chezmoi version 2.54.0
+### chezmoi version 2.55.0
 
 ![chezmoi status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/chezmoi/status_image/last_build.png)
 [Upstream](https://github.com/twpayne/chezmoi)
