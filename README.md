@@ -26,7 +26,7 @@
 ![fnm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/fnm/status_image/last_build.png)
 [Upstream](https://github.com/Schniz/fnm)
 
-### jj version 0.23.0
+### jj version 0.24.0
 
 ![jj status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/jj/status_image/last_build.png)
 [Upstream](https://github.com/martinvonz/jj)
@@ -61,7 +61,7 @@
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 [Upstream](https://github.com/LuaLS/lua-language-server)
 
-### mise version 2024.11.37
+### mise version 2024.12.0
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 [Upstream](https://github.com/jdx/mise)
