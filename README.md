@@ -91,7 +91,7 @@
 ![uv status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/uv/status_image/last_build.png)
 [Upstream](https://github.com/astral-sh/uv)
 
-### volta version 2.0.1
+### volta version 2.0.2
 
 ![volta status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/volta/status_image/last_build.png)
 [Upstream](https://github.com/volta-cli/volta)
