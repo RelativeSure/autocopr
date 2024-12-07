@@ -28,14 +28,18 @@ Please go ahead and use this copr repo, be aware that the repo might be abandone
 Feel free to create a GitHub issue if there's any issues with the packages.
 
 The following packages are installed from a 3rd party source than autocopr github repo.
+
 """
 
     for thirdparty_package in thirdparty_package_array:
-        readme_content += f"\n**`{thirdparty_package}`**\n"
+        readme_content += f"**`{thirdparty_package}`**\n"
 
-    readme_content += "### **List of packages from relativesure/autocopr github repos**"
+    readme_content += (
+        "### **List of packages from relativesure/autocopr github repos**\n"
+    )
 
     for name, url, version in package_array:
+        print(f"Name: {name} URL: {url} Version: {version}")
         readme_content += f"**`{name}`** ( [Upstream]({url}) )\n\n"
 
     # Instructions
@@ -46,6 +50,7 @@ $`sudo dnf copr enable relativesure/all-packages`
 ### **Install all packages**
 $`sudo dnf install"""
     for name, url, version in package_array:
+        print(f"Name: {name} URL: {url} Version: {version}")
         instructions_content += f" {name}"
 
     for thirdparty_package in thirdparty_package_array:
