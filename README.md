@@ -56,12 +56,12 @@
 ![lazynpm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazynpm/status_image/last_build.png)
 [Upstream](https://github.com/jesseduffield/lazynpm)
 
-### lua-language-server version 3.13.2
+### lua-language-server version 3.13.3
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 [Upstream](https://github.com/LuaLS/lua-language-server)
 
-### mise version 2024.12.0
+### mise version 2024.12.1
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 [Upstream](https://github.com/jdx/mise)
@@ -86,7 +86,7 @@
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 [Upstream](https://github.com/jdx/usage)
 
-### uv version 0.5.6
+### uv version 0.5.7
 
 ![uv status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/uv/status_image/last_build.png)
 [Upstream](https://github.com/astral-sh/uv)
