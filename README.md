@@ -61,7 +61,7 @@
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 [Upstream](https://github.com/LuaLS/lua-language-server)
 
-### mise version 2024.12.1
+### mise version 2024.12.2
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 [Upstream](https://github.com/jdx/mise)
@@ -76,7 +76,7 @@
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 [Upstream](https://github.com/yorukot/superfile)
 
-### topgrade version 16.0.1
+### topgrade version 16.0.2
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 [Upstream](https://github.com/topgrade-rs/topgrade)
