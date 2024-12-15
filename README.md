@@ -16,7 +16,7 @@
 ![bottom status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png)
 [Upstream](https://github.com/ClementTsang/bottom)
 
-### chezmoi version 2.55.0
+### chezmoi version 2.56.0
 
 ![chezmoi status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/chezmoi/status_image/last_build.png)
 [Upstream](https://github.com/twpayne/chezmoi)
@@ -61,7 +61,7 @@
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 [Upstream](https://github.com/LuaLS/lua-language-server)
 
-### mise version 2024.12.8
+### mise version 2024.12.10
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 [Upstream](https://github.com/jdx/mise)
@@ -81,7 +81,7 @@
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 [Upstream](https://github.com/topgrade-rs/topgrade)
 
-### usage version 1.5.3
+### usage version 1.6.0
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 [Upstream](https://github.com/jdx/usage)
