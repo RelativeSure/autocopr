@@ -61,7 +61,7 @@
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 [Upstream](https://github.com/LuaLS/lua-language-server)
 
-### mise version 2024.12.11
+### mise version 2024.12.12
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 [Upstream](https://github.com/jdx/mise)
