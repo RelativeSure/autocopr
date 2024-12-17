@@ -86,7 +86,7 @@
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 [Upstream](https://github.com/jdx/usage)
 
-### uv version 0.5.9
+### uv version 0.5.10
 
 ![uv status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/uv/status_image/last_build.png)
 [Upstream](https://github.com/astral-sh/uv)
