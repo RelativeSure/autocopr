@@ -107,7 +107,6 @@ def update_cache(
 def get_latest_versions(
     spec_ids: list[tuple[OwnerName, ID]], session: requests.Session
 ) -> dict[OwnerName, Latest]:
-
     # Special case this because the response won't have any data and will
     # throw a key error. On all other instances we will have data.
     if len(spec_ids) == 0:
