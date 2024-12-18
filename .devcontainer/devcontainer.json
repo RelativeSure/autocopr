@@ -1,6 +1,18 @@
 {
   "name": "Debian Python 3",
   "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "github.copilot",
+        "davidanson.vscode-markdownlint",
+        "github.vscode-github-actions",
+        "donjayamanne.githistory",
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
+      ]
+    }
+  },
   "features": {
     "ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {},
     "ghcr.io/nikobockerman/devcontainer-features/fish-persistent-data:2": {},
