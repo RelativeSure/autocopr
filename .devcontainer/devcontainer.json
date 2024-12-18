@@ -1,27 +1,11 @@
 {
-  "name": "Python 3",
-  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+  "name": "Alpine Python 3",
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {},
-    "ghcr.io/devcontainers/features/python:1": {},
-    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {},
-    "ghcr.io/stuartleeks/dev-container-features/dev-tunnels:0": {},
-    "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
-    "ghcr.io/lukewiwa/features/shellcheck:0": {},
-    "ghcr.io/wxw-matt/devcontainer-features/apt:0": {},
-    "ghcr.io/marcozac/devcontainer-features/shellcheck:1": {},
+    "ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {},
     "ghcr.io/nikobockerman/devcontainer-features/fish-persistent-data:2": {},
-    "ghcr.io/hspaans/devcontainer-features/pyupgrade:1": {},
-    "ghcr.io/duduribeiro/devcontainer-features/neovim:1": {},
-    "ghcr.io/larsnieuwenhuizen/features/zellij:0": {},
-    "ghcr.io/devcontainers-extra/features/act:1": {},
-    "ghcr.io/devcontainers-extra/features/actionlint:1": {},
-    "ghcr.io/devcontainers-extra/features/apt-get-packages:1": {},
-    "ghcr.io/devcontainers-extra/features/apt-packages:1": {},
-    "ghcr.io/devcontainers-extra/features/fish-apt-get:1": {},
-    "ghcr.io/devcontainers-extra/features/flake8:2": {},
-    "ghcr.io/devcontainers-extra/features/neofetch:1": {},
-    "ghcr.io/devcontainers-extra/features/shfmt:1": {},
-    "ghcr.io/devcontainers-extra/features/yamllint:2": {}
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/rocker-org/devcontainer-features/pandoc:1": {},
+    "ghcr.io/devcontainers/features/node:1": {}
   }
 }
