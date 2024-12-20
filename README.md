@@ -16,7 +16,7 @@
 ![bottom status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png)
 [Upstream](https://github.com/ClementTsang/bottom)
 
-### chezmoi version 2.54.0
+### chezmoi version 2.56.0
 
 ![chezmoi status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/chezmoi/status_image/last_build.png)
 [Upstream](https://github.com/twpayne/chezmoi)
@@ -26,7 +26,7 @@
 ![fnm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/fnm/status_image/last_build.png)
 [Upstream](https://github.com/Schniz/fnm)
 
-### jj version 0.23.0
+### jj version 0.24.0
 
 ![jj status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/jj/status_image/last_build.png)
 [Upstream](https://github.com/martinvonz/jj)
@@ -56,12 +56,12 @@
 ![lazynpm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazynpm/status_image/last_build.png)
 [Upstream](https://github.com/jesseduffield/lazynpm)
 
-### lua-language-server version 3.13.2
+### lua-language-server version 3.13.4
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 [Upstream](https://github.com/LuaLS/lua-language-server)
 
-### mise version 2024.11.33
+### mise version 2024.12.14
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 [Upstream](https://github.com/jdx/mise)
@@ -76,22 +76,22 @@
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 [Upstream](https://github.com/yorukot/superfile)
 
-### topgrade version 16.0.1
+### topgrade version 16.0.2
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 [Upstream](https://github.com/topgrade-rs/topgrade)
 
-### usage version 1.3.3
+### usage version 1.7.2
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 [Upstream](https://github.com/jdx/usage)
 
-### uv version 0.5.5
+### uv version 0.5.10
 
 ![uv status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/uv/status_image/last_build.png)
 [Upstream](https://github.com/astral-sh/uv)
 
-### volta version 2.0.1
+### volta version 2.0.2
 
 ![volta status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/volta/status_image/last_build.png)
 [Upstream](https://github.com/volta-cli/volta)
