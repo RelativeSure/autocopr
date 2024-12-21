@@ -56,12 +56,12 @@
 ![lazynpm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazynpm/status_image/last_build.png)
 [Upstream](https://github.com/jesseduffield/lazynpm)
 
-### lua-language-server version 3.13.4
+### lua-language-server version 3.13.5
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 [Upstream](https://github.com/LuaLS/lua-language-server)
 
-### mise version 2024.12.15
+### mise version 2024.12.16
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 [Upstream](https://github.com/jdx/mise)
