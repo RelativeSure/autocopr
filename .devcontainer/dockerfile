@@ -1,0 +1,43 @@
+FROM fedora:latest
+
+# Upgrade all packages
+RUN dnf -y upgrade --refresh
+
+# Install fish, figlet, nodejs, and other important packages
+RUN dnf -y install fish figlet nodejs git curl wget vim neovim util-linux-user sudo
+
+# Setup LazyVim
+RUN git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/site/pack/packer/start/lazy.nvim
+
+# Add RelativeSure Copr repo
+RUN dnf -y install 'dnf-command(copr)'
+
+# Setup RelativeSure Copr repo
+COPY all-packages.repo /etc/yum.repos.d/all-packages.repo
+
+# Install starship package
+RUN dnf -y install starship --refresh
+
+# Create devcontainer user, set fish as default shell, and add to sudoers
+RUN useradd -m -d /home/devcontainer -s /usr/bin/fish devcontainer && \
+    mkdir -p /home/devcontainer/.config/fish && \
+    echo 'starship init fish | source' >> /home/devcontainer/.config/fish/config.fish && \
+    chown -R devcontainer:devcontainer /home/devcontainer/.config && \
+    echo "/usr/bin/fish" >> /etc/shells && \
+    usermod -aG wheel devcontainer && \
+    echo 'devcontainer ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+# Clean up
+RUN dnf clean all
+
+# Set devcontainer as the default user
+USER devcontainer
+
+# Set the HOME environment variable
+ENV HOME=/home/devcontainer
+
+# Set the working directory to the home directory
+WORKDIR /home/devcontainer
+
+# Set fish as the default shell
+ENTRYPOINT ["/usr/bin/fish"]

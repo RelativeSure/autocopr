@@ -1,6 +1,6 @@
 {
-  "name": "Debian Python 3",
-  "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "name": "Fedora Python",
+  "build": { "dockerfile": "dockerfile" },
   "customizations": {
     "vscode": {
       "settings": {},
@@ -9,22 +9,9 @@
         "davidanson.vscode-markdownlint",
         "github.vscode-github-actions",
         "donjayamanne.githistory",
-        "ms-kubernetes-tools.vscode-kubernetes-tools"
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ms-azuretools.vscode-docker"
       ]
-    }
-  },
-  "features": {
-    "ghcr.io/meaningful-ooo/devcontainer-features/fish:1": {},
-    "ghcr.io/nikobockerman/devcontainer-features/fish-persistent-data:2": {},
-    "ghcr.io/devcontainers/features/python:1": {
-      "optimize": true
-    },
-    "ghcr.io/rocker-org/devcontainer-features/pandoc:1": {},
-    "ghcr.io/devcontainers/features/node:1": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
-    "ghcr.io/devcontainers-extra/features/apt-get-packages:1": {
-      "packages": ["toilet", "neovim"]
     }
   }
 }
