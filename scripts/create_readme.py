@@ -8,8 +8,6 @@ package_array = packagelist()
 # Create markdown content for README.md
 readme_content = """# Autocopr forked repo
 
-## For any issues or questions related to python scripts, please go to upstream repo
-
 <details open>
 
 <summary>Status badges on COPR builds</summary>
