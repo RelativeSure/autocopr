@@ -21,7 +21,8 @@ jobs:
         with:
           imageName: fedora-python
           push: always
-          checkoutPath: .
+          checkoutPath: .devcontainer
+          subFolder: .
           # subFolder: .devcontainer
           eventFilterForPush: push
           skipContainerUserIdUpdate: false
