@@ -28,7 +28,8 @@ jobs:
         uses: devcontainers/ci@v0.3
         with:
           # Change this to point to your image name
-          imageName: ghcr.io/${{ github.repository }}/fedora-python
+          imageName: fedora-python
+          subFolder: .devcontainer
           # Change this to be your CI task/script
           # runCmd: |
           #   # Add multiple commands to run if needed

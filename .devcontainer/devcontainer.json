@@ -1,8 +1,9 @@
 {
   "name": "My Dev Container",
   "build": { "dockerfile": "dockerfile" },
-  "forwardPorts": [38907, 40205],
-  "postCreateCommand": "git config --global --add safe.directory /workspaces/autocopr",
+  "forwardPorts": [38907, 40205, 39407],
+  "runArgs": ["--add-host=host.docker.internal:host-gateway"],
+  // "postCreateCommand": "git config --global --add safe.directory /workspaces/autocopr",
   "customizations": {
     "vscode": {
       "settings": {},
@@ -12,7 +13,8 @@
         "github.vscode-github-actions",
         "donjayamanne.githistory",
         "ms-kubernetes-tools.vscode-kubernetes-tools",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "github.vscode-github-actions"
       ]
     }
   }

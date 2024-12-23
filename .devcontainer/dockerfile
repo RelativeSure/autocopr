@@ -7,9 +7,21 @@ ARG USER_HOME=/home/$USERNAME
 # Upgrade all packages
 RUN dnf -y upgrade --refresh
 
-# Install fish, figlet, nodejs, git, curl, wget, vim, neovim, util-linux-user, sudo, python3, pip3, python-copr, python-copr-doc, and other important packages
-RUN dnf -y install fish figlet nodejs git curl wget vim neovim util-linux-user sudo python3 pip3 python-copr python-copr-doc 'dnf-command(copr)' 'dnf-command(config-manager)' && \
+# Install fish, figlet, nodejs, git, curl, wget, vim, neovim, util-linux-user, sudo, python3, pip3, python-copr, python-copr-doc, github-cli, and other important packages
+RUN dnf -y install fish figlet nodejs git curl wget vim neovim util-linux-user sudo python3 pip3 python-copr python-copr-doc dnf-plugins-core 'dnf-command(copr)' 'dnf-command(config-manager)' gh kubectl helm git && \
     curl -fsSL https://code-server.dev/install.sh | sh
+
+# Install Docker CE
+RUN dnf5 config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo && \
+    dnf -y install docker-ce docker-ce-cli containerd.io
+
+# Install Docker-in-Docker (DinD)
+RUN curl -fsSL https://get.docker.com | sh && \
+    dockerd &
+
+# Install minikube
+RUN curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm && \
+sudo rpm -Uvh minikube-latest.x86_64.rpm
 
 # Setup LazyVim
 RUN git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/site/pack/packer/start/lazy.nvim
@@ -17,8 +29,8 @@ RUN git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/site/pa
 # Setup RelativeSure Copr repo
 COPY all-packages.repo /etc/yum.repos.d/all-packages.repo
 
-# Install starship package
-RUN dnf -y install starship --refresh
+# Install starship and act-cli package
+RUN dnf -y install starship act-cli --refresh
 
 # Create devcontainer user, set fish as default shell, and add to sudoers
 RUN useradd -m -d $USER_HOME -s /usr/bin/fish $USERNAME && \
@@ -27,9 +39,6 @@ RUN useradd -m -d $USER_HOME -s /usr/bin/fish $USERNAME && \
 
 # Set correct permissions for Fish configuration directory
 RUN chown -R $USERNAME:$USERNAME $USER_HOME/.config/fish
-
-# Configure Git to trust the directory
-RUN git config --global --add safe.directory /workspaces/autocopr
 
 # Clean up
 RUN dnf clean all
@@ -47,4 +56,4 @@ WORKDIR $USER_HOME
 ENTRYPOINT ["/usr/bin/fish"]
 
 # Expose necessary ports
-EXPOSE 38907 40205
+EXPOSE 38907 40205 39407
