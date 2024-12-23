@@ -1,6 +1,9 @@
 name: "Release Dev Container Templates & Generate Documentation"
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
 
 jobs:
   deploy:
@@ -44,4 +47,3 @@ jobs:
           # cacheFrom: # optional
           # Builds the image with `--no-cache` (takes precedence over `cacheFrom`)
           # noCache: # optional
-          
