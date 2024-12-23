@@ -2,7 +2,6 @@
   "name": "My Dev Container",
   "build": { "dockerfile": "dockerfile" },
   "forwardPorts": [38907, 40205, 39407],
-  // "runArgs": ["--add-host=host.docker.internal:host-gateway"],
   "runArgs": [
     "--init",
     "--privileged",
