@@ -7,7 +7,6 @@
     "--privileged",
     "-v", "/var/run/docker.sock:/var/run/docker.sock"
   ],
-  // "postCreateCommand": "git config --global --add safe.directory /workspaces/autocopr",
   "customizations": {
     "vscode": {
       "settings": {},
