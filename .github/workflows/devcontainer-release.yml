@@ -27,7 +27,7 @@ jobs:
       - name: Dev Container Build and Run Action
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/${{ github.actor }}/fedora-python
+          imageName: ghcr.io/relativesure/autocopr/fedora-python
           push: always
           checkoutPath: .
           subFolder: .
