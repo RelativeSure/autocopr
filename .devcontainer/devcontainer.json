@@ -1,6 +1,8 @@
 {
-  "name": "Fedora Python",
+  "name": "My Dev Container",
   "build": { "dockerfile": "dockerfile" },
+  "forwardPorts": [38907, 40205],
+  "postCreateCommand": "git config --global --add safe.directory /workspaces/autocopr",
   "customizations": {
     "vscode": {
       "settings": {},

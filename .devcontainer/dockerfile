@@ -1,16 +1,18 @@
 FROM fedora:latest@sha256:3ec60eb34fa1a095c0c34dd37cead9fd38afb62612d43892fcf1d3425c32bc1e
 
+# Define variables
+ARG USERNAME=devcontainer
+ARG USER_HOME=/home/$USERNAME
+
 # Upgrade all packages
 RUN dnf -y upgrade --refresh
 
-# Install fish, figlet, nodejs, and other important packages
-RUN dnf -y install fish figlet nodejs git curl wget vim neovim util-linux-user sudo
+# Install fish, figlet, nodejs, git, curl, wget, vim, neovim, util-linux-user, sudo, python3, pip3, python-copr, python-copr-doc, and other important packages
+RUN dnf -y install fish figlet nodejs git curl wget vim neovim util-linux-user sudo python3 pip3 python-copr python-copr-doc 'dnf-command(copr)' 'dnf-command(config-manager)' && \
+    curl -fsSL https://code-server.dev/install.sh | sh
 
 # Setup LazyVim
 RUN git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/site/pack/packer/start/lazy.nvim
-
-# Add RelativeSure Copr repo
-RUN dnf -y install 'dnf-command(copr)'
 
 # Setup RelativeSure Copr repo
 COPY all-packages.repo /etc/yum.repos.d/all-packages.repo
@@ -19,25 +21,30 @@ COPY all-packages.repo /etc/yum.repos.d/all-packages.repo
 RUN dnf -y install starship --refresh
 
 # Create devcontainer user, set fish as default shell, and add to sudoers
-RUN useradd -m -d /home/devcontainer -s /usr/bin/fish devcontainer && \
-    mkdir -p /home/devcontainer/.config/fish && \
-    echo 'starship init fish | source' >> /home/devcontainer/.config/fish/config.fish && \
-    chown -R devcontainer:devcontainer /home/devcontainer/.config && \
-    echo "/usr/bin/fish" >> /etc/shells && \
-    usermod -aG wheel devcontainer && \
-    echo 'devcontainer ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+RUN useradd -m -d $USER_HOME -s /usr/bin/fish $USERNAME && \
+    mkdir -p $USER_HOME/.config/fish && \
+    echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Set correct permissions for Fish configuration directory
+RUN chown -R $USERNAME:$USERNAME $USER_HOME/.config/fish
+
+# Configure Git to trust the directory
+RUN git config --global --add safe.directory /workspaces/autocopr
 
 # Clean up
 RUN dnf clean all
 
 # Set devcontainer as the default user
-USER devcontainer
+USER $USERNAME
 
 # Set the HOME environment variable
-ENV HOME=/home/devcontainer
+ENV HOME=$USER_HOME
 
 # Set the working directory to the home directory
-WORKDIR /home/devcontainer
+WORKDIR $USER_HOME
 
 # Set fish as the default shell
 ENTRYPOINT ["/usr/bin/fish"]
+
+# Expose necessary ports
+EXPOSE 38907 40205
