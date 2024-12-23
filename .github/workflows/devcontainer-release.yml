@@ -19,31 +19,10 @@ jobs:
         # uses: devcontainers/ci@72700878095f87b851a6c4405a16056caffdc577
         uses: devcontainers/ci@v0.3.1900000328
         with:
-          # Image name (including registry)
-          imageName: fedora-python # optional
-          # One or more comma-separated image tags (defaults to latest)
-          # imageTag: # optional
-          # Platforms for which the image should be built. If omitted, defaults to the platform of the GitHub Actions Runner. Multiple platforms should be comma separated.
-          # platform: # optional
-          # Specify the command to run after building the dev container image. Can be omitted to skip starting the container.
-          # runCmd: # optional
-          # Specify a child folder (containing a .devcontainer) instead of using the repository root
-          # subFolder: # optional
-          # Specify path to checked out folder if not using default (or for testing with nektos/act)
-          # checkoutPath: # optional, default is .
-          # Control when images are pushed. Options are never, filter, always. For filter (default), images are pushed if the refFilterForPush and eventFilterForPush conditions are met
-          push: always # optional, default is filter
-          # Set the source branches (e.g. refs/heads/main) that are allowed to trigger a push of the dev container image. Leave empty to allow all.
-          # refFilterForPush: # optional
-          # Set the event names (e.g. pull_request, push) that are allowed to trigger a push of the dev container image. Defaults to push. Leave empty for all
-          # eventFilterForPush: # optional, default is push
-          # Specify environment variables to pass to the docker run command
-          # env: # optional
-          # For non-root Dev Containers (i.e. where `remoteUser` is specified), the action attempts to make the container user UID and GID match those of the host user. Set this to true to skip this step (defaults to false)
-          # skipContainerUserIdUpdate: # optional
-          # Some steps for building the dev container (e.g. container-features) require generating additional build files. To aid docker build cache re-use, you can use this property to set the path that these files will be generated under and use the actions/cache action to cache that folder across runs
-          # userDataFolder: # optional
-          # Specify additional images to use for build caching
-          # cacheFrom: # optional
-          # Builds the image with `--no-cache` (takes precedence over `cacheFrom`)
-          # noCache: # optional
+          imageName: fedora-python
+          push: always
+          checkoutPath: .
+          subFolder: .devcontainer
+          eventFilterForPush: push
+          skipContainerUserIdUpdate: false
+          noCache: false
