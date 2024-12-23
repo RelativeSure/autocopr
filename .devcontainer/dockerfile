@@ -35,6 +35,8 @@ RUN dnf -y install starship act-cli --refresh
 # Create devcontainer user, set fish as default shell, and add to sudoers
 RUN useradd -m -d $USER_HOME -s /usr/bin/fish $USERNAME && \
     mkdir -p $USER_HOME/.config/fish && \
+    usermod -aG wheel $USERNAME && \
+    usermod -aG docker $USERNAME && \
     echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Set correct permissions for Fish configuration directory

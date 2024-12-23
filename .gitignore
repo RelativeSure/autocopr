@@ -4,3 +4,5 @@ graphql_id_cache.json
 specs/test/*
 
 megalinter-reports/
+
+.secrets
