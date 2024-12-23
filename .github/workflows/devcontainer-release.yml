@@ -17,7 +17,7 @@ jobs:
       - name: Dev Container Build and Run Action
         # You may pin to the exact commit or the version.
         # uses: devcontainers/ci@72700878095f87b851a6c4405a16056caffdc577
-        uses: devcontainers/ci@72700878095f87b851a6c4405a16056caffdc577 # v0.3.1900000328
+        uses: devcontainers/ci@a56d055efecd725e8cfe370543b6071b79989cc8 # v0.3.1900000349
         with:
           imageName: fedora-python
           push: always
