@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "Fedora Python",
-  "build": { "dockerfile": "dockerfile" },
-=======
   "name": "My Dev Container",
   "build": { "dockerfile": "dockerfile" },
   "forwardPorts": [38907, 40205, 39407],
@@ -12,7 +8,6 @@
     "-v",
     "/var/run/docker.sock:/var/run/docker.sock"
   ],
->>>>>>> master
   "customizations": {
     "vscode": {
       "settings": {},
@@ -22,13 +17,9 @@
         "github.vscode-github-actions",
         "donjayamanne.githistory",
         "ms-kubernetes-tools.vscode-kubernetes-tools",
-<<<<<<< HEAD
-        "ms-azuretools.vscode-docker"
-=======
         "ms-azuretools.vscode-docker",
         "github.vscode-github-actions",
         "ms-python.python"
->>>>>>> master
       ]
     }
   }
