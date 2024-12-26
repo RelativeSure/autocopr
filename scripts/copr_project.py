@@ -1,11 +1,23 @@
 #!/bin/env python3
 from copr.v3 import Client
-from packages import packagelist
+from collections import namedtuple
+from packages import packagelist, thirdparty_packages_dict
 
 # COPR API Client
 client = Client.create_from_config_file()
 
+def thirdparty_pkgs():
+    # Define the namedtuple
+    Package = namedtuple("Git_package", ["name", "source_dict"])
+    package_list = []
 
+    # Convert the dictionary to an array of namedtuples
+    thirdparty_pkgs_array = [Package(name=pkg["name"], source_dict=pkg["source_dict"]) for pkg in thirdparty_packages_dict()["packages"]]
+
+    for pkg in thirdparty_pkgs_array:
+        package_list.append(pkg.name)
+    return package_list
+   
 def main():
     package_array = packagelist()
 
@@ -18,7 +30,8 @@ def main():
     ]
 
     # List of thirdparty packages
-    thirdparty_package_array = ["rust-tealdeer", "wezterm", "zed", "zed-preview"]
+    # thirdparty_package_array = ["rust-tealdeer", "wezterm", "zed", "zed-preview"]
+    thirdparty_package_array = thirdparty_pkgs()
 
     # Description
     readme_content = """This COPR repo is for personal and work use.

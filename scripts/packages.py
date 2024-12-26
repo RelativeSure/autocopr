@@ -2,6 +2,7 @@
 import pathlib
 from collections import namedtuple
 
+# For use in copr_packages.py
 def packagelist():
     # Specify the directory path
     dir_path = pathlib.Path(".")
@@ -39,9 +40,6 @@ def packagelist():
             )
     return name_url_pairs
 
-if __name__ == "__main__":
-    packagelist()
-
 # ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
 # │                                                                                                  │
 # │  mmmm             #                                m                         #                   │
@@ -65,11 +63,12 @@ def source_dict(clone_url=None, committish=None, subdirectory=None, specfile=Non
         "source_build_method": source_build_method,
     }
 
-def create_git_package(name, clone_url, specfile=None, subdirectory=None, source_build_method="rpkg"):
+def create_git_package(name, clone_url, committish, specfile, subdirectory=None, source_build_method="rpkg"):
     return Git_package(
         name,
         source_dict(
             clone_url=clone_url,
+            committish=committish,
             specfile=specfile,
             subdirectory=subdirectory,
             source_build_method=source_build_method
@@ -78,14 +77,57 @@ def create_git_package(name, clone_url, specfile=None, subdirectory=None, source
 
 def thirdparty_packages_dict():
     package_definitions = [
-        ("rust_tealdeer", "https://src.fedoraproject.org/rpms/rust-tealdeer", "rust-tealdeer.spec"),
-        ("wezterm", "https://github.com/wez/wezterm.git", None, None, "make_srpm"),
-        ("zed", "https://github.com/terrapkg/packages", "zed.spec", "/anda/devs/zed/stable"),
-        ("zed-preview", "https://github.com/terrapkg/packages", "zed-preview.spec", "/anda/devs/zed/preview")
+        # Add packages here in alphabetical order
+        (
+            "act-cli",
+            "https://github.com/goncalossilva/rpm-act.git",
+            None,
+            "act-cli.spec"
+        ),
+        (
+            "python-neovim",
+            "https://github.com/agriffis/pynvim",
+            "copr",
+            None,
+            None,
+        ),
+        (
+            "rust-tealdeer",
+            "https://src.fedoraproject.org/rpms/rust-tealdeer",
+            None,
+            "rust-tealdeer.spec"
+        ),
+        (
+            "utf8proc",
+            "https://github.com/agriffis/utf8proc",
+            "copr",
+            None,
+            None,
+        ),
+        (
+            "wezterm",
+            "https://github.com/wez/wezterm.git",
+            None,
+            None,
+            None,
+            "make_srpm"
+        ),
+        (
+            "zed",
+            "https://github.com/terrapkg/packages",
+            None,
+            "zed.spec",
+            "/anda/devs/zed/stable"
+        ),
+        (
+            "zed-preview",
+            "https://github.com/terrapkg/packages",
+            None,
+            "zed-preview.spec",
+            "/anda/devs/zed/preview"
+        )
     ]
-    
     thirdparty_packages = {
         "packages": [create_git_package(*pkg) for pkg in package_definitions]
     }
-
     return thirdparty_packages
