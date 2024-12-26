@@ -1,10 +1,12 @@
 #!/bin/env python3
-from copr.v3 import Client
 from collections import namedtuple
+
+from copr.v3 import Client
 from packages import packagelist, thirdparty_packages_dict
 
 # COPR API Client
 client = Client.create_from_config_file()
+
 
 def thirdparty_pkgs():
     # Define the namedtuple
@@ -12,12 +14,16 @@ def thirdparty_pkgs():
     package_list = []
 
     # Convert the dictionary to an array of namedtuples
-    thirdparty_pkgs_array = [Package(name=pkg["name"], source_dict=pkg["source_dict"]) for pkg in thirdparty_packages_dict()["packages"]]
+    thirdparty_pkgs_array = [
+        Package(name=pkg["name"], source_dict=pkg["source_dict"])
+        for pkg in thirdparty_packages_dict()["packages"]
+    ]
 
     for pkg in thirdparty_pkgs_array:
         package_list.append(pkg.name)
     return package_list
-   
+
+
 def main():
     package_array = packagelist()
 

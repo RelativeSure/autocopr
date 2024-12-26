@@ -2,6 +2,7 @@
 import pathlib
 from collections import namedtuple
 
+
 # For use in copr_packages.py
 def packagelist():
     # Specify the directory path
@@ -40,6 +41,7 @@ def packagelist():
             )
     return name_url_pairs
 
+
 # ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
 # │                                                                                                  │
 # │  mmmm             #                                m                         #                   │
@@ -53,7 +55,14 @@ def packagelist():
 
 Git_package = namedtuple("Git_package", ["name", "source_dict"])
 
-def source_dict(clone_url=None, committish=None, subdirectory=None, specfile=None, source_build_method="rpkg"):
+
+def source_dict(
+    clone_url=None,
+    committish=None,
+    subdirectory=None,
+    specfile=None,
+    source_build_method="rpkg",
+):
     return {
         "clone_url": clone_url,
         "committish": committish,
@@ -63,7 +72,10 @@ def source_dict(clone_url=None, committish=None, subdirectory=None, specfile=Non
         "source_build_method": source_build_method,
     }
 
-def create_git_package(name, clone_url, committish, specfile, subdirectory=None, source_build_method="rpkg"):
+
+def create_git_package(
+    name, clone_url, committish, specfile, subdirectory=None, source_build_method="rpkg"
+):
     return Git_package(
         name,
         source_dict(
@@ -71,9 +83,10 @@ def create_git_package(name, clone_url, committish, specfile, subdirectory=None,
             committish=committish,
             specfile=specfile,
             subdirectory=subdirectory,
-            source_build_method=source_build_method
-        )
+            source_build_method=source_build_method,
+        ),
     )._asdict()
+
 
 def thirdparty_packages_dict():
     package_definitions = [
@@ -82,7 +95,7 @@ def thirdparty_packages_dict():
             "act-cli",
             "https://github.com/goncalossilva/rpm-act.git",
             None,
-            "act-cli.spec"
+            "act-cli.spec",
         ),
         (
             "python-neovim",
@@ -95,7 +108,7 @@ def thirdparty_packages_dict():
             "rust-tealdeer",
             "https://src.fedoraproject.org/rpms/rust-tealdeer",
             None,
-            "rust-tealdeer.spec"
+            "rust-tealdeer.spec",
         ),
         (
             "utf8proc",
@@ -110,22 +123,22 @@ def thirdparty_packages_dict():
             None,
             None,
             None,
-            "make_srpm"
+            "make_srpm",
         ),
         (
             "zed",
             "https://github.com/terrapkg/packages",
             None,
             "zed.spec",
-            "/anda/devs/zed/stable"
+            "/anda/devs/zed/stable",
         ),
         (
             "zed-preview",
             "https://github.com/terrapkg/packages",
             None,
             "zed-preview.spec",
-            "/anda/devs/zed/preview"
-        )
+            "/anda/devs/zed/preview",
+        ),
     ]
     thirdparty_packages = {
         "packages": [create_git_package(*pkg) for pkg in package_definitions]

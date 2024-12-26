@@ -1,6 +1,7 @@
 #!/bin/env python3
 import pathlib
 from collections import namedtuple
+
 from packages import packagelist, thirdparty_packages_dict
 
 package_array = packagelist()
@@ -10,11 +11,14 @@ thirdparty_package_array = []
 Package = namedtuple("Git_package", ["name", "source_dict"])
 
 # Convert the dictionary to an array of namedtuples
-thirdparty_pkgs_array = [Package(name=pkg["name"], source_dict=pkg["source_dict"]) for pkg in thirdparty_packages_dict()["packages"]]
+thirdparty_pkgs_array = [
+    Package(name=pkg["name"], source_dict=pkg["source_dict"])
+    for pkg in thirdparty_packages_dict()["packages"]
+]
 
 for pkg in thirdparty_pkgs_array:
     name = pkg.name
-    url = pkg.source_dict['clone_url']
+    url = pkg.source_dict["clone_url"]
     print(name)
     print(url)
     if name and url:
