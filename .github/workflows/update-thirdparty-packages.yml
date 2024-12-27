@@ -8,8 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-24.04
-    #container: ghcr.io/relativesure/gh-actions-image:0.0.1
-    container: fedora:41
+    container: ghcr.io/relativesure/gh-actions-image:0.0.1
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
