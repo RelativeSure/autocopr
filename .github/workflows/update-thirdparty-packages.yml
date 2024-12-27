@@ -16,15 +16,12 @@ jobs:
           fetch-depth: 3
           ref: master
 
-      - run: env
-
-      - name: Install Flutter SDK
-        uses: mobiledevops/secret-to-file-action@v1
-        with:
-          base64-encoded-secret: ${{ secrets.COPR_BUILD_API }}
-          filename: "copr"
-          is-executable: false
-          working-directory: "~/.config"
+      - name: Copy environment secret file
+        shell: bash
+        env:
+          CONFIG_FILE: ${{ secrets.COPR_BUILD_API }}
+        run: |
+          echo -n "$COPR_BUILD_API" > copr
 
       - name: Set up Python
         uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
