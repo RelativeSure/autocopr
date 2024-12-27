@@ -1,0 +1,10 @@
+FROM fedora:latest@sha256:3ec60eb34fa1a095c0c34dd37cead9fd38afb62612d43892fcf1d3425c32bc1e
+
+# Upgrade all packages
+RUN dnf -y upgrade --refresh
+
+RUN dnf -y install nodejs curl wget python3 pip3 python-copr python-copr-doc dnf-plugins-core git && \
+  dnf clean all
+
+# Set fish as the default shell
+ENTRYPOINT ["/bin/bash"]
