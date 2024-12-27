@@ -30,9 +30,14 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Create virtual environment
+        run: python3 -m venv myenv
+      - name: Activate virtual environment
+        run: source myenv/bin/activate
+      - name: Upgrade pip
+        run: pip install --upgrade pip
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
           pip3 install -r requirements.txt
 
       - name: Update Thirdparty packages on COPR
