@@ -3,8 +3,8 @@ FROM fedora:41
 # Upgrade all packages
 RUN dnf -y upgrade --refresh
 
-RUN dnf -y install nodejs curl wget python3 pip3 python-copr python-copr-doc dnf-plugins-core git && \
-  dnf clean all
+RUN dnf -y install curl wget python-copr python-copr-doc \ 
+  dnf-plugins-core git && dnf clean all
 
-# Set fish as the default shell
+# Set bash as the default shell
 ENTRYPOINT ["/bin/bash"]
