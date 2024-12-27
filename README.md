@@ -42,6 +42,14 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 [Upstream](https://github.com/Schniz/fnm)
 
+### ghostty
+
+#### version 1.0.0
+
+![ghostty status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/ghostty/status_image/last_build.png)
+
+[Upstream](https://github.com/ghostty-org/ghostty)
+
 ### jj
 
 #### version 0.24.0
