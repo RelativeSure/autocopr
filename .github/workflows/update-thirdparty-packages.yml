@@ -1,4 +1,4 @@
-name: Auto Update thirdparty packages
+name: Auto Update Thirdparty Packages
 
 on:
   schedule:
@@ -24,5 +24,5 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Update README.md file
-        run: python3 scripts/copr_update_thirdparty-pakages.py
+      - name: Update Thirdparty packages on COPR
+        run: python3 scripts/copr_update_thirdparty-packages.py
