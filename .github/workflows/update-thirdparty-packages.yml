@@ -33,6 +33,12 @@ jobs:
         run: python3 -m venv myenv
       - name: Activate virtual environment
         run: source myenv/bin/activate
+      - name: Install pip
+        run: |
+          curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+          python3 get-pip.py
+      - name: Verify pip installation
+        run: pip3 --version
       - name: Upgrade pip
         run: pip install --upgrade pip
       - name: Install dependencies
