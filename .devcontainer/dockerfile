@@ -8,7 +8,7 @@ ARG USER_HOME=/home/$USERNAME
 RUN dnf -y upgrade --refresh
 
 # Install fish, figlet, nodejs, git, curl, wget, vim, neovim, util-linux-user, sudo, python3, pip3, python-copr, python-copr-doc, github-cli, and other important packages
-RUN dnf -y install fish figlet nodejs git curl wget vim neovim util-linux-user sudo python3 pip3 python-copr python-copr-doc dnf-plugins-core 'dnf-command(copr)' 'dnf-command(config-manager)' gh kubectl helm git && \
+RUN dnf -y install fish figlet nodejs git curl wget vim neovim util-linux-user sudo python3 pip3 python-copr python-copr-doc dnf-plugins-core 'dnf-command(copr)' 'dnf-command(config-manager)' gh kubectl helm git fedora-packager && \
     curl -fsSL https://code-server.dev/install.sh | sh
 
 # Install Docker CE
@@ -37,6 +37,7 @@ RUN useradd -m -d $USER_HOME -s /usr/bin/fish $USERNAME && \
     mkdir -p $USER_HOME/.config/fish && \
     usermod -aG wheel $USERNAME && \
     usermod -aG docker $USERNAME && \
+    usermod -aG mock $USERNAME && \
     echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # Set correct permissions for Fish configuration directory
