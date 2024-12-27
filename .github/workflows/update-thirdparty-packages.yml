@@ -8,14 +8,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-24.04
-    container: ghcr.io/relativesure/gh-actions-image:0.0.1
+    container: ghcr.io/relativesure/gh-actions-image:0.0.2
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-          fetch-depth: 3
-          ref: master
+      #        with:
+      #          persist-credentials: false
+      #          fetch-depth: 3
+      #          ref: master
 
       - name: Copy environment secret file
         shell: bash
@@ -27,23 +27,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
         with:
-          python-version: "3.12"
-
-      - name: Create virtual environment
-        run: python3 -m venv myenv
-      - name: Activate virtual environment
-        run: source myenv/bin/activate
-      - name: Install pip
-        run: |
-          curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-          python3 get-pip.py
-      - name: Verify pip installation
-        run: pip3 --version
-      - name: Upgrade pip
-        run: pip install --upgrade pip
-      - name: Install dependencies
-        run: |
-          pip3 install -r requirements.txt
+          python-version: "3.13"
 
       - name: Update Thirdparty packages on COPR
         run: python3 scripts/copr_update_thirdparty_packages.py
