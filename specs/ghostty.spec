@@ -43,28 +43,25 @@ mkdir -p %{tmp_dir}
 mkdir -p %{ghostty_tmp_dir}
 #ZIG_GLOBAL_CACHE_DIR=%{tmp_dir} ./nix/build-support/fetch-zig-cache.sh
 zig build -p %{ghostty_tmp_dir} -Doptimize=ReleaseFast
-# Copy .desktop file
-mkdir %{buildroot}%{_datadir}/applications/com.mitchellh.ghostty.desktop
-cp %{ghostty_tmp_dir}/share/applications/com.mitchellh.ghostty.desktop %{buildroot}%{_datadir}/applications/com.mitchellh.ghostty.desktop
 
 %install
 install -pvD %{ghostty_tmp_dir}/bin/%{name} %{buildroot}%{_bindir}/%{name}
-desktop-file-install --dir=%{buildroot}%{_datadir}/applications
+desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{ghostty_tmp_dir}/share/applications/com.mitchellh.ghostty.desktop
 
 # Shell completions
-install -pvD -m 0644 %{ghostty_tmp_dir}/share/bash-completion/completions/%{name}.bash %{buildroot}%{bash_completions_dir}/%{name}
-install -pvD -m 0644 %{ghostty_tmp_dir}/share/fish/vendor-completions.d/%{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
-install -pvD -m 0644 %{ghostty_tmp_dir}/share/zsh/_%{name} %{buildroot}%{zsh_completions_dir}/_%{name}
+install -pvD -m 0644 %{ghostty_tmp_dir}/share/bash-completion/completions/%{name}.bash %{buildroot}%{bash_completions_dir}/%{name}.bash
+install -pvD -m 0644 %{ghostty_tmp_dir}/share/fish/vendor_completions.d/%{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
+install -pvD -m 0644 %{ghostty_tmp_dir}/share/zsh/site-functions/_%{name} %{buildroot}%{zsh_completions_dir}/_%{name}
 
 %files
 %doc CONFIGURATION.md
 %license LICENSE
 %{_bindir}/%{name}
-%{buildroot}%{_datadir}/applications/com.mitchellh.ghostty
+%{_datadir}/applications/com.mitchellh.ghostty.desktop
 # Shell completions
-%{buildroot}%{bash_completions_dir}/%{name}.bash
-%{buildroot}%{fish_completions_dir}/%{name}.fish
-%{buildroot}%{zsh_completions_dir}/_%{name}
+%{bash_completions_dir}/%{name}.bash
+%{fish_completions_dir}/%{name}.fish
+%{zsh_completions_dir}/_%{name}
 
 %changelog
 %autochangelog
