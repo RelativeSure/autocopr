@@ -1,9 +1,9 @@
-name: publish
+name: Setup Fedora GH Actions image
 
 on: [push]
 
 jobs:
-  publish-hello-docker-image:
+  publish-gh-actions-image:
     runs-on: ubuntu-24.04
     permissions:
       packages: write
