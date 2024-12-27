@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 3
+          ref: master
 
       - name: Overwrite file
         uses: "DamianReeves/write-file-action@master"
@@ -24,5 +28,10 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install -r requirements.txt
+
       - name: Update Thirdparty packages on COPR
-        run: python3 scripts/copr_update_thirdparty-packages.py
+        run: python3 scripts/copr_update_thirdparty_packages.py
