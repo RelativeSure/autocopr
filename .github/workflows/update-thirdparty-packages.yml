@@ -16,12 +16,15 @@ jobs:
           fetch-depth: 3
           ref: master
 
-      - name: Overwrite file
-        uses: "DamianReeves/write-file-action@master"
+      - run: env
+
+      - name: Install Flutter SDK
+        uses: mobiledevops/secret-to-file-action@v1
         with:
-          path: ~/.config/copr
-          write-mode: overwrite
-          contents: ${{ secrets.COPR_BUILD_API }}
+          base64-encoded-secret: ${{ secrets.COPR_BUILD_API }}
+          filename: "copr"
+          is-executable: false
+          working-directory: "~/.config"
 
       - name: Set up Python
         uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
