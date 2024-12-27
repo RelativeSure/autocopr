@@ -1,0 +1,20 @@
+name: publish
+
+on: [push]
+
+jobs:
+  publish-hello-docker-image:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build the GH Actions Docker image
+        run: |
+          docker build . --tag ghcr.io/relativesure/gh-actions-image:v0.1
+          docker run ghcr.io/relativesure/gh-actions-image:v0.1
+          docker push ghcr.io/relativesure/gh-actions-image:v0.1
