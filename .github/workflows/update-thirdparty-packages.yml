@@ -6,28 +6,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  notify:
     runs-on: ubuntu-24.04
-    container: ghcr.io/relativesure/gh-actions-image:0.0.2
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-      #        with:
-      #          persist-credentials: false
-      #          fetch-depth: 3
-      #          ref: master
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          fetch-depth: 3
+          ref: master
 
-      - name: Copy environment secret file
+      - name: Get changes and send webhook to COPR
         shell: bash
         env:
-          CONFIG_FILE: ${{ secrets.COPR_BUILD_API }}
-        run: |
-          echo -n "$COPR_BUILD_API" > copr
-
-      - name: Set up Python
-        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
-        with:
-          python-version: "3.13"
-
-      - name: Update Thirdparty packages on COPR
-        run: python3 scripts/copr_update_thirdparty_packages.py
+          WEBHOOK: ${{ secrets.WEBHOOK_URL }}
+        run: ./scripts/copr_webhook_update_thirdparty_pkgs.sh "$WEBHOOK"
