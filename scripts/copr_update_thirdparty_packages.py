@@ -1,5 +1,6 @@
 #!/bin/env python3
 from collections import namedtuple
+
 from copr.v3 import Client
 from packages import thirdparty_packages_dict
 
