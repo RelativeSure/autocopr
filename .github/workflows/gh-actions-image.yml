@@ -1,6 +1,7 @@
 name: Setup Fedora GH Actions image
 
-on: [push]
+on:
+  workflow_dispatch:
 
 jobs:
   publish-gh-actions-image:
@@ -29,10 +30,4 @@ jobs:
         with:
           context: "{{defaultContext}}:.github"
           push: true
-          tags: ghcr.io/relativesure/gh-actions-image:0.0.2
-
-      #- name: Build the GH Actions Docker image
-      #  run: |
-      #  docker build . --tag ghcr.io/relativesure/gh-actions-image:v0.1
-      #  docker run ghcr.io/relativesure/gh-actions-image:v0.1
-      #  docker push ghcr.io/relativesure/gh-actions-image:v0.1
+          tags: ghcr.io/relativesure/gh-actions-image:0.0.3
