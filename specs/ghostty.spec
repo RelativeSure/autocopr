@@ -1,67 +1,100 @@
+###
+# Inspiration taken from https://gitlab.com/pgill/ghostty-rpm
+###
 %global debug_package %{nil}
 %global tmp_dir /tmp/offline-cache
-%global ghostty_tmp_dir /tmp/ghostty
 
 Name:    ghostty
 Version: 1.0.0
 Release: 1%{?dist}
 Summary: 👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
 
-# https://release.files.ghostty.org/VERSION/ghostty-source.tar.gz
-# https://github.com/ghostty-org/ghostty/releases/download/tip/ghostty-source.tar.gz
-# https://github.com/ghostty-org/ghostty/archive/refs/tags/v1.0.0.tar.gz
 License: MIT
 URL: https://github.com/ghostty-org/ghostty
 Source:  %{url}/archive/refs/tags/v%{version}.tar.gz
-Source1: https://raw.githubusercontent.com/ghostty-org/ghostty/v%{version}/README.md
-Source2: https://raw.githubusercontent.com/ghostty-org/ghostty/v%{version}/LICENSE
+
+ExclusiveArch: x86_64
 
 # https://ghostty.org/docs/install/build#dependencies
 BuildRequires: zig >= 0.13
 BuildRequires: gtk4-devel
 BuildRequires: libadwaita-devel
-# https://docs.fedoraproject.org/en-US/packaging-guidelines/#_desktop_files
-BuildRequires: desktop-file-utils
+
+BuildRequires: fontconfig-devel
+BuildRequires: freetype-devel
+BuildRequires: glib2-devel
+BuildRequires: harfbuzz-devel
+BuildRequires: libpng-devel
+BuildRequires: oniguruma-devel
+BuildRequires: pandoc-cli
+BuildRequires: pixman-devel
+BuildRequires: pkg-config
+BuildRequires: zlib-ng-devel
+
+Requires: fontconfig
+Requires: freetype
+Requires: glib2
+Requires: gtk4
+Requires: harfbuzz
+Requires: libadwaita
+Requires: libpng
+Requires: oniguruma
+Requires: pixman
+Requires: zlib-ng
+
+
 
 %description
-Ghostty is a terminal emulator that differentiates itself by being fast, feature-rich, and native.
-While there are many excellent terminal emulators available, they all force you to choose between speed, features, or native UIs. 
-Ghostty provides all three.
-In all categories, I am not trying to claim that Ghostty is the best (i.e. the fastest, most feature-rich, or most native).
-But when I set out to create Ghostty, I felt all terminals made you choose at most two of these categories.
-I wanted to create a terminal that was competitive in all three categories and I believe Ghostty achieves that goal.
-Before diving into the details, I also want to note that Ghostty is a passion project started by Mitchell Hashimoto
+%{summary}
 
 %prep
-%autosetup -c
-cp %{SOURCE1} CONFIGURATION.md
-cp %{SOURCE2} LICENSE
+%autosetup -n %{name}-%{version}
 
 %build
-cd %{name}-%{version}
 mkdir -p %{tmp_dir}
 mkdir -p %{ghostty_tmp_dir}
-#ZIG_GLOBAL_CACHE_DIR=%{tmp_dir} ./nix/build-support/fetch-zig-cache.sh
-zig build -p %{ghostty_tmp_dir} -Doptimize=ReleaseFast
+ZIG_GLOBAL_CACHE_DIR=%{tmp_dir} ./nix/build-support/fetch-zig-cache.sh
+zig build \
+    --summary all \
+    --prefix "%{buildroot}%{_prefix}" \
+    --system "%{tmp_dir}/p" \
+    -Doptimize=ReleaseFast \
+    -Dcpu=baseline \
+    -Dpie=true \
+    -Demit-docs
 
-%install
-install -pvD %{ghostty_tmp_dir}/bin/%{name} %{buildroot}%{_bindir}/%{name}
-desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{ghostty_tmp_dir}/share/applications/com.mitchellh.ghostty.desktop
-
-# Shell completions
-install -pvD -m 0644 %{ghostty_tmp_dir}/share/bash-completion/completions/%{name}.bash %{buildroot}%{bash_completions_dir}/%{name}.bash
-install -pvD -m 0644 %{ghostty_tmp_dir}/share/fish/vendor_completions.d/%{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
-install -pvD -m 0644 %{ghostty_tmp_dir}/share/zsh/site-functions/_%{name} %{buildroot}%{zsh_completions_dir}/_%{name}
 
 %files
-%doc CONFIGURATION.md
 %license LICENSE
-%{_bindir}/%{name}
-%{_datadir}/applications/com.mitchellh.ghostty.desktop
-# Shell completions
-%{bash_completions_dir}/%{name}.bash
-%{fish_completions_dir}/%{name}.fish
-%{zsh_completions_dir}/_%{name}
+%{_bindir}/ghostty
+%{_prefix}/share/applications/com.mitchellh.ghostty.desktop
+%{_prefix}/share/bash-completion/completions/ghostty.bash
+%{_prefix}/share/bat/syntaxes/ghostty.sublime-syntax
+%{_prefix}/share/fish/vendor_completions.d/ghostty.fish
+%{_prefix}/share/ghostty
+%{_prefix}/share/icons/hicolor/128x128/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/128x128@2/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/16x16/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/16x16@2/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/256x256/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/256x256@2/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/32x32/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/32x32@2/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/512x512/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/kio/servicemenus/com.mitchellh.ghostty.desktop
+%{_prefix}/share/man/man1/ghostty.1
+%{_prefix}/share/man/man5/ghostty.5
+%{_prefix}/share/nvim/site/ftdetect/ghostty.vim
+%{_prefix}/share/nvim/site/ftplugin/ghostty.vim
+%{_prefix}/share/nvim/site/syntax/ghostty.vim
+%{_prefix}/share/terminfo/g/ghostty
+%{_prefix}/share/terminfo/ghostty.termcap
+%{_prefix}/share/terminfo/ghostty.terminfo
+%{_prefix}/share/terminfo/x/xterm-ghostty
+%{_prefix}/share/vim/vimfiles/ftdetect/ghostty.vim
+%{_prefix}/share/vim/vimfiles/ftplugin/ghostty.vim
+%{_prefix}/share/vim/vimfiles/syntax/ghostty.vim
+%{_prefix}/share/zsh/site-functions/_ghostty
 
 %changelog
 %autochangelog
