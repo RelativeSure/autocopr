@@ -12,7 +12,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### atuin
 
-#### version 18.3.0
+#### version 18.4.0
 
 ![atuin status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/atuin/status_image/last_build.png)
 
@@ -108,7 +108,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### mise
 
-#### version 2024.12.20
+#### version 2024.12.21
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 
@@ -148,7 +148,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### uv
 
-#### version 0.5.12
+#### version 0.5.13
 
 ![uv status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/uv/status_image/last_build.png)
 
