@@ -6,23 +6,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  notify:
     runs-on: ubuntu-24.04
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - name: Overwrite file
-        uses: "DamianReeves/write-file-action@master"
-        with:
-          path: ~/.config/copr
-          write-mode: overwrite
-          contents: ${{ SECRETS.COPR_BUILD_API }}
-
-      - name: Set up Python
-        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
-        with:
-          python-version: "3.12"
-
-      - name: Update Thirdparty packages on COPR
-        run: python3 scripts/copr_update_thirdparty-packages.py
+      - name: Get changes and send webhook to COPR
+        shell: bash
+        env:
+          WEBHOOK: ${{ secrets.WEBHOOK_URL }}
+        run: ./scripts/copr_webhook_update_thirdparty_pkgs.sh "$WEBHOOK"

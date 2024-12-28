@@ -4,7 +4,7 @@ from copr.v3 import Client
 from packages import thirdparty_packages_dict
 
 # COPR API Client
-client = Client.create_from_config_file()
+client = Client.create_from_config_file("copr")
 
 
 def main():
