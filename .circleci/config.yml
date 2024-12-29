@@ -32,6 +32,7 @@ jobs:
   megalinter:
     executor: megalinter-executor
     steps:
+      - checkout
       - run: /entrypoint.sh
 workflows:
   my-custom-workflow:
