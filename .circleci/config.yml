@@ -35,12 +35,12 @@ jobs:
             APPLY_FIXES_EVENT: push
             APPLY_FIXES_MODE: pull_request
             #GITHUB_TOKEN: ${{ secrets.KUBEARCHITECTBOT_TOKEN || secrets.GITHUB_TOKEN }}
-            SARIF_REPORTER: true
-            GITHUB_STATUS_REPORTER: true
-            GITHUB_COMMENT_REPORTER: false
-            VALIDATE_ALL_CODEBASE: true
-            DEFAULT_WORKSPACE: $CIRCLE_WORKING_DIRECTORY
-            GITHUB_WORKSPACE: $CIRCLE_WORKING_DIRECTORY
+            SARIF_REPORTER: 'true'
+            GITHUB_STATUS_REPORTER: 'true'
+            GITHUB_COMMENT_REPORTER: 'false'
+            VALIDATE_ALL_CODEBASE: 'true'
+            DEFAULT_WORKSPACE: "/root/project"
+            GITHUB_WORKSPACE: "/root/project"
 workflows:
   my-custom-workflow:
     jobs:
