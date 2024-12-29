@@ -1,5 +1,6 @@
 name: Setup Fedora GH Actions image
-
+env:
+  DAGGER_CLOUD_TOKEN: ${{ secrets.DAGGER_CLOUD_TOKEN }}
 on:
   workflow_dispatch:
 
@@ -30,4 +31,4 @@ jobs:
         with:
           context: "{{defaultContext}}:.github"
           push: true
-          tags: ghcr.io/relativesure/gh-actions-image:0.0.3
+          tags: ghcr.io/relativesure/gh-actions-image:0.0.3-dagger
