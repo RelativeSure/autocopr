@@ -1,11 +1,11 @@
 version: 2.1
 executors:
-  base-executor:
-    docker:
-      - image: cimg/base:stable
-        auth:
-          username: $DOCKER_HUB_USER
-          password: $DOCKER_HUB_PASSWORD
+  # base-executor:
+  #   docker:
+  #     - image: cimg/base:stable
+  #       auth:
+  #         username: $DOCKER_HUB_USER
+  #         password: $DOCKER_HUB_PASSWORD
   megalinter-executor:
     docker:
       - image: oxsecurity/megalinter-python:v8.3.0
@@ -14,28 +14,34 @@ executors:
           # visit app.circleci.com/settings/project/github/RelativeSure/autocopr/environment-variables
           username: $DOCKER_HUB_USER
           password: $DOCKER_HUB_PASSWORD
-    environment:
-      APPLY_FIXES: all
-      APPLY_FIXES_EVENT: push
-      APPLY_FIXES_MODE: pull_request
-      #GITHUB_TOKEN: ${{ secrets.KUBEARCHITECTBOT_TOKEN || secrets.GITHUB_TOKEN }}
-      SARIF_REPORTER: true
-      GITHUB_STATUS_REPORTER: true
-      GITHUB_COMMENT_REPORTER: false
-      VALIDATE_ALL_CODEBASE: true
-      DEFAULT_WORKSPACE: $CIRCLE_WORKING_DIRECTORY
 jobs:
-  base:
-    executor: base-executor
-    steps:
-      - checkout
+  # base:
+  #   executor: base-executor
+  #   steps:
+  #     - checkout
   megalinter:
     executor: megalinter-executor
     steps:
       - checkout
-      - run: /entrypoint.sh
+      - run: ls -larth
+      - run:
+          name: Whats here?
+          command: echo $CIRCLE_WORKING_DIRECTORY
+      - run:
+          name: ml
+          command: bash /entrypoint.sh
+          environment:
+            APPLY_FIXES: all
+            APPLY_FIXES_EVENT: push
+            APPLY_FIXES_MODE: pull_request
+            #GITHUB_TOKEN: ${{ secrets.KUBEARCHITECTBOT_TOKEN || secrets.GITHUB_TOKEN }}
+            SARIF_REPORTER: true
+            GITHUB_STATUS_REPORTER: true
+            GITHUB_COMMENT_REPORTER: false
+            VALIDATE_ALL_CODEBASE: true
+            DEFAULT_WORKSPACE: $CIRCLE_WORKING_DIRECTORY
 workflows:
   my-custom-workflow:
     jobs:
-      - base
+      # - base
       - megalinter

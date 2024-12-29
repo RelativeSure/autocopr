@@ -6,3 +6,4 @@ specs/test/*
 megalinter-reports/
 
 .secrets
+.vscode
