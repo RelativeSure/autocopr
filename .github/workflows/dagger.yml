@@ -14,6 +14,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up BuildKit
+        uses: docker/setup-buildx-action@v3
+
       - name: Call Dagger Function to build and publish to ghcr.io
         uses: dagger/dagger-for-github@v7
         with:
