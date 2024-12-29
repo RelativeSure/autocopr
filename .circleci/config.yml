@@ -2,12 +2,12 @@
 # Stacks detected: cicd:github-actions:.github/workflows,deps:python:.
 version: 2.1
 orbs:
-  python: circleci/python@2
+  python: circleci/python@3
 jobs:
   test-python:
     # Install dependencies and run tests
     docker:
-      - image: cimg/python:3.8-node
+      - image: cimg/python:3.12-node
     steps:
       - checkout
       - python/install-packages
