@@ -40,6 +40,7 @@ jobs:
             GITHUB_COMMENT_REPORTER: false
             VALIDATE_ALL_CODEBASE: true
             DEFAULT_WORKSPACE: $CIRCLE_WORKING_DIRECTORY
+            GITHUB_WORKSPACE: $CIRCLE_WORKING_DIRECTORY
 workflows:
   my-custom-workflow:
     jobs:
