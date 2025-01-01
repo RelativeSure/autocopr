@@ -11,7 +11,7 @@ GITHUB_SHA=$2
 files_changed=$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" | grep '.spec')
 echo "Files changed: $files_changed"
 
-for file in "${files_changed[@]}"; do
+for file in $files_changed; do
 	echo "Processing file: $file"
 	filename=$(basename "$file")
 	filename_without_ext="${filename%.*}"
