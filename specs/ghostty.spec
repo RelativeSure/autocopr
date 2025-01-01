@@ -42,8 +42,6 @@ Requires: oniguruma
 Requires: pixman
 Requires: zlib-ng
 
-
-
 %description
 %{summary}
 
