@@ -5,7 +5,7 @@
 %global tmp_dir /tmp/offline-cache
 
 Name:    ghostty
-Version: 1.0.0
+Version: 1.0.1
 Release: 1%{?dist}
 Summary: 👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
 
