@@ -7,9 +7,6 @@ parameters:
  megalinter: 
    type: boolean 
    default: false 
- build-fedora-image: 
-   type: boolean 
-   default: false
 
 orbs:
   path-filtering: circleci/path-filtering@1.1.0
@@ -24,4 +21,3 @@ workflows:
           tag: "3.9"
           mapping: |
            .* megalinter true .circleci/megalinter.yml
-           docker/fedora/.* build-fedora-image true .circleci/fedora-actions.yml
