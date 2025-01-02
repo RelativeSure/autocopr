@@ -28,6 +28,9 @@ jobs:
             export DEFAULT_WORKSPACE=$CIRCLE_WORKING_DIRECTORY
             export GITHUB_WORKSPACE=$CIRCLE_WORKING_DIRECTORY
             export GITHUB_RUN_ID=$CIRCLE_BUILD_NUM
+            # Set correct line ending
+            git config --local core.eol lf
+            git config --local core.autocrlf false
             /bin/bash -ex /entrypoint.sh
       - run:
           name: Setup Git Config and Push Changes
@@ -35,14 +38,10 @@ jobs:
           command: |
             git config --local core.eol lf
             git config --local core.autocrlf false
-            # git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git config --local user.email "139585163+KubeArchitectBot@users.noreply.github.com"
-            # git config --local user.name "github-actions[bot]"
             git config --local user.name "KubeArchitectBot[bot]"
             git diff --quiet && git diff --staged --quiet || git commit -am '[MegaLinter] Apply linters automatic fixes' \
             && git push origin $CIRCLE_BRANCH
-            # git commit -am "[MegaLinter] Apply linters automatic fixes"
-            # git push origin $CIRCLE_BRANCH
       - store_artifacts:
           path: megalinter-reports
 
