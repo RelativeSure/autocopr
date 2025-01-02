@@ -4,32 +4,32 @@
 %global debug_package %{nil}
 %global tmp_dir /tmp/offline-cache
 
-Name:    ghostty
-Version: 1.0.1
-Release: 1%{?dist}
-Summary: 👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
+Name:           ghostty
+Version:        1.0.1
+Release:        1%{?dist}
+Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
 
-License: MIT
-URL: https://github.com/ghostty-org/ghostty
-Source:  %{url}/archive/refs/tags/v%{version}.tar.gz
+
+License:        MIT
+URL:            https://github.com/ghostty-org/ghostty
+Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz
 
 ExclusiveArch: x86_64
-
-# https://ghostty.org/docs/install/build#dependencies
-BuildRequires: zig >= 0.13
-BuildRequires: gtk4-devel
-BuildRequires: libadwaita-devel
 
 BuildRequires: fontconfig-devel
 BuildRequires: freetype-devel
 BuildRequires: glib2-devel
+BuildRequires: gtk4-devel
 BuildRequires: harfbuzz-devel
+BuildRequires: libadwaita-devel
 BuildRequires: libpng-devel
 BuildRequires: oniguruma-devel
 BuildRequires: pandoc-cli
 BuildRequires: pixman-devel
 BuildRequires: pkg-config
+BuildRequires: zig
 BuildRequires: zlib-ng-devel
+
 
 Requires: fontconfig
 Requires: freetype
@@ -43,19 +43,18 @@ Requires: pixman
 Requires: zlib-ng
 
 %description
-%{summary}
+%{summary}.
 
 %prep
-%autosetup -n %{name}-%{version}
+%setup -q -n ghostty-%{version}
 
 %build
-mkdir -p %{tmp_dir}
-mkdir -p %{ghostty_tmp_dir}
 ZIG_GLOBAL_CACHE_DIR=%{tmp_dir} ./nix/build-support/fetch-zig-cache.sh
 zig build \
     --summary all \
     --prefix "%{buildroot}%{_prefix}" \
     --system "%{tmp_dir}/p" \
+    -Dversion-string=%{version}-%{release} \
     -Doptimize=ReleaseFast \
     -Dcpu=baseline \
     -Dpie=true \
@@ -70,6 +69,7 @@ zig build \
 %{_prefix}/share/bat/syntaxes/ghostty.sublime-syntax
 %{_prefix}/share/fish/vendor_completions.d/ghostty.fish
 %{_prefix}/share/ghostty
+%{_prefix}/share/icons/hicolor/1024x1024/apps/com.mitchellh.ghostty.png
 %{_prefix}/share/icons/hicolor/128x128/apps/com.mitchellh.ghostty.png
 %{_prefix}/share/icons/hicolor/128x128@2/apps/com.mitchellh.ghostty.png
 %{_prefix}/share/icons/hicolor/16x16/apps/com.mitchellh.ghostty.png
@@ -94,5 +94,7 @@ zig build \
 %{_prefix}/share/vim/vimfiles/syntax/ghostty.vim
 %{_prefix}/share/zsh/site-functions/_ghostty
 
+
 %changelog
 %autochangelog
+
