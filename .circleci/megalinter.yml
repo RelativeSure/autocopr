@@ -31,6 +31,7 @@ jobs:
             /bin/bash -ex /entrypoint.sh
       - run:
           name: Setup Git Config and Push Changes
+          when: always
           command: |
             git config --local core.eol lf
             git config --local core.autocrlf false
@@ -38,9 +39,11 @@ jobs:
             git config --local user.email "139585163+KubeArchitectBot@users.noreply.github.com"
             # git config --local user.name "github-actions[bot]"
             git config --local user.name "KubeArchitectBot[bot]"
-            git commit -am "[MegaLinter] Apply linters automatic fixes"
-            git push origin $CIRCLE_BRANCH
-      - store_artifacts:
+            git diff --quiet && git diff --staged --quiet || git commit -am '[MegaLinter] Apply linters automatic fixes' \
+            && git push origin $CIRCLE_BRANCH
+            # git commit -am "[MegaLinter] Apply linters automatic fixes"
+            # git push origin $CIRCLE_BRANCH
+      - store_test_results:
           path: megalinter-reports
 
 workflows:
