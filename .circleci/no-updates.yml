@@ -6,9 +6,6 @@ parameters:
   megalinter:
     type: boolean
     default: false
-  build-fedora-image:
-    type: boolean
-    default: false
 
 jobs:
   no-updates:
