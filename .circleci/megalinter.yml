@@ -43,7 +43,7 @@ jobs:
             && git push origin $CIRCLE_BRANCH
             # git commit -am "[MegaLinter] Apply linters automatic fixes"
             # git push origin $CIRCLE_BRANCH
-      - store_test_results:
+      - store_artifacts:
           path: megalinter-reports
 
 workflows:
