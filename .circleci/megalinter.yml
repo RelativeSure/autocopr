@@ -18,7 +18,7 @@ jobs:
     steps: 
       - checkout  
       - run:
-          name: ml
+          name: Run MegaLinter
           command: |
             export GITHUB_TOKEN=$GH_PACKAGES_TOKEN
             export CI_ACTION_RUN_URL=$CIRCLE_BUILD_URL
@@ -29,6 +29,17 @@ jobs:
             export GITHUB_WORKSPACE=$CIRCLE_WORKING_DIRECTORY
             export GITHUB_RUN_ID=$CIRCLE_BUILD_NUM
             /bin/bash -ex /entrypoint.sh
+      - run:
+          name: Setup Git Config and Push Changes
+          command: |
+            git config --local core.eol lf
+            git config --local core.autocrlf false
+            # git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config --local user.email "139585163+KubeArchitectBot@users.noreply.github.com"
+            # git config --local user.name "github-actions[bot]"
+            git config --local user.name "KubeArchitectBot[bot]"
+            git commit -am "[MegaLinter] Apply linters automatic fixes"
+            git push origin $CIRCLE_BRANCH
       - store_artifacts:
           path: megalinter-reports
 
