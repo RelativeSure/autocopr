@@ -52,7 +52,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### jj
 
-#### version 0.24.0
+#### version 0.25.0
 
 ![jj status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/jj/status_image/last_build.png)
 
@@ -148,7 +148,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### uv
 
-#### version 0.5.13
+#### version 0.5.14
 
 ![uv status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/uv/status_image/last_build.png)
 
