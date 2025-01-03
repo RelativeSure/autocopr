@@ -43,7 +43,7 @@ jobs:
               git config --local user.email "139585163+KubeArchitectBot@users.noreply.github.com"
               git config --local user.name "KubeArchitectBot[bot]"
               git diff --quiet && git diff --staged --quiet || \
-              && git checkout -b megalinter-fixes-$CIRCLE_BUILD_NUM \
+              git checkout -b megalinter-fixes-$CIRCLE_BUILD_NUM \
               && git commit -am '[MegaLinter] Apply linters automatic fixes' \
               && git push --set-upstream origin megalinter-fixes-$CIRCLE_BUILD_NUM
             else
