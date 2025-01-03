@@ -1,0 +1,58 @@
+---
+version: 2.1
+
+# define the parameters from the setup config.
+parameters:
+  megalinter:
+    type: boolean
+    default: false
+
+jobs:
+  megalinter:
+    docker:
+      - image: oxsecurity/megalinter-python:v8.3.0
+        auth:
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
+    resource_class: large
+    steps:
+      - checkout
+      - run:
+          name: Run MegaLinter
+          command: |
+            export GITHUB_TOKEN=$GH_PACKAGES_TOKEN
+            export CI_ACTION_RUN_URL=$CIRCLE_BUILD_URL
+            export GITHUB_REPOSITORY=$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+            export GITHUB_REF=$CI_PULL_REQUEST
+            export GITHUB_SHA=$CIRCLE_SHA1
+            export DEFAULT_WORKSPACE=$CIRCLE_WORKING_DIRECTORY
+            export GITHUB_WORKSPACE=$CIRCLE_WORKING_DIRECTORY
+            export GITHUB_RUN_ID=$CIRCLE_BUILD_NUM
+            # Set correct line ending
+            #git config --local core.eol lf
+            #git config --local core.autocrlf false
+            /bin/bash -ex /entrypoint.sh
+      - run:
+          name: Setup Git Config and Push Changes
+          when: always
+          command: |
+            # Check if branch is master
+            if [ "$CIRCLE_BRANCH" == "master" ]; then
+              #git config --local core.eol lf
+              #git config --local core.autocrlf false
+              git config --local user.email "139585163+KubeArchitectBot@users.noreply.github.com"
+              git config --local user.name "KubeArchitectBot[bot]"
+              git diff --quiet && git diff --staged --quiet || \
+              && git checkout -b megalinter-fixes-$CIRCLE_BUILD_NUM \
+              && git commit -am '[MegaLinter] Apply linters automatic fixes' \
+              && git push --set-upstream origin megalinter-fixes-$CIRCLE_BUILD_NUM
+            else
+              echo "Branch is not master, no changes will be pushed"
+            fi
+      - store_artifacts:
+          path: megalinter-reports
+
+workflows:
+  megalinter-workflow:
+    jobs:
+      - megalinter
