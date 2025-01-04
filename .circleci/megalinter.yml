@@ -46,6 +46,7 @@ jobs:
               git checkout -b megalinter-fixes-$CIRCLE_BUILD_NUM \
               && git commit -am '[MegaLinter] Apply linters automatic fixes' \
               && git push --set-upstream origin megalinter-fixes-$CIRCLE_BUILD_NUM
+              exit 0
             else
               echo "Branch is not master, no changes will be pushed"
               exit 0
