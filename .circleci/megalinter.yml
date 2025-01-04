@@ -48,6 +48,7 @@ jobs:
               && git push --set-upstream origin megalinter-fixes-$CIRCLE_BUILD_NUM
             else
               echo "Branch is not master, no changes will be pushed"
+              exit 0
             fi
       - store_artifacts:
           path: megalinter-reports
