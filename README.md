@@ -10,6 +10,14 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 <summary>Status badges on COPR builds</summary>
 
+### act-cli
+
+#### version 0.2.71
+
+![act-cli status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/act-cli/status_image/last_build.png)
+
+[Upstream](https://github.com/nektos/act)
+
 ### atuin
 
 #### version 18.4.0
