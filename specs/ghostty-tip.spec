@@ -4,7 +4,7 @@
 %global debug_package %{nil}
 %global tmp_dir /tmp/offline-cache
 
-Name:           ghostty
+Name:           ghostty-source
 Version:        tip
 Release:        1%{?dist}
 Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
