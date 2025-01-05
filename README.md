@@ -50,11 +50,11 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 [Upstream](https://github.com/Schniz/fnm)
 
-### ghostty
+### ghostty-source
 
 #### version tip
 
-![ghostty status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/ghostty/status_image/last_build.png)
+![ghostty-source status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/ghostty-source/status_image/last_build.png)
 
 [Upstream](https://github.com/ghostty-org/ghostty)
 
