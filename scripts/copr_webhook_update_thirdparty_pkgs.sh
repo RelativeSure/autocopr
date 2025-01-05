@@ -2,7 +2,7 @@
 
 COPR_WEBHOOK=$1
 
-thirdparty_pkgs_array=('act-cli' 'ghostty' 'python-neovim' 'rust-tealdeer' 'utf8proc' 'wezterm' 'zed' 'zed-preview')
+thirdparty_pkgs_array=('ghostty' 'python-neovim' 'rust-tealdeer' 'utf8proc' 'wezterm' 'zed' 'zed-preview')
 
 for file in "${thirdparty_pkgs_array[@]}"; do
 	echo "Processing file: $file"

@@ -92,12 +92,6 @@ def thirdparty_packages_dict():
     package_definitions = [
         # Add packages here in alphabetical order
         (
-            "act-cli",
-            "https://github.com/goncalossilva/rpm-act.git",
-            None,
-            "act-cli.spec",
-        ),
-        (
             "python-neovim",
             "https://github.com/agriffis/pynvim",
             "copr",
