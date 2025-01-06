@@ -140,7 +140,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### superfile
 
-#### version 1.1.6
+#### version 1.1.7
 
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 
@@ -198,12 +198,6 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 > [!WARNING]
 > The list below contains packages from thirdparty sources.
-
-### act-cli
-
-![act-cli status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/act-cli/status_image/last_build.png)
-
-[Upstream](https://github.com/goncalossilva/rpm-act.git)
 
 ### python-neovim
 
