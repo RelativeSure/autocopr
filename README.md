@@ -124,7 +124,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### mise
 
-#### version 2025.1.0
+#### version 2025.1.1
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 
@@ -140,7 +140,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### superfile
 
-#### version 1.1.7
+#### version 1.1.7.1
 
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 
@@ -164,7 +164,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### uv
 
-#### version 0.5.14
+#### version 0.5.15
 
 ![uv status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/uv/status_image/last_build.png)
 
