@@ -92,7 +92,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### lazygit
 
-#### version 0.44.1
+#### version 0.45.0
 
 ![lazygit status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazygit/status_image/last_build.png)
 
@@ -124,7 +124,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### mise
 
-#### version 2025.1.4
+#### version 2025.1.5
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 
@@ -132,7 +132,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### starship
 
-#### version 1.21.1
+#### version 1.22.1
 
 ![starship status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/starship/status_image/last_build.png)
 
@@ -164,7 +164,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### uv
 
-#### version 0.5.17
+#### version 0.5.18
 
 ![uv status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/uv/status_image/last_build.png)
 
