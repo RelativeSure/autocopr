@@ -36,7 +36,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### chezmoi
 
-#### version 2.57.0
+#### version 2.58.0
 
 ![chezmoi status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/chezmoi/status_image/last_build.png)
 
@@ -124,7 +124,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### mise
 
-#### version 2025.1.5
+#### version 2025.1.6
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 
