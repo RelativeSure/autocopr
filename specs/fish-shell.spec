@@ -19,8 +19,6 @@ and tab completions that just work, with nothing to learn or configure.
 %autosetup -c
 cp %{SOURCE1} README.md
 cp %{SOURCE2} LICENSE
-%prep
-%autosetup -c
 
 %install
 install -v -p -D %{name} %{buildroot}%{_bindir}/%{name}
@@ -33,5 +31,6 @@ install -v -p -D %{name}_key_reader %{buildroot}%{_bindir}/%{name}_key_reader
 %{_bindir}/%{name}
 +%{_bindir}/%{name}_indent
 +%{_bindir}/%{name}_key_reader
+
 %changelog
 %autochangelog
