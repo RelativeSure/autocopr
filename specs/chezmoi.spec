@@ -23,9 +23,7 @@ cp %{SOURCE2} LICENSE
 %build
 
 %install
-ls -la
 install -p -D %{name} %{buildroot}%{_bindir}/%{name}
-ls -la completions
 install -pvD -m 0644 completions/%{name}-completion.bash %{buildroot}%{bash_completions_dir}/%{name}.bash
 install -pvD -m 0644 completions/%{name}.zsh %{buildroot}%{zsh_completions_dir}/%{name}.zsh
 install -pvD -m 0644 completions/%{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
