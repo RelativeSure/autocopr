@@ -11,10 +11,14 @@ Source1: https://raw.githubusercontent.com/fish-shell/fish-shell/%{version}/READ
 Source2: https://raw.githubusercontent.com/fish-shell/fish-shell/%{version}/COPYING
 
 %description
-%{summary}
+Fish is a smart and user-friendly command line shell for Linux, macOS, and the rest
+of the family. Fish includes features like syntax highlighting, autosuggestions,
+and tab completions that just work, with nothing to learn or configure.
+
+%prep
+%autosetup -c
 cp %{SOURCE1} README.md
 cp %{SOURCE2} LICENSE
-
 %prep
 %autosetup -c
 
@@ -27,6 +31,7 @@ install -v -p -D %{name}_key_reader %{buildroot}%{_bindir}/%{name}_key_reader
 %doc README.md
 %license LICENSE
 %{_bindir}/%{name}
-
++%{_bindir}/%{name}_indent
++%{_bindir}/%{name}_key_reader
 %changelog
 %autochangelog
