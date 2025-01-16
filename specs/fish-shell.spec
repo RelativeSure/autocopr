@@ -29,8 +29,8 @@ install -v -p -D %{name}_key_reader %{buildroot}%{_bindir}/%{name}_key_reader
 %doc README.md
 %license LICENSE
 %{_bindir}/%{name}
-+%{_bindir}/%{name}_indent
-+%{_bindir}/%{name}_key_reader
+%{_bindir}/%{name}_indent
+%{_bindir}/%{name}_key_reader
 
 %changelog
 %autochangelog
