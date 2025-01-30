@@ -17,5 +17,5 @@ for file in $files_changed; do
 	filename_without_ext="${filename%.*}"
 	echo "Cleaned up $filename_without_ext by removing extension and specs folder"
 	echo "Sending copr webhook of package $filename_without_ext"
-	curl -X POST "$COPR_WEBHOOK/$file/"
+	curl -X POST "$COPR_WEBHOOK/$filename_without_ext/"
 done
