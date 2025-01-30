@@ -86,8 +86,6 @@ zig build \
 %{_prefix}/share/nvim/site/ftplugin/ghostty.vim
 %{_prefix}/share/nvim/site/syntax/ghostty.vim
 %{_prefix}/share/terminfo/g/ghostty
-%{_prefix}/share/terminfo/ghostty.termcap
-%{_prefix}/share/terminfo/ghostty.terminfo
 %{_prefix}/share/terminfo/x/xterm-ghostty
 %{_prefix}/share/vim/vimfiles/ftdetect/ghostty.vim
 %{_prefix}/share/vim/vimfiles/ftplugin/ghostty.vim
