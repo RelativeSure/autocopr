@@ -60,7 +60,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### ghostty
 
-#### version 1.0.1
+#### version 1.1.0
 
 ![ghostty status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/ghostty/status_image/last_build.png)
 
