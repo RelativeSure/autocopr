@@ -82,11 +82,14 @@ zig build \
 %{_prefix}/share/kio/servicemenus/com.mitchellh.ghostty.desktop
 %{_prefix}/share/man/man1/ghostty.1
 %{_prefix}/share/man/man5/ghostty.5
+%{_prefix}/share/nautilus-python/extensions/com.mitchellh.ghostty.py
+%{_prefix}/share/nvim/site/compiler/ghostty.vim
 %{_prefix}/share/nvim/site/ftdetect/ghostty.vim
 %{_prefix}/share/nvim/site/ftplugin/ghostty.vim
 %{_prefix}/share/nvim/site/syntax/ghostty.vim
 %{_prefix}/share/terminfo/g/ghostty
 %{_prefix}/share/terminfo/x/xterm-ghostty
+%{_prefix}/share/vim/vimfiles/compiler/ghostty.vim
 %{_prefix}/share/vim/vimfiles/ftdetect/ghostty.vim
 %{_prefix}/share/vim/vimfiles/ftplugin/ghostty.vim
 %{_prefix}/share/vim/vimfiles/syntax/ghostty.vim
