@@ -12,7 +12,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### act-cli
 
-#### version 0.2.71
+#### version 0.2.72
 
 ![act-cli status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/act-cli/status_image/last_build.png)
 
