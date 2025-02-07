@@ -68,7 +68,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### jj
 
-#### version 0.25.0
+#### version 0.26.0
 
 ![jj status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/jj/status_image/last_build.png)
 
@@ -116,7 +116,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### lua-language-server
 
-#### version 3.13.5
+#### version 3.13.6
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
@@ -164,7 +164,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### uv
 
-#### version 0.5.28
+#### version 0.5.29
 
 ![uv status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/uv/status_image/last_build.png)
 
