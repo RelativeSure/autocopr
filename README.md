@@ -36,7 +36,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### chezmoi
 
-#### version 2.59.0
+#### version 2.59.1
 
 ![chezmoi status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/chezmoi/status_image/last_build.png)
 
