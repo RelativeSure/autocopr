@@ -5,7 +5,7 @@
 %global tmp_dir /tmp/offline-cache
 
 Name:           ghostty
-Version:        1.1.0
+Version:        1.1.1
 Release:        1%{?dist}
 Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
 
@@ -29,7 +29,7 @@ BuildRequires: pixman-devel
 BuildRequires: pkg-config
 BuildRequires: zig
 BuildRequires: zlib-ng-devel
-
+BuildRequires: wayland-protocols-devel
 
 Requires: fontconfig
 Requires: freetype
@@ -43,7 +43,7 @@ Requires: pixman
 Requires: zlib-ng
 
 %description
-%{summary}.
+%{summary}
 
 %prep
 %setup -q -n ghostty-%{version}

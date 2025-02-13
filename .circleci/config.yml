@@ -1,23 +1,14 @@
 ---
 version: 2.1
-setup: true
-
-# define the parameters from the setup config.
-parameters:
-  megalinter:
-    type: boolean
-    default: false
 
 orbs:
-  path-filtering: circleci/path-filtering@1.1.0
+  megalinter: relativesure/megalinter@2.0.1
+
 workflows:
-  generate-config:
+  run-megalinter:
     jobs:
-      - path-filtering/filter:
-          # Examples: https://github.com/CircleCI-Public/dynamic-configuration-examples/tree/generate-config-file-main
-          base-revision: master
-          config-path: .circleci/no-updates.yml
-          resource_class: large
-          tag: "3.9"
-          mapping: |
-            .* megalinter true .circleci/megalinter.yml
+      - megalinter/run:
+          resource_class: relativesure/hetzner-ubuntu-kind
+          flavor: python
+          github_token: GH_PACKAGES_TOKEN
+          context: Main Context
