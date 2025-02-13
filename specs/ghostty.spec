@@ -49,7 +49,7 @@ Requires: zlib-ng
 %setup -q -n ghostty-%{version}
 
 %build
-ZIG_GLOBAL_CACHE_DIR=%{tmp_dir} ./nix/build-support/fetch-zig-cache.sh
+ZIG_GLOBAL_CACHE_DIR=%{tmp_dir} ./nix/build-support/check-zig-cache.sh
 zig build \
     --summary all \
     --prefix "%{buildroot}%{_prefix}" \
