@@ -164,7 +164,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### uv
 
-#### version 0.5.30
+#### version 0.5.31
 
 ![uv status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/uv/status_image/last_build.png)
 
