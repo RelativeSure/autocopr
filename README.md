@@ -84,7 +84,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### lazygit
 
-#### version 0.45.2
+#### version 0.46.0
 
 ![lazygit status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazygit/status_image/last_build.png)
 
@@ -92,7 +92,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### lazyjj
 
-#### version 0.4.2
+#### version 0.5.0
 
 ![lazyjj status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazyjj/status_image/last_build.png)
 
