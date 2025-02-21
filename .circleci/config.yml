@@ -8,7 +8,7 @@ workflows:
   run-megalinter:
     jobs:
       - megalinter/run:
-          resource_class: relativesure/hetzner-ubuntu-kind
           flavor: python
-          github_token: GH_PACKAGES_TOKEN
+          persist_megalinter_reports: true
+          run_git_operations: true
           context: Main Context
