@@ -2,7 +2,6 @@
 # Inspiration taken from https://gitlab.com/pgill/ghostty-rpm
 ###
 %global debug_package %{nil}
-%global tmp_dir /tmp/offline-cache
 
 Name:           ghostty
 Version:        1.1.2
@@ -46,21 +45,12 @@ Requires: zlib-ng
 %{summary}
 
 %prep
-ls -lah
 %setup -q -n ghostty-%{version}
 
 %build
-ls -lah
-echo "######"
-ls -lah ./nix/
-echo "######"
-ls -lah ./nix/build-support/
-echo "######"
-ZIG_GLOBAL_CACHE_DIR=%{tmp_dir} ./nix/build-support/fetch-zig-cache.sh
 zig build \
     --summary all \
     --prefix "%{buildroot}%{_prefix}" \
-    --system "%{tmp_dir}/p" \
     -Dversion-string=%{version}-%{release} \
     -Doptimize=ReleaseFast \
     -Dcpu=baseline \
@@ -90,7 +80,7 @@ ls -lah
 %{_prefix}/share/kio/servicemenus/com.mitchellh.ghostty.desktop
 %{_prefix}/share/man/man1/ghostty.1
 %{_prefix}/share/man/man5/ghostty.5
-%{_prefix}/share/nautilus-python/extensions/com.mitchellh.ghostty.py
+%{_prefix}/share/nautilus-python/extensions/ghostty.py
 %{_prefix}/share/nvim/site/compiler/ghostty.vim
 %{_prefix}/share/nvim/site/ftdetect/ghostty.vim
 %{_prefix}/share/nvim/site/ftplugin/ghostty.vim
