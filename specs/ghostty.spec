@@ -46,9 +46,11 @@ Requires: zlib-ng
 %{summary}
 
 %prep
+ls -lah
 %setup -q -n ghostty-%{version}
 
 %build
+ls -lah
 ZIG_GLOBAL_CACHE_DIR=%{tmp_dir} ./nix/build-support/fetch-zig-cache.sh
 zig build \
     --summary all \
@@ -59,6 +61,7 @@ zig build \
     -Dcpu=baseline \
     -Dpie=true \
     -Demit-docs
+ls -lah
 
 
 %files
