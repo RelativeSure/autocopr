@@ -51,6 +51,11 @@ ls -lah
 
 %build
 ls -lah
+echo "######"
+ls -lah ./nix/
+echo "######"
+ls -lah ./nix/build-support/
+echo "######"
 ZIG_GLOBAL_CACHE_DIR=%{tmp_dir} ./nix/build-support/fetch-zig-cache.sh
 zig build \
     --summary all \
