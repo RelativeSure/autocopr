@@ -5,7 +5,7 @@
 %global tmp_dir /tmp/offline-cache
 
 Name:           ghostty
-Version:        1.1.1
+Version:        1.1.2
 Release:        1%{?dist}
 Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
 
@@ -49,7 +49,7 @@ Requires: zlib-ng
 %setup -q -n ghostty-%{version}
 
 %build
-ZIG_GLOBAL_CACHE_DIR=%{tmp_dir} ./nix/build-support/check-zig-cache.sh
+ZIG_GLOBAL_CACHE_DIR=%{tmp_dir} ./nix/build-support/fetch-zig-cache.sh
 zig build \
     --summary all \
     --prefix "%{buildroot}%{_prefix}" \
