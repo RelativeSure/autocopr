@@ -38,8 +38,11 @@ ID = str
 def update_cache(
     id_cache: Path, specs: list[OwnerName], session: requests.Session
 ) -> list[tuple[OwnerName, ID]]:
-    """Given a list of specs, request headers, id cache, and session,
-    load the cache of id keys and fetch any new ones from GraphQl"""
+    """
+    Ensures all given repository specs have cached GitHub node IDs, fetching and caching any missing IDs.
+    
+    Loads the repository ID cache from the specified file, queries the GitHub GraphQL API for any missing repository node IDs, updates the cache as needed, and returns a list pairing each spec with its corresponding node ID.
+    """
 
     if id_cache.exists():
         with open(id_cache) as cache:
@@ -110,6 +113,17 @@ def get_latest_versions(
 ) -> dict[OwnerName, Latest]:
     # Special case this because the response won't have any data and will
     # throw a key error. On all other instances we will have data.
+    """
+    Fetches the latest release information for a list of GitHub repositories by node ID.
+    
+    Queries the GitHub GraphQL API for each repository's latest release tag and URL, returning a mapping from repository spec to its latest release. Logs warnings and skips entries if the API response is malformed or if release data is missing.
+    
+    Args:
+        spec_ids: List of (OwnerName, node ID) tuples for the repositories to query.
+    
+    Returns:
+        A dictionary mapping each OwnerName to its corresponding Latest release object. If no valid data is found, returns an empty dictionary.
+    """
     if len(spec_ids) == 0:
         return {}
 
@@ -161,8 +175,24 @@ def get_latest_versions(
 def latest_versions(
     specs: list[OwnerName], token: str, id_cache: Path
 ) -> dict[OwnerName, Latest]:
-    """Given a list of specs, a github token, and a location to load and store
-    a cache of GraphQL ids, get the latest versions for all the specs given."""
+    """
+    Retrieves the latest release information for a list of GitHub repositories.
+    
+    Given a list of repository specifications, a GitHub access token, and a cache file path,
+    this function ensures all repositories have cached node IDs, fetches the latest release
+    data for each, and returns a mapping from repository spec to its latest release.
+    
+    Args:
+        specs: List of repository specifications as (owner, name) tuples.
+        token: GitHub personal access token for authentication.
+        id_cache: Path to the local cache file for repository node IDs.
+    
+    Returns:
+        A dictionary mapping each repository spec to its latest release information.
+    
+    Raises:
+        SystemExit: If any repository spec is missing a node ID after cache update.
+    """
 
     with requests.Session() as session:
         session.headers.update(
