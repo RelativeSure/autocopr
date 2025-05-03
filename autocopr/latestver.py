@@ -58,7 +58,12 @@ def get_latest_versions(
 def _graphql(
     specs: list[SpecData], token: str, id_cache: Path
 ) -> list[tuple[SpecData, Latest]]:
-    """Use the graphql API. Will exit the program if fetching fails."""
+    """
+    Fetches the latest version information for each spec using the GitHub GraphQL API.
+    
+    If any spec's latest version cannot be retrieved, logs a warning and exits the program.
+    Returns a list of (SpecData, Latest) tuples for successfully fetched specs.
+    """
     ownerNames = [spec.ownerName for spec in specs]
     latest = githubapi.graphql.latest_versions(ownerNames, token, id_cache)
 
@@ -74,7 +79,12 @@ def _graphql(
 def _rest(
     specs: list[SpecData], token: Optional[str] = None
 ) -> list[tuple[SpecData, Latest]]:
-    """Use the REST api. Will exit the program if fetching fails."""
+    """
+    Fetches the latest version information for each spec using the GitHub REST API.
+    
+    If any spec fails to retrieve its latest version, logs a warning and exits the program.
+    Returns a list of (SpecData, Latest) tuples for successfully fetched specs.
+    """
     with requests.Session() as s:
         if token:
             s.headers.update({"Authorization": f"Bearer {token}"})
