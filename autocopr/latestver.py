@@ -2,9 +2,10 @@ import logging
 from pathlib import Path
 from typing import Optional
 
+import requests
+
 import githubapi.graphql
 import githubapi.rest
-import requests
 from autocopr.specdata import SpecData
 from githubapi.latest import Latest
 
@@ -57,22 +58,39 @@ def get_latest_versions(
 def _graphql(
     specs: list[SpecData], token: str, id_cache: Path
 ) -> list[tuple[SpecData, Latest]]:
-    """Use the graphql API."""
+    """Use the graphql API. Will exit the program if fetching fails."""
     ownerNames = [spec.ownerName for spec in specs]
     latest = githubapi.graphql.latest_versions(ownerNames, token, id_cache)
+
+    missing_specs = [spec.loc for spec in specs if spec.ownerName not in latest]
+
+    if len(missing_specs) != 0:
+        logging.warning(f"{missing_specs} had errors, exiting...")
+        exit(1)
 
     return [(spec, latest[key]) for spec in specs if (key := spec.ownerName) in latest]
 
 
-def _rest(specs: list[SpecData], token: Optional[str]) -> list[tuple[SpecData, Latest]]:
-    """Use the REST api."""
+def _rest(
+    specs: list[SpecData], token: Optional[str] = None
+) -> list[tuple[SpecData, Latest]]:
+    """Use the REST api. Will exit the program if fetching fails."""
     with requests.Session() as s:
         if token:
             s.headers.update({"Authorization": f"Bearer {token}"})
 
-        return [
-            (spec, latest_ver)
-            for spec in specs
-            if (latest_ver := githubapi.rest.get_latest_version(spec.ownerName, s))
-            is not None
-        ]
+        latest_vers = []
+        errors = []
+        for spec in specs:
+            latest_ver = githubapi.rest.get_latest_version(spec.ownerName, s)
+
+            if latest_ver is None:
+                errors.append(spec)
+            else:
+                latest_vers.append((spec, latest_ver))
+
+        if len(errors) != 0:
+            logging.warning(f"{errors} had errors, exiting...")
+            exit(1)
+
+        return latest_vers
