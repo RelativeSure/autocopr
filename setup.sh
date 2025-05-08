@@ -36,7 +36,8 @@ cat > /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:relativesure:all-packages
 name=Copr repo for all-packages owned by relativesure baseurl=https://download.copr.fedorainfracloud.org/results/relativesure/all-packages/fedora-$releasever-$basearch/
 type=rpm-md
 skip_if_unavailable=True
-gpgcheck=1 gpgkey=https://download.copr.fedorainfracloud.org/results/relativesure/all-packages/pubkey.gpg
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/relativesure/all-packages/pubkey.gpg
 repo_gpgcheck=0
 enabled=1
 enabled_metadata=1
