@@ -44,3 +44,6 @@ install -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/
 %files
 %{_bindir}/k9s
 %license %{_datadir}/licenses/%{name}/LICENSE
+
+%changelog
+%autochangelog
