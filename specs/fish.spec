@@ -48,11 +48,11 @@ cp %{SOURCE2} LICENSE
 -%config(noreplace) /usr/etc/fish/config.fish
 +%config(noreplace) %{_sysconfdir}/fish/config.fish
 %{_datadir}/applications/fish.desktop
-%{_datadir}/doc/fish
-%{_datadir}/fish
-%{_datadir}/man/man1/*.gz
+%{_docdir}/fish/
+%{_datadir}/fish/
+%{_mandir}/man1/fish*.1*
 %{_datadir}/pixmaps/fish.png
-%{_datadir}/pkgconfig/fish.pc
+%{_libdir}/pkgconfig/fish.pc
 
 %changelog
 %autochangelog
