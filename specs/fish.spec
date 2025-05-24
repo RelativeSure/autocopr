@@ -6,7 +6,6 @@ Release: 1%{?dist}
 Summary: The user-friendly command line shell.
 
 License: MIT
-# https://github.com/fish-shell/fish-shell/releases/download/4.0.2/fish-4.0.2.tar.xz
 URL:     https://github.com/fish-shell/fish-shell
 Source:  %{url}/releases/download/%{version}/fish-%{version}.tar.xz
 Source1: https://raw.githubusercontent.com/fish-shell/fish-shell/%{version}/README.rst
@@ -27,22 +26,16 @@ and tab completions that just work, with nothing to learn or configure.
 
 
 %prep
-# %autosetup -c
 %setup -q -n %{name}-%{version}
 cp %{SOURCE1} README.md
 cp %{SOURCE2} LICENSE
 
 %build
-# cd %{name}-%{version}
 %cmake
 %cmake_build
-# ls -larth
-ls -larth build || true
 
 %install
 %cmake_install
-# ls -larth %{_datadir} || true
-# ls -larth %{_bindir} || true
 
 %files
 %doc README.md
