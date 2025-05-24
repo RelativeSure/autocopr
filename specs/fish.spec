@@ -1,37 +1,128 @@
 %global debug_package %{nil}
 
-Name:    fish
-Version: 4.0.2
-Release: 1%{?dist}
-Summary: The user-friendly command line shell.
+Summary:                Friendly interactive shell
+Name:                   fish
 
-License: MIT
-URL:     https://github.com/fish-shell/fish-shell
-Source:  %{url}/releases/download/%{version}/fish-static-amd64-%{version}.tar.xz
-Source1: https://raw.githubusercontent.com/fish-shell/fish-shell/%{version}/README.rst
-Source2: https://raw.githubusercontent.com/fish-shell/fish-shell/%{version}/COPYING
+Version:                4.0.2
+Release:                0.%{?dist}
+
+License:                GPL-2.0-only AND GPL-2.0-or-later AND BSD-2-Clause AND PSF-2.0 AND ISC AND MIT
+Group:                  System/Shells
+URL:                    https://fishshell.com/
+
+Source0:                %{name}_%{version}.orig.tar.xz
+Source1:                %{name}_%{version}.orig-cargo-vendor.tar.xz
+BuildRequires:          cargo gettext gcc xz pcre2-devel
+BuildRequires:          rust >= 1.70
+# Packaging guidelines say to use a BuildRequires: rust-packaging, but it adds no value for our package
+
+BuildRequires: cmake >= 3.15
+
+%if 0%{?suse_version}
+# for tests
+BuildRequires: groff
+%else
+BuildRequires: groff-base
+%endif
+
+# for tests
+%if 0%{?fedora}
+# Need the en_US.utf-8 locale at a minimum
+BuildRequires: glibc-langpack-en
+%endif
+BuildRequires: python3 procps
+
+%if 0%{?suse_version}
+Requires:      terminfo-base groff
+%else
+Requires:      ncurses-base groff-base
+%endif
+Requires:      file
+Requires:      python3
+Requires:      procps
+
+# Although the build scripts mangle the version number to be RPM compatible
+# for continuous builds (transforming the output of `git describe`), Fedora 32+
+# also validates the version inside the pkgconfig file. There's no impetus for this
+# with fish.
+%define _wrong_version_format_terminate_build 0
 
 %description
-Fish is a smart and user-friendly command line shell for Linux, macOS, and the rest
-of the family. Fish includes features like syntax highlighting, autosuggestions,
-and tab completions that just work, with nothing to learn or configure.
+
+fish is a shell geared towards interactive use. Its features are
+focused on user friendliness and discoverability. The language syntax
+is simple but incompatible with other shell languages.
 
 %prep
-%autosetup -c
-cp %{SOURCE1} README.md
-cp %{SOURCE2} LICENSE
+# Unpack the source tarball and overlay the vendor tarball
+%setup -q -n %{name}-%{version} -a 1
+# Should use cargo_prep here, it overrides our vendor config changes though
+
+%build
+export CARGO_NET_OFFLINE=true
+# CMake macros define the wrong sysconfdir arguments
+EXTRA_CMAKE_FLAGS="$EXTRA_CMAKE_FLAGS -DCMAKE_INSTALL_SYSCONFDIR=%{_sysconfdir} -DCMAKE_INSTALL_DOCDIR=%{_docdir}/fish"
+%cmake $EXTRA_CMAKE_FLAGS
+%if 0%{?cmake_build:1}
+%cmake_build
+%else
+make %{?_smp_mflags}
+%endif
 
 %install
-install -v -p -D %{name} %{buildroot}%{_bindir}/%{name}
-install -v -p -D %{name}_indent %{buildroot}%{_bindir}/%{name}_indent
-install -v -p -D %{name}_key_reader %{buildroot}%{_bindir}/%{name}_key_reader
+%if 0%{?cmake_install:1}
+%cmake_install
+%else
+%make_install
+%endif
+%find_lang %{name}
 
-%files
-%doc README.md
-%license LICENSE
-%{_bindir}/%{name}
-%{_bindir}/%{name}_indent
-%{_bindir}/%{name}_key_reader
+%check
+# OpenSUSE does out-of-tree builds and defines __builddir
+%if 0%{?__builddir:1}
+cd %__builddir
+%endif
+# Fedora uses __cmake_builddir
+%if 0%{?__cmake_builddir:1}
+cd %__cmake_builddir
+%endif
+make fish_run_tests
 
-%changelog
-%autochangelog
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%post
+# Add fish to the list of allowed shells in /etc/shells
+if ! grep %{_bindir}/fish %{_sysconfdir}/shells >/dev/null; then
+    echo %{_bindir}/fish >>%{_sysconfdir}/shells
+fi
+
+%postun
+# Remove fish from the list of allowed shells in /etc/shells
+if [ "$1" = 0 ]; then
+    grep -v %{_bindir}/fish %{_sysconfdir}/shells >%{_sysconfdir}/fish.tmp
+    mv %{_sysconfdir}/fish.tmp %{_sysconfdir}/shells
+fi
+
+%files -f %{name}.lang
+%defattr(-,root,root,-)
+
+# The documentation directory
+%doc %{_docdir}/fish
+%doc CONTRIBUTING.rst README.rst
+
+# man files
+%{_mandir}/man1/*
+
+# The program binaries
+%attr(0755,root,root) %{_bindir}/*
+
+# Configuration files
+%dir %{_sysconfdir}/fish/
+%config(noreplace) %{_sysconfdir}/fish/config.fish
+
+# Support files
+%{_datadir}/fish/
+
+# pkgconfig
+%{_datadir}/pkgconfig/fish.pc
