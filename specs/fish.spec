@@ -6,6 +6,11 @@ Release: 1%{?dist}
 Summary: The user-friendly command line shell.
 
 License: MIT
+Requires:      ncurses-base
+Requires:      file
+Requires:      python3
+Requires:      man
+Requires:      procps-ng
 URL:     https://github.com/fish-shell/fish-shell
 Source:  %{url}/releases/download/%{version}/fish-static-amd64-%{version}.tar.xz
 Source1: https://raw.githubusercontent.com/fish-shell/fish-shell/%{version}/README.rst
@@ -26,12 +31,78 @@ install -v -p -D %{name} %{buildroot}%{_bindir}/%{name}
 install -v -p -D %{name}_indent %{buildroot}%{_bindir}/%{name}_indent
 install -v -p -D %{name}_key_reader %{buildroot}%{_bindir}/%{name}_key_reader
 
+# Create standard directories
+install -d -m0755 %{buildroot}%{_docdir}/fish
+install -d -m0755 %{buildroot}%{_mandir}/man1
+install -d -m0755 %{buildroot}%{_sysconfdir}/fish/conf.d
+install -d -m0755 %{buildroot}%{_datadir}/fish
+install -d -m0755 %{buildroot}%{_datadir}/pkgconfig
+install -d -m0755 %{buildroot}%{_datadir}/applications
+install -d -m0755 %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
+
+# Install docs (README.md and LICENSE are already in build root's top by %prep)
+install -p -m0644 README.md LICENSE %{buildroot}%{_docdir}/fish/
+
+# Install man pages
+# Assuming they are in fish-static-amd64-%{version}/share/man/man1/
+if [ -d fish-static-amd64-%{version}/share/man/man1 ]; then
+  cp -a fish-static-amd64-%{version}/share/man/man1/. %{buildroot}%{_mandir}/man1/
+fi
+
+# Install fish data (completions, functions, etc.)
+# Assuming they are in fish-static-amd64-%{version}/share/fish/
+if [ -d fish-static-amd64-%{version}/share/fish ]; then
+  cp -a fish-static-amd64-%{version}/share/fish/. %{buildroot}%{_datadir}/fish/
+fi
+
+# Install pkgconfig file
+# Assuming it is fish-static-amd64-%{version}/share/pkgconfig/fish.pc
+if [ -f fish-static-amd64-%{version}/share/pkgconfig/fish.pc ]; then
+  install -p -m0644 fish-static-amd64-%{version}/share/pkgconfig/fish.pc %{buildroot}%{_datadir}/pkgconfig/
+fi
+
+# Install desktop file
+# Assuming it is fish-static-amd64-%{version}/share/applications/fish.desktop
+if [ -f fish-static-amd64-%{version}/share/applications/fish.desktop ]; then
+  install -p -m0644 fish-static-amd64-%{version}/share/applications/fish.desktop %{buildroot}%{_datadir}/applications/
+fi
+
+# Install icon
+# Assuming it is fish-static-amd64-%{version}/share/icons/hicolor/scalable/apps/fish.svg
+if [ -f fish-static-amd64-%{version}/share/icons/hicolor/scalable/apps/fish.svg ]; then
+  install -p -m0644 fish-static-amd64-%{version}/share/icons/hicolor/scalable/apps/fish.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/
+fi
+
 %files
 %doc README.md
 %license LICENSE
 %{_bindir}/%{name}
 %{_bindir}/%{name}_indent
 %{_bindir}/%{name}_key_reader
+%doc %{_docdir}/fish
+%{_mandir}/man1/*
+%dir %{_sysconfdir}/fish
+%dir %{_sysconfdir}/fish/conf.d
+%{_datadir}/fish/
+%ghost %{_datadir}/fish/generated_completions # May be created at runtime
+%{_datadir}/pkgconfig/fish.pc
+%{_datadir}/applications/fish.desktop
+%{_datadir}/icons/hicolor/scalable/apps/fish.svg
+
+%post
+# Add fish to the list of allowed shells in /etc/shells
+if ! grep %{_bindir}/fish %{_sysconfdir}/shells >/dev/null; then
+    echo %{_bindir}/fish >>%{_sysconfdir}/shells
+fi
+
+%postun
+# Remove fish from the list of allowed shells in /etc/shells
+if [ "$1" = 0 ]; then # Check if it's a final removal (package uninstall)
+    # Create a temporary file excluding the fish shell entry
+    grep -v %{_bindir}/fish %{_sysconfdir}/shells > %{_sysconfdir}/shells.tmp
+    # Replace the original /etc/shells with the temporary file
+    mv %{_sysconfdir}/shells.tmp %{_sysconfdir}/shells
+fi
 
 %changelog
 %autochangelog
