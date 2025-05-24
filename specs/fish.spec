@@ -12,33 +12,53 @@ Source:  %{url}/releases/download/%{version}/fish-%{version}.tar.xz
 Source1: https://raw.githubusercontent.com/fish-shell/fish-shell/%{version}/README.rst
 Source2: https://raw.githubusercontent.com/fish-shell/fish-shell/%{version}/COPYING
 
+BuildRequires: cmake >= 3.19
+BuildRequires: cargo >= 1.40
+BuildRequires: rust >= 1.40
+BuildRequires: gcc
+BuildRequires: gcc-c++
+BuildRequires: ncurses-devel
+BuildRequires: pcre2-devel
+
 %description
 Fish is a smart and user-friendly command line shell for Linux, macOS, and the rest
 of the family. Fish includes features like syntax highlighting, autosuggestions,
 and tab completions that just work, with nothing to learn or configure.
 
+
 %prep
-%autosetup -c
+# %autosetup -c
+%setup -q -n %{name}-%{version}
 cp %{SOURCE1} README.md
 cp %{SOURCE2} LICENSE
 
-%install
-ls -larth
-ls -larth %{name}-%{version} || true
-ls -larth %{name}-%{version}/* || true
-ls -larth %{buildroot} || true
-ls -larth %{buildroot}%{_bindir} || true
+%build
+# cd %{name}-%{version}
+%cmake
+%cmake_build
+# ls -larth
+ls -larth build || true
 
-install -v -p -D %{name} %{buildroot}%{_bindir}/%{name}
-install -v -p -D %{name}_indent %{buildroot}%{_bindir}/%{name}_indent
-install -v -p -D %{name}_key_reader %{buildroot}%{_bindir}/%{name}_key_reader
+%install
+%cmake_install
+# ls -larth %{_datadir} || true
+# ls -larth %{_bindir} || true
 
 %files
 %doc README.md
 %license LICENSE
-%{_bindir}/%{name}
-%{_bindir}/%{name}_indent
-%{_bindir}/%{name}_key_reader
+# Executable files
+%{_bindir}/fish
+%{_bindir}/fish_indent
+%{_bindir}/fish_key_reader
+# Config files and folders
+%config(noreplace) /usr/etc/fish/config.fish
+%{_datadir}/applications/fish.desktop
+%{_datadir}/doc/fish
+%{_datadir}/fish
+%{_datadir}/man/man1/*.gz
+%{_datadir}/pixmaps/fish.png
+%{_datadir}/pkgconfig/fish.pc
 
 %changelog
 %autochangelog
