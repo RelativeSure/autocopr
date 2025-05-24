@@ -36,8 +36,6 @@ cp %{SOURCE2} LICENSE
 
 %install
 %cmake_install
-ls -l %{buildroot}/usr/etc/fish/ || true
-find %{buildroot} -name config.fish
 
 # Move config.fish from /usr/etc/fish/ to /etc/fish/ in the buildroot
 if [ -f %{buildroot}/usr/etc/fish/config.fish ]; then
