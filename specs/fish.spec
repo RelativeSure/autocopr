@@ -31,47 +31,56 @@ install -v -p -D %{name} %{buildroot}%{_bindir}/%{name}
 install -v -p -D %{name}_indent %{buildroot}%{_bindir}/%{name}_indent
 install -v -p -D %{name}_key_reader %{buildroot}%{_bindir}/%{name}_key_reader
 
-# Create standard directories
-install -d -m0755 %{buildroot}%{_docdir}/fish
-install -d -m0755 %{buildroot}%{_mandir}/man1
-install -d -m0755 %{buildroot}%{_sysconfdir}/fish/conf.d
+# Create a temporary directory for XDG_DATA_HOME
+install -d -m0755 %{buildroot}/temp_xdg_data_home
+
+# Run fish --install to extract data files
+XDG_DATA_HOME=%{buildroot}/temp_xdg_data_home %{buildroot}%{_bindir}/fish --install
+
+# Define the assumed base path where fish --install extracts files
+# This is typically $XDG_DATA_HOME/fish/install/
+EXTRACT_BASE_PATH="%{buildroot}/temp_xdg_data_home/fish/install"
+
+# Create standard target directories
 install -d -m0755 %{buildroot}%{_datadir}/fish
 install -d -m0755 %{buildroot}%{_datadir}/pkgconfig
 install -d -m0755 %{buildroot}%{_datadir}/applications
-install -d -m0755 %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
+install -d -m0755 %{buildroot}%{_datadir}/icons/hicolor/scalable/apps # Assuming SVG, adjust if PNG in pixmaps
+install -d -m0755 %{buildroot}%{_mandir}/man1
+install -d -m0755 %{buildroot}%{_docdir}/fish
+install -d -m0755 %{buildroot}%{_sysconfdir}/fish/conf.d
 
-# Install docs (README.md and LICENSE are already in build root's top by %prep)
-install -p -m0644 README.md LICENSE %{buildroot}%{_docdir}/fish/
-
-# Install man pages
-# Assuming they are in fish-static-amd64-%{version}/share/man/man1/
-if [ -d fish-static-amd64-%{version}/share/man/man1 ]; then
-  cp -a fish-static-amd64-%{version}/share/man/man1/. %{buildroot}%{_mandir}/man1/
+# Move extracted files to their final destinations
+# Fish data (completions, functions, etc.)
+if [ -d "${EXTRACT_BASE_PATH}/share/fish" ]; then
+  mv "${EXTRACT_BASE_PATH}/share/fish/"* %{buildroot}%{_datadir}/fish/
 fi
 
-# Install fish data (completions, functions, etc.)
-# Assuming they are in fish-static-amd64-%{version}/share/fish/
-if [ -d fish-static-amd64-%{version}/share/fish ]; then
-  cp -a fish-static-amd64-%{version}/share/fish/. %{buildroot}%{_datadir}/fish/
+# Man pages
+if [ -d "${EXTRACT_BASE_PATH}/share/man/man1" ]; then
+  mv "${EXTRACT_BASE_PATH}/share/man/man1/"* %{buildroot}%{_mandir}/man1/
 fi
 
-# Install pkgconfig file
-# Assuming it is fish-static-amd64-%{version}/share/pkgconfig/fish.pc
-if [ -f fish-static-amd64-%{version}/share/pkgconfig/fish.pc ]; then
-  install -p -m0644 fish-static-amd64-%{version}/share/pkgconfig/fish.pc %{buildroot}%{_datadir}/pkgconfig/
+# Pkgconfig file
+if [ -f "${EXTRACT_BASE_PATH}/share/pkgconfig/fish.pc" ]; then
+  mv "${EXTRACT_BASE_PATH}/share/pkgconfig/fish.pc" %{buildroot}%{_datadir}/pkgconfig/
 fi
 
-# Install desktop file
-# Assuming it is fish-static-amd64-%{version}/share/applications/fish.desktop
-if [ -f fish-static-amd64-%{version}/share/applications/fish.desktop ]; then
-  install -p -m0644 fish-static-amd64-%{version}/share/applications/fish.desktop %{buildroot}%{_datadir}/applications/
+# Desktop file
+if [ -f "${EXTRACT_BASE_PATH}/share/applications/fish.desktop" ]; then
+  mv "${EXTRACT_BASE_PATH}/share/applications/fish.desktop" %{buildroot}%{_datadir}/applications/
 fi
 
-# Install icon
-# Assuming it is fish-static-amd64-%{version}/share/icons/hicolor/scalable/apps/fish.svg
-if [ -f fish-static-amd64-%{version}/share/icons/hicolor/scalable/apps/fish.svg ]; then
-  install -p -m0644 fish-static-amd64-%{version}/share/icons/hicolor/scalable/apps/fish.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/
+# Icon file (assuming SVG)
+if [ -f "${EXTRACT_BASE_PATH}/share/icons/hicolor/scalable/apps/fish.svg" ]; then
+  mv "${EXTRACT_BASE_PATH}/share/icons/hicolor/scalable/apps/fish.svg" %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/
 fi
+
+# Install actual documentation (README.md and LICENSE from %prep)
+install -v -p -m0644 README.md LICENSE %{buildroot}%{_docdir}/fish/
+
+# Cleanup temporary directory
+rm -rf %{buildroot}/temp_xdg_data_home
 
 %files
 %doc README.md
@@ -84,7 +93,9 @@ fi
 %dir %{_sysconfdir}/fish
 %dir %{_sysconfdir}/fish/conf.d
 %{_datadir}/fish/
-%ghost %{_datadir}/fish/generated_completions # May be created at runtime
+# The following line is for files that may be created by fish at runtime.
+# These are not present at build time but should be owned by the package.
+%ghost %{_datadir}/fish/generated_completions
 %{_datadir}/pkgconfig/fish.pc
 %{_datadir}/applications/fish.desktop
 %{_datadir}/icons/hicolor/scalable/apps/fish.svg
