@@ -24,8 +24,10 @@ cp %{SOURCE2} LICENSE
 
 %install
 ls -larth
-ls -larth %{buildroot}
-ls -larth %{buildroot}%{_bindir}
+ls -larth %{name}-%{version} || true
+ls -larth %{name}-%{version}/* || true
+ls -larth %{buildroot} || true
+ls -larth %{buildroot}%{_bindir} || true
 
 install -v -p -D %{name} %{buildroot}%{_bindir}/%{name}
 install -v -p -D %{name}_indent %{buildroot}%{_bindir}/%{name}_indent
