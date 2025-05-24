@@ -45,14 +45,13 @@ cp %{SOURCE2} LICENSE
 %{_bindir}/fish_indent
 %{_bindir}/fish_key_reader
 # Config files and folders
--%config(noreplace) /usr/etc/fish/config.fish
-+%config(noreplace) %{_sysconfdir}/fish/config.fish
+%config(noreplace) %{_sysconfdir}/fish/config.fish
 %{_datadir}/applications/fish.desktop
 %{_docdir}/fish/
 %{_datadir}/fish/
 %{_mandir}/man1/fish*.1*
 %{_datadir}/pixmaps/fish.png
-%{_libdir}/pkgconfig/fish.pc
+%{_datadir}/pkgconfig/fish.pc
 
 %changelog
 %autochangelog
