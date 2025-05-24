@@ -36,22 +36,45 @@ cp %{SOURCE2} LICENSE
 
 %install
 %cmake_install
+ls -l %{buildroot}/usr/etc/fish/ || true
+find %{buildroot} -name config.fish
+
+# Move config.fish from /usr/etc/fish/ to /etc/fish/ in the buildroot
+if [ -f %{buildroot}/usr/etc/fish/config.fish ]; then
+    mkdir -p %{buildroot}%{_sysconfdir}/fish
+    mv %{buildroot}/usr/etc/fish/config.fish %{buildroot}%{_sysconfdir}/fish/config.fish
+fi
 
 %files
-%doc README.md
+# Documentation
+%doc %{_docdir}/fish
+%doc CONTRIBUTING.rst README.rst
 %license LICENSE
 # Executable files
-%{_bindir}/fish
-%{_bindir}/fish_indent
-%{_bindir}/fish_key_reader
+%attr(0755,root,root) %{_bindir}/fish
+%attr(0755,root,root) %{_bindir}/fish_indent
+%attr(0755,root,root) %{_bindir}/fish_key_reader
 # Config files and folders
+%dir %{_sysconfdir}/fish/
 %config(noreplace) %{_sysconfdir}/fish/config.fish
 %{_datadir}/applications/fish.desktop
-%{_docdir}/fish/
 %{_datadir}/fish/
 %{_mandir}/man1/fish*.1*
 %{_datadir}/pixmaps/fish.png
 %{_datadir}/pkgconfig/fish.pc
+
+%post
+# Add fish to the list of allowed shells in /etc/shells
+if ! grep %{_bindir}/fish %{_sysconfdir}/shells >/dev/null; then
+    echo %{_bindir}/fish >>%{_sysconfdir}/shells
+fi
+
+%postun
+# Remove fish from the list of allowed shells in /etc/shells
+if [ "$1" = 0 ]; then
+    grep -v %{_bindir}/fish %{_sysconfdir}/shells >%{_sysconfdir}/fish.tmp
+    mv %{_sysconfdir}/fish.tmp %{_sysconfdir}/shells
+fi
 
 %changelog
 %autochangelog
