@@ -11,8 +11,6 @@ Source0: %{URL}/releases/download/%{version}/switcher_linux_amd64
 Source1: https://raw.githubusercontent.com/danielfoehrKn/kubeswitch/%{version}/README.md
 Source2: https://raw.githubusercontent.com/danielfoehrKn/kubeswitch/%{version}/LICENSE
 
-BuildArch: x86_64
-
 %description
 %{summary}
 
