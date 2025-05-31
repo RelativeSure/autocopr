@@ -22,10 +22,12 @@ cp %{SOURCE2} LICENSE
 
 %install
 install -v -p -D %{name} %{buildroot}%{_bindir}/%{name}
+install -D -m 0644 README.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
 %files
-%doc README.md
-%license LICENSE
+%doc %{_docdir}/%{name}/README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_bindir}/%{name}
 
 %changelog

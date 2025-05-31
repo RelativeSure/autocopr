@@ -42,8 +42,10 @@ rm -f %{buildroot}%{_prefix}/.crates.toml \
     %{buildroot}%{_prefix}/.crates2.json
 strip --strip-all %{buildroot}%{_bindir}/*
 
+install -D -m 0644 README.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
 %files
-#%license LICENSE.md
-#%doc README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
+%doc %{_docdir}/%{name}/README.md
 %{_bindir}/%{name}

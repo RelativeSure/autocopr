@@ -20,11 +20,13 @@ cp %{SOURCE2} .
 
 %install
 install -D -m 0755 %{SOURCE0} %{buildroot}%{_bindir}/kubeswitch
+install -D -m 0644 README.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
 %files
 %{_bindir}/kubeswitch
-%license LICENSE
-%doc README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
+%doc %{_docdir}/%{name}/README.md
 
 %changelog
 %autochangelog

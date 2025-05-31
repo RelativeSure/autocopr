@@ -26,10 +26,12 @@ cp %{SOURCE2} LICENSE
 install -p -D %{name} %{buildroot}%{_bindir}/%{name}
 install -p -D %{name} %{buildroot}%{_bindir}/%{name}-migrate
 install -p -D %{name} %{buildroot}%{_bindir}/%{name}-shim
+install -D -m 0644 CONFIGURATION.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
 %files
-%doc CONFIGURATION.md
-%license LICENSE
+%doc %{_docdir}/%{name}/README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_bindir}/%{name}
 %{_bindir}/%{name}-migrate
 %{_bindir}/%{name}-shim

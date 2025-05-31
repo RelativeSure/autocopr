@@ -41,12 +41,14 @@ go build \
 %install
 rm -rf %{buildroot} && mkdir -p %{buildroot}%{_bindir}/ && cd act-%{version}
 install -m 0755 act %{buildroot}%{_bindir}/act
+install -D -m 0644 README.md %{buildroot}%{_docdir}/act/README.md
 mkdir -p %{buildroot}%{_datadir}/licenses/%{name}/
-install -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/
+install -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
 %verifyscript
 %{buildroot}%{_bindir}/act --version
 
 %files
 %{_bindir}/act
+%doc %{_docdir}/act/README.md
 %license %{_datadir}/licenses/%{name}/LICENSE

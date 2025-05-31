@@ -38,9 +38,12 @@ cp -av \
 ls -la %{buildroot}%{_datadir}/%{name}/
 install -d -m 0755 %{buildroot}%{_bindir}
 
+install -D -m 0644 CONFIGURATION.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
+
 %files
-%doc CONFIGURATION.md
-%license LICENSE
+%doc %{_docdir}/%{name}/README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_libexecdir}/%{name}/
 %{_datadir}/%{name}/
 

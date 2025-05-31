@@ -33,7 +33,13 @@ install -pvD -m 0644 completion/_%{binary_name} %{buildroot}%{zsh_completions_di
 # Manpage
 install -v -p -D -m 0644 %{binary_name}.1.gz %{buildroot}%{_mandir}/man1/%{binary_name}.1.gz
 
+# Docs and License
+install -D -m 0644 README.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
+
 %files
+%doc %{_docdir}/%{name}/README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_bindir}/%{binary_name}
 %{bash_completions_dir}/%{binary_name}
 %{fish_completions_dir}/%{binary_name}.fish

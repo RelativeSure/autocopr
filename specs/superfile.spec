@@ -24,10 +24,12 @@ cp %{SOURCE2} LICENSE
 
 %install
 install -p -D dist/%{name}-linux-v%{version}-amd64/%{binary_name} %{buildroot}%{_bindir}/%{binary_name}
+install -D -m 0644 CONFIGURATION.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
 %files
-%doc CONFIGURATION.md
-%license LICENSE
+%doc %{_docdir}/%{name}/README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_bindir}/%{binary_name}
 
 %changelog

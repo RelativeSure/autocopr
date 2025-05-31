@@ -41,7 +41,8 @@ go build \
 rm -rf %{buildroot} && mkdir -p %{buildroot}%{_bindir}/ && cd k9s-%{version}
 install -m 0755 k9s %{buildroot}%{_bindir}/k9s
 mkdir -p %{buildroot}%{_datadir}/licenses/%{name}/
-install -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/
+install -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
+install -D -m 0644 README.md %{buildroot}%{_docdir}/%{name}/README.md
 
 %verifyscript
 %{buildroot}%{_bindir}/k9s version
@@ -49,6 +50,7 @@ install -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/
 %files
 %{_bindir}/k9s
 %license %{_datadir}/licenses/%{name}/LICENSE
+%doc %{_docdir}/%{name}/README.md
 
 %changelog
 %autochangelog
