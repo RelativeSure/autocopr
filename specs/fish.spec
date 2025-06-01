@@ -43,11 +43,20 @@ if [ -f %{buildroot}/usr/etc/fish/config.fish ]; then
     mv %{buildroot}/usr/etc/fish/config.fish %{buildroot}%{_sysconfdir}/fish/config.fish
 fi
 
+install -D -m 0644 README.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
+# Assuming CONTRIBUTING.rst is in the root of the extracted source after %setup
+if [ -f CONTRIBUTING.rst ]; then
+    install -D -m 0644 CONTRIBUTING.rst %{buildroot}%{_docdir}/%{name}/CONTRIBUTING.rst
+fi
+
 %files
 # Documentation
 %doc %{_docdir}/fish
-%doc CONTRIBUTING.rst README.rst
-%license LICENSE
+%doc %{_docdir}/%{name}/README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
+# Assuming CONTRIBUTING.rst was installed
+%doc %{_docdir}/%{name}/CONTRIBUTING.rst
 # Executable files
 %attr(0755,root,root) %{_bindir}/fish
 %attr(0755,root,root) %{_bindir}/fish_indent

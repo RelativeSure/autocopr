@@ -10,6 +10,7 @@ URL:        https://github.com/atuinsh/atuin
 Source:     %{url}/releases/download/v%{version}/%{name}-x86_64-unknown-linux-musl.tar.gz
 Source1:    https://raw.githubusercontent.com/atuinsh/atuin/v%{version}/README.md
 Source2:    https://raw.githubusercontent.com/atuinsh/atuin/v%{version}/CHANGELOG.md
+Source3:    https://raw.githubusercontent.com/atuinsh/atuin/v%{version}/LICENSE
 
 BuildRequires: glibc
 BuildRequires: gcc
@@ -23,15 +24,18 @@ Additionally, it provides optional and fully encrypted synchronization of your h
 %autosetup -c
 cp %{SOURCE1} CONFIGURATION.md
 cp %{SOURCE2} .
+cp %{SOURCE3} .
 
 %build
 
 %install
 # Ensure the source binary is in the expected location
 install -p -D %{name}-x86_64-unknown-linux-musl/%{name} %{buildroot}%{_bindir}/%{name}
-
+install -D -m 0644 CONFIGURATION.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
 %files
-%doc CONFIGURATION.md
+%doc %{_docdir}/%{name}/README.md
 %doc CHANGELOG.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_bindir}/%{name}

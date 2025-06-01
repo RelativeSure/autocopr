@@ -1,22 +1,21 @@
 %global debug_package %{nil}
 
-Name:    jj
-Version: 0.29.0
+Name:    git-cliff
+Version: 2.8.0
 Release: 1%{?dist}
-Summary: A Git-compatible VCS that is both simple and powerful
+Summary: A highly customizable Changelog Generator that follows Conventional Commit specifications ⛰️
 
 License: Apache v2.0
-# https://github.com/martinvonz/jj/releases/download/v0.23.0/jj-v0.23.0-x86_64-unknown-linux-musl.tar.gz
-URL: https://github.com/martinvonz/jj
-Source: %{url}/releases/download/v%{version}/%{name}-v%{version}-x86_64-unknown-linux-musl.tar.gz
-Source1: https://raw.githubusercontent.com/martinvonz/jj/v%{version}/README.md
-Source2: https://raw.githubusercontent.com/martinvonz/jj/v%{version}/LICENSE
+URL: https://github.com/orhun/git-cliff
+Source0: %{url}/releases/download/v%{version}/%{name}-v%{version}-x86_64-unknown-linux-musl.tar.gz
+Source1: https://raw.githubusercontent.com/orhun/git-cliff/v%{version}/README.md
+Source2: https://raw.githubusercontent.com/orhun/git-cliff/v%{version}/LICENSE-APACHE
 
 %description
 %{summary}
 
 %prep
-%autosetup -c
+%autosetup -c -n %{name}-v%{version}-x86_64-unknown-linux-musl
 cp %{SOURCE1} CONFIGURATION.md
 cp %{SOURCE2} LICENSE
 
