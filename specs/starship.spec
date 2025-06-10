@@ -10,6 +10,8 @@ URL: https://github.com/starship/starship
 Source: %{url}/releases/download/v%{version}/%{name}-x86_64-unknown-linux-gnu.tar.gz
 # No man page yet (https://github.com/starship/starship/issues/2926), so including the config README
 Source1: https://raw.githubusercontent.com/starship/starship/v%{version}/docs/config/README.md
+Source2: https://raw.githubusercontent.com/starship/starship/v%{version}/README.md
+Source3: https://raw.githubusercontent.com/starship/starship/v%{version}/LICENSE
 
 %description
 The minimal, blazing-fast, and infinitely customizable prompt for any shell!
@@ -25,6 +27,8 @@ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 %autosetup -c
 # Copy config README here
 cp %{SOURCE1} CONFIGURATION.md
+cp %{SOURCE2} README.md
+cp %{SOURCE3} LICENSE
 
 %build
 ./%{name} completions bash > %{name}.bash
@@ -38,8 +42,14 @@ install -p -D %{name} %{buildroot}%{_bindir}/%{name}
 install -pvD -m 0644 %{name}.bash %{buildroot}%{bash_completions_dir}/%{name}
 install -pvD -m 0644 _%{name} %{buildroot}%{zsh_completions_dir}/_%{name}
 
+install -D -m 0644 README.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 CONFIGURATION.md %{buildroot}%{_docdir}/%{name}/CONFIGURATION.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
+
 %files
-%doc CONFIGURATION.md
+%doc %{_docdir}/%{name}/README.md
+%doc %{_docdir}/%{name}/CONFIGURATION.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_bindir}/%{name}
 %{bash_completions_dir}/%{name}
 %{zsh_completions_dir}/_%{name}

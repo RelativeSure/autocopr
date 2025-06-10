@@ -11,6 +11,7 @@ Source:     %{url}/releases/download/v%{version}/%{name}-v%{version}-linux-x64-m
 Source1:    https://raw.githubusercontent.com/jdx/mise/v%{version}/README.md
 Source2:    https://raw.githubusercontent.com/jdx/mise/v%{version}/completions/mise.bash
 Source3:    https://raw.githubusercontent.com/jdx/mise/v%{version}/completions/mise.fish
+Source4:    https://raw.githubusercontent.com/jdx/mise/v%{version}/LICENSE
 
 %description
 mise (pronounced "meez") or "mise-en-place" is a development environment setup tool. The name refers to a French culinary phrase that roughly translates to "setup" or "put in place". The idea is that before one begins cooking, they should have all their utensils and ingredients ready to go in their place.
@@ -26,6 +27,7 @@ mise is a task runner that can be used to share common tasks within a project am
 cp %{SOURCE1} CONFIGURATION.md
 cp %{SOURCE2} .
 cp %{SOURCE3} .
+cp %{SOURCE4} LICENSE
 
 %build
 
@@ -37,8 +39,12 @@ install -p -D bin/%{name} %{buildroot}%{_bindir}/%{name}
 install -pvD -m 0644 %{name}.bash %{buildroot}%{bash_completions_dir}/%{name}
 install -pvD -m 0644 %{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
 
+install -D -m 0644 CONFIGURATION.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
+
 %files
-%doc CONFIGURATION.md
+%doc %{_docdir}/%{name}/README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_bindir}/%{name}
 %{bash_completions_dir}/%{name}
 %{fish_completions_dir}/%{name}.fish

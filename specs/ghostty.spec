@@ -58,9 +58,17 @@ zig build \
     -Demit-docs
 ls -lah
 
+%install
+# RPM Scriptlet for icons and desktop database
+# https://docs.fedoraproject.org/en-US/packaging-guidelines/DesktopFiles/#_rpm_scriptlets_for_icons_and_desktop_database
+# Not strictly needed for just installing files, but good practice if the package had these.
+# For now, just install README and LICENSE
+install -D -m 0644 README.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
 %files
-%license LICENSE
+%doc %{_docdir}/%{name}/README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_bindir}/ghostty
 %{_prefix}/share/applications/com.mitchellh.ghostty.desktop
 %{_prefix}/share/bash-completion/completions/ghostty.bash
