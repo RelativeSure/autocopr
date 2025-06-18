@@ -47,6 +47,7 @@ Requires: zlib-ng
 %prep
 %setup -q -n ghostty-%{version}
 sed -i 's/\.name = "ghostty",/\.name = .ghostty,/' build.zig.zon
+sed -i '/\.name = \.ghostty,/a \    .fingerprint = 0x64407a2ac852088d,' build.zig.zon
 
 %build
 zig build \
