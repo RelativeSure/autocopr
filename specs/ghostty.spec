@@ -49,9 +49,9 @@ Requires: zlib-ng
 sed -i 's/\.name = "ghostty",/\.name = .ghostty,/' build.zig.zon
 sed -i '/\.name = \.ghostty,/a \    .fingerprint = 0x64407a2ac852088d,' build.zig.zon
 sed -i 's/\.name = "spirv-cross",/\.name = .spirv_cross,/' pkg/spirv-cross/build.zig.zon
-sed -i '/\.name = \.spirv_cross,/a \    .fingerprint = 0x0,' pkg/spirv-cross/build.zig.zon
+sed -i '/\.name = \.spirv_cross,/a \    .fingerprint = 0x7ea1d830f509f48,' pkg/spirv-cross/build.zig.zon
 sed -i 's/\.name = "apple-sdk",/\.name = .apple_sdk,/' pkg/apple-sdk/build.zig.zon
-sed -i '/\.name = \.apple_sdk,/a \    .fingerprint = 0x0,' pkg/apple-sdk/build.zig.zon
+sed -i '/\.name = \.apple_sdk,/a \    .fingerprint = 0xdde52860e3791166,' pkg/apple-sdk/build.zig.zon
 
 %build
 zig build \
