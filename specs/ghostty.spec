@@ -46,7 +46,7 @@ Requires: zlib-ng
 
 %prep
 %setup -q -n ghostty-%{version}
-sed -i 's/\.name = "ghostty",/\.name = .ghostty,/' ghostty-%{version}/build.zig.zon
+sed -i 's/\.name = "ghostty",/\.name = .ghostty,/' build.zig.zon
 
 %build
 zig build \
