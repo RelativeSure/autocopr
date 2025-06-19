@@ -16,7 +16,7 @@ BuildRequires: rust
 %{summary}
 
 %prep
-%autosetup -n %{name}-v%{version}
+%autosetup -n %{name}-%{version}
 
 %build
 cargo build --release
