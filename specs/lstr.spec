@@ -46,7 +46,6 @@ install -pvD -m 0644 lstr.1.gz %{buildroot}%{_mandir}/man1/lstr.1.gz
 
 %files
 %{_bindir}/lstr
-%license lstr.LICENSE
 %doc README.md
 %{_datadir}/bash-completion/completions/lstr
 %{_datadir}/fish/vendor_completions.d/lstr.fish
