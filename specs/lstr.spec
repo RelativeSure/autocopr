@@ -11,6 +11,7 @@ Source0: %{url}/archive/v%{version}/%{name}-v%{version}.tar.gz
 
 BuildRequires: cargo
 BuildRequires: rust
+BuildRequires: openssl-devel
 
 %description
 %{summary}
