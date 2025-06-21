@@ -12,6 +12,7 @@ Source0: %{url}/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildRequires: cargo
 BuildRequires: rust
 BuildRequires: openssl-devel
+BuildRequires: zlib-devel
 
 %description
 %{summary}
@@ -23,7 +24,10 @@ BuildRequires: openssl-devel
 cargo build --release
 
 %install
-cargo install --path . --root %{buildroot} --prefix %{_prefix}
+cargo install --path . --root %{buildroot}
+install -Dm0755 %{buildroot}/bin/lstr %{buildroot}%{_bindir}/lstr
+rm -f %{buildroot}/bin/lstr
+rm -f %{buildroot}/.crates.toml %{buildroot}/.crates2.json
 
 %files
 %{_bindir}/lstr
