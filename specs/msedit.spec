@@ -9,9 +9,15 @@ License: MIT
 URL:     https://github.com/microsoft/edit
 Source0: %{url}/archive/v%{version}.tar.gz
 
+# Standard Rust build dependencies
 BuildRequires: rust >= 1.70
 BuildRequires: cargo >= 1.70
-BuildRequires: rust-toolchain-nightly
+# Added openssl-devel as it's a common implicit dependency for Rust networking crates
+# and might be needed by some underlying dependency of 'edit'.
+BuildRequires: openssl-devel
+# Added pkg-config for build scripts that need to find C libraries
+BuildRequires: pkg-config
+
 
 %description
 A simple editor for simple needs. Pays homage to the classic MS-DOS Editor,
@@ -23,9 +29,12 @@ terminals can easily use.
 %autosetup -n edit-%{version}
 
 %build
-# Set RUSTC_BOOTSTRAP=1 to use nightly features
+# Set RUSTC_BOOTSTRAP=1 to enable usage of nightly features,
+# as per upstream build instructions.
 export RUSTC_BOOTSTRAP=1
-cargo build --config .cargo/release.toml --release
+# Ensure correct environment flags are passed to cargo
+export CARGO_TERM_COLOR=always
+cargo build --config .cargo/release.toml --release --verbose
 
 %install
 rm -rf %{buildroot}
