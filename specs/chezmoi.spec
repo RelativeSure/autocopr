@@ -28,9 +28,12 @@ install -pvD -m 0644 completions/%{name}-completion.bash %{buildroot}%{bash_comp
 install -pvD -m 0644 completions/%{name}.zsh %{buildroot}%{zsh_completions_dir}/%{name}.zsh
 install -pvD -m 0644 completions/%{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
 
+install -D -m 0644 CONFIGURATION.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
+
 %files
-%doc CONFIGURATION.md
-%license LICENSE
+%doc %{_docdir}/%{name}/README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_bindir}/%{name}
 %{bash_completions_dir}/%{name}.bash
 %{zsh_completions_dir}/%{name}.zsh
