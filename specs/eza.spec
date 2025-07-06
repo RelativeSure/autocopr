@@ -13,6 +13,7 @@ Source0: %{url}/releases/download/v%{version}/%{name}_x86_64-unknown-linux-gnu.t
 Source1: %{url}/releases/download/v%{version}/completions-%{version}.tar.gz
 Source2: %{url}/releases/download/v%{version}/man-%{version}.tar.gz
 Source3: https://raw.githubusercontent.com/eza-community/eza/v%{version}/LICENSE.txt
+Source4: https://raw.githubusercontent.com/eza-community/eza/v%{version}/README.md
 
 BuildRequires: gzip
 
@@ -26,6 +27,7 @@ BuildRequires: gzip
 %__rpmuncompress -x %{SOURCE1}
 %__rpmuncompress -x %{SOURCE2}
 cp %{SOURCE3} .
+cp %{SOURCE4} README.md
 
 %build
 gzip target/man-%{version}/*
@@ -44,7 +46,13 @@ install -pvD -m 0644 target/man-%{version}/%{name}.1.gz %{buildroot}%{_mandir}/m
 install -pvD -m 0644 target/man-%{version}/%{name}_colors.5.gz %{buildroot}%{_mandir}/man5/%{name}_colors.5.gz
 install -pvD -m 0644 target/man-%{version}/%{name}_colors-explanation.5.gz %{buildroot}%{_mandir}/man5/%{name}_colors-explanation.5.gz
 
+# Docs and License
+install -D -m 0644 README.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE.txt %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
+
 %files
+%doc %{_docdir}/%{name}/README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_bindir}/%{name}
 %{bash_completions_dir}/%{name}
 %{zsh_completions_dir}/_%{name}
@@ -52,7 +60,6 @@ install -pvD -m 0644 target/man-%{version}/%{name}_colors-explanation.5.gz %{bui
 %{_mandir}/man1/%{name}.1.gz
 %{_mandir}/man5/%{name}_colors.5.gz
 %{_mandir}/man5/%{name}_colors-explanation.5.gz
-%license LICENSE.txt
 
 %changelog
 %autochangelog
