@@ -41,7 +41,7 @@ go build \
 %install
 rm -rf %{buildroot} && mkdir -p %{buildroot}%{_bindir}/ && cd act-%{version}
 install -m 0755 act %{buildroot}%{_bindir}/act
-install -D -m 0644 README.md %{buildroot}%{_docdir}/act/README.md
+install -D -m 0644 README.md %{buildroot}%{_docdir}/%{name}/README.md
 mkdir -p %{buildroot}%{_datadir}/licenses/%{name}/
 install -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
@@ -50,5 +50,5 @@ install -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
 %files
 %{_bindir}/act
-%doc %{_docdir}/act/README.md
+%doc %{_docdir}/%{name}/README.md
 %license %{_datadir}/licenses/%{name}/LICENSE

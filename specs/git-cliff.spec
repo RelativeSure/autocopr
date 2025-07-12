@@ -5,7 +5,7 @@ Version: 2.8.0
 Release: 1%{?dist}
 Summary: A highly customizable Changelog Generator that follows Conventional Commit specifications ⛰️
 
-License: Apache v2.0
+License: Apache-2.0
 URL: https://github.com/orhun/git-cliff
 Source0: %{url}/releases/download/v%{version}/%{name}-v%{version}-x86_64-unknown-linux-musl.tar.gz
 Source1: https://raw.githubusercontent.com/orhun/git-cliff/v%{version}/README.md

@@ -5,9 +5,10 @@ Version: 1.38.1
 Release: 1%{?dist}
 Summary: Fast and simple Node.js version manager, built in Rust
 
-License: GPL v3
+License: GPL-3.0-or-later
 URL:     https://github.com/Schniz/fnm
 Source0: %{url}/archive/refs/tags/v%{version}.tar.gz
+Source1: https://raw.githubusercontent.com/Schniz/fnm/v%{version}/LICENSE
 
 BuildRequires: cargo >= 1.40
 BuildRequires: rust >= 1.40
@@ -25,6 +26,7 @@ BuildRequires: perl-IPC-Cmd
 
 %prep
 %autosetup -p1
+cp %{SOURCE1} LICENSE
 %if 0%{?el8}
   curl https://sh.rustup.rs -sSf | sh -s -- --profile minimal -y
 %endif

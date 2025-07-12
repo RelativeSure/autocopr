@@ -55,8 +55,6 @@ fi
 %doc %{_docdir}/fish
 %doc %{_docdir}/%{name}/README.md
 %license %{_datadir}/licenses/%{name}/LICENSE
-# Assuming CONTRIBUTING.rst was installed
-%doc %{_docdir}/%{name}/CONTRIBUTING.rst
 # Executable files
 %attr(0755,root,root) %{_bindir}/fish
 %attr(0755,root,root) %{_bindir}/fish_indent

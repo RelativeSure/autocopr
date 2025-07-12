@@ -5,7 +5,7 @@ Version: 0.31.0
 Release: 1%{?dist}
 Summary: A Git-compatible VCS that is both simple and powerful
 
-License: Apache v2.0
+License: Apache-2.0
 # https://github.com/martinvonz/jj/releases/download/v0.23.0/jj-v0.23.0-x86_64-unknown-linux-musl.tar.gz
 URL: https://github.com/martinvonz/jj
 Source: %{url}/releases/download/v%{version}/%{name}-v%{version}-x86_64-unknown-linux-musl.tar.gz
