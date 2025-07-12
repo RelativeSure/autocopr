@@ -11,7 +11,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### Status badges on COPR builds
 
-### [act-cli](specs/act-cli.spec) v0.2.78
+### [act-cli](specs/act-cli.spec) v0.2.79
 
 [Upstream](https://github.com/nektos/act)
 
@@ -29,25 +29,25 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bottom status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png)
 
-### [chezmoi](specs/chezmoi.spec) v2.62.6
+### [chezmoi](specs/chezmoi.spec) v2.63.0
 
 [Upstream](https://github.com/twpayne/chezmoi)
 
 ![chezmoi status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/chezmoi/status_image/last_build.png)
 
-### [cilium-cli](specs/cilium-cli.spec) v0.16.8
+### [cilium-cli](specs/cilium-cli.spec) v0.18.5
 
 [Upstream](https://github.com/cilium/cilium-cli)
 
 ![cilium-cli status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/cilium-cli/status_image/last_build.png)
 
-### [eza](specs/eza.spec) v0.21.5
+### [eza](specs/eza.spec) v0.22.0
 
 [Upstream](https://github.com/eza-community/eza)
 
 ![eza status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/eza/status_image/last_build.png)
 
-### [fastly](specs/fastly.spec) v11.3.0
+### [fastly](specs/fastly.spec) v11.4.0
 
 [Upstream](https://github.com/fastly/cli)
 
@@ -71,13 +71,13 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![ghostty status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/ghostty/status_image/last_build.png)
 
-### [jj](specs/jj.spec) v0.30.0
+### [jj](specs/jj.spec) v0.31.0
 
 [Upstream](https://github.com/martinvonz/jj)
 
 ![jj status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/jj/status_image/last_build.png)
 
-### [k9s](specs/k9s.spec) v0.50.6
+### [k9s](specs/k9s.spec) v0.50.7
 
 [Upstream](https://github.com/derailed/k9s)
 
@@ -89,7 +89,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![kubeswitch status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/kubeswitch/status_image/last_build.png)
 
-### [kubie](specs/kubie.spec) v0.25.2
+### [kubie](specs/kubie.spec) v0.26.0
 
 [Upstream](https://github.com/sbstp/kubie)
 
@@ -101,7 +101,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lazydocker status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazydocker/status_image/last_build.png)
 
-### [lazygit](specs/lazygit.spec) v0.52.0
+### [lazygit](specs/lazygit.spec) v0.53.0
 
 [Upstream](https://github.com/jesseduffield/lazygit)
 
@@ -119,13 +119,19 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lazynpm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazynpm/status_image/last_build.png)
 
-### [lua-language-server](specs/lua-language-server.spec) v3.14.0
+### [lstr](specs/lstr.spec) v0.2.1
+
+[Upstream](https://github.com/bgreenwell/lstr)
+
+![lstr status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lstr/status_image/last_build.png)
+
+### [lua-language-server](specs/lua-language-server.spec) v3.15.0
 
 [Upstream](https://github.com/LuaLS/lua-language-server)
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2025.6.5
+### [mise](specs/mise.spec) v2025.7.4
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -155,13 +161,13 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v2.1.1
+### [usage](specs/usage.spec) v2.2.0
 
 [Upstream](https://github.com/jdx/usage)
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.7.13
+### [uv](specs/uv.spec) v0.7.20
 
 [Upstream](https://github.com/astral-sh/uv)
 
