@@ -9,6 +9,7 @@ License:    MIT
 URL:        https://github.com/jdx/usage
 Source:     %{url}/releases/download/v%{version}/%{name}-x86_64-unknown-linux-musl.tar.gz
 Source1:    https://raw.githubusercontent.com/jdx/usage/v%{version}/README.md
+Source2:    https://raw.githubusercontent.com/jdx/usage/v%{version}/LICENSE
 
 %description
 Usage is a spec and CLI for defining CLI tools.
@@ -26,13 +27,17 @@ Here are some potential reasons for defining your CLI with a Usage spec:
 %autosetup -c -n %{name}
 
 cp %{SOURCE1} CONFIGURATION.md
+cp %{SOURCE2} LICENSE
 
 %build
 
 %install
 # Ensure the source binary is in the expected location
 install -p -D %{name} %{buildroot}%{_bindir}/%{name}
+install -D -m 0644 CONFIGURATION.md %{buildroot}%{_docdir}/%{name}/README.md
+install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
 %files
-%doc CONFIGURATION.md
+%doc %{_docdir}/%{name}/README.md
+%license %{_datadir}/licenses/%{name}/LICENSE
 %{_bindir}/%{name}
