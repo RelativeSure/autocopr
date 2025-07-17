@@ -7,7 +7,6 @@ Summary: A language server that offers Lua language support - programmed in Lua
 
 License: MIT
 URL:     https://github.com/LuaLS/lua-language-server
-Source:  %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 BuildRequires: ninja-build
 BuildRequires: git
 BuildRequires: libstdc++-static
@@ -16,7 +15,7 @@ BuildRequires: libstdc++-static
 %{summary}
 
 %prep
-%autosetup -p1
+git clone --recurse-submodules https://github.com/LuaLS/lua-language-server .
 
 %build
 %global _lto_cflags %{nil}
