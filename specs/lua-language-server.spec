@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 Name:    lua-language-server
 Version: 3.15.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A language server that offers Lua language support - programmed in Lua
 License: MIT
 URL:     https://github.com/LuaLS/lua-language-server
