@@ -5,7 +5,7 @@ Release: 2%{?dist}
 Summary: A language server that offers Lua language support - programmed in Lua
 License: MIT
 URL:     https://github.com/LuaLS/lua-language-server
-Source:  %{url}/releases/download/%{version}/%{name}-%{version}-linux-x64-musl.tar.gz
+Source:  %{url}/releases/download/%{version}/%{name}-%{version}-linux-x64.tar.gz
 Source1: https://raw.githubusercontent.com/LuaLS/lua-language-server/%{version}/README.md
 Source2: https://raw.githubusercontent.com/LuaLS/lua-language-server/%{version}/LICENSE
 BuildRequires: fdupes
