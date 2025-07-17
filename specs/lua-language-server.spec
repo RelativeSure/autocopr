@@ -7,42 +7,36 @@ Summary: A language server that offers Lua language support - programmed in Lua
 
 License: MIT
 URL:     https://github.com/LuaLS/lua-language-server
-Source:  %{url}/releases/download/%{version}/%{name}-%{version}-linux-x64-musl.tar.gz
-Source1: https://raw.githubusercontent.com/LuaLS/lua-language-server/%{version}/README.md
-Source2: https://raw.githubusercontent.com/LuaLS/lua-language-server/%{version}/LICENSE
-BuildRequires: fdupes
-BuildRequires: gcc
-BuildRequires: gcc-c++
-BuildRequires: libstdc++-static
+Source:  %{url}/archive/%{version}/%{name}-%{version}.tar.gz
+BuildRequires: ninja-build
+BuildRequires: git
 
 %description
 %{summary}
 
 %prep
-%autosetup -c
-cp %{SOURCE1} CONFIGURATION.md
-cp %{SOURCE2} LICENSE
+%autosetup -p1
+
+%build
+cd 3rd/luamake
+./compile/install.sh
+cd ../..
+./3rd/luamake/luamake rebuild
 
 %install
 install -d -m 0755 %{buildroot}%{_libexecdir}/%{name}
-cp -av bin/* %{buildroot}%{_libexecdir}/%{name}
+cp -r bin/* %{buildroot}%{_libexecdir}/%{name}
 install -d -m 0755 %{buildroot}%{_datadir}/%{name}
-cp -av \
-    debugger.lua \
-    main.lua \
-    locale \
-    script \
-    meta \
-    %{buildroot}%{_datadir}/%{name}/
-
-ls -la %{buildroot}%{_datadir}/%{name}/
+cp -r     debugger.lua     main.lua     locale     script     meta     %{buildroot}%{_datadir}/%{name}/
 install -d -m 0755 %{buildroot}%{_bindir}
+ln -s %{_libexecdir}/%{name}/lua-language-server %{buildroot}%{_bindir}/lua-language-server
 
 %files
-%doc CONFIGURATION.md
+%doc README.md
 %license LICENSE
-%{_libexecdir}/%{name}/
-%{_datadir}/%{name}/
+%{_libexecdir}/%{name}
+%{_datadir}/%{name}
+%{_bindir}/lua-language-server
 
 %changelog
 %autochangelog
