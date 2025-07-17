@@ -20,13 +20,14 @@ git clone --recurse-submodules https://github.com/LuaLS/lua-language-server .
 %build
 %global _lto_cflags %{nil}
 %global _lto_cxxflags %{nil}
+cd lua-language-server
 ./make.sh
 
 %install
 install -d -m 0755 %{buildroot}%{_libexecdir}/%{name}
-cp -r bin/* %{buildroot}%{_libexecdir}/%{name}
+cp -r lua-language-server/bin/* %{buildroot}%{_libexecdir}/%{name}
 install -d -m 0755 %{buildroot}%{_datadir}/%{name}
-cp -r     debugger.lua     main.lua     locale     script     meta     %{buildroot}%{_datadir}/%{name}/
+cp -r lua-language-server/debugger.lua lua-language-server/main.lua lua-language-server/locale lua-language-server/script lua-language-server/meta %{buildroot}%{_datadir}/%{name}/
 install -d -m 0755 %{buildroot}%{_bindir}
 ln -s %{_libexecdir}/%{name}/lua-language-server %{buildroot}%{_bindir}/lua-language-server
 
