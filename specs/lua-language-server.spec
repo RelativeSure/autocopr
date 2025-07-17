@@ -10,6 +10,7 @@ URL:     https://github.com/LuaLS/lua-language-server
 Source:  %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 BuildRequires: ninja-build
 BuildRequires: git
+BuildRequires: libstdc++-static
 
 %description
 %{summary}
@@ -18,10 +19,9 @@ BuildRequires: git
 %autosetup -p1
 
 %build
-cd 3rd/luamake
-./compile/install.sh
-cd ../..
-./3rd/luamake/luamake rebuild
+%global _lto_cflags %{nil}
+%global _lto_cxxflags %{nil}
+./make.sh
 
 %install
 install -d -m 0755 %{buildroot}%{_libexecdir}/%{name}
