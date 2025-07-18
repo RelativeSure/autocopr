@@ -70,7 +70,7 @@ find %{buildroot}
 %{_datadir}/icons/hicolor/256x256@2/apps/com.mitchellh.ghostty.png
 %{_datadir}/icons/hicolor/32x32/apps/com.mitchellh.ghostty.png
 %{_datadir}/icons/hicolor/32x32@2/apps/com.mitchellh.ghostty.png
-%{_datadir}/icons/hicolor/512x512/apps/com.mitchellh..ghostty.png
+%{_datadir}/icons/hicolor/512x512/apps/com.mitchellh.ghostty.png
 %{_datadir}/kio/servicemenus/com.mitchellh.ghostty.desktop
 %{_mandir}/man1/ghostty.1
 %{_mandir}/man5/ghostty.5
