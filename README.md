@@ -71,6 +71,12 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![ghostty status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/ghostty/status_image/last_build.png)
 
+### [has](specs/has.spec) v1.5.0
+
+[Upstream](https://github.com/kdabir/has)
+
+![has status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/has/status_image/last_build.png)
+
 ### [jj](specs/jj.spec) v0.31.0
 
 [Upstream](https://github.com/martinvonz/jj)
