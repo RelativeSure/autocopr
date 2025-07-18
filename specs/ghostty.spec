@@ -12,6 +12,7 @@ Summary:        Fast, feature-rich, and cross-platform terminal emulator that us
 License:        MIT
 URL:            https://github.com/ghostty-org/ghostty
 Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz
+Source1: https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz
 
 ExclusiveArch: x86_64
 
@@ -29,6 +30,8 @@ BuildRequires: pkg-config
 BuildRequires: zig = 0.13.0
 BuildRequires: zlib-ng-devel
 BuildRequires: wayland-protocols-devel
+BuildRequires: tar
+BuildRequires: xz
 
 Requires: fontconfig
 Requires: freetype
@@ -46,9 +49,11 @@ Requires: zlib-ng
 
 %prep
 %setup -q -n ghostty-%{version}
+tar -xf %{SOURCE1} -C %{_builddir}
+export PATH=%{_builddir}/zig-linux-x86_64-0.13.0:$PATH
 
 %build
-zig build install --summary all     --prefix "%{buildroot}%{_prefix}"     -Dversion-string=%{version}-%{release}     -Doptimize=ReleaseFast     -Dcpu=baseline     -Dpie=true     -Demit-docs
+%{_builddir}/zig-linux-x86_64-0.13.0/zig build install --summary all     --prefix "%{buildroot}%{_prefix}"     -Dversion-string=%{version}-%{release}     -Doptimize=ReleaseFast     -Dcpu=baseline     -Dpie=true     -Demit-docs
 
 %install
 find %{buildroot}
