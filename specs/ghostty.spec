@@ -48,7 +48,7 @@ Requires: zlib-ng
 %setup -q -n ghostty-%{version}
 
 %build
-zig build install     --summary all     --prefix "%{buildroot}%{_prefix}"     -Dprefix-exe-dir=%{_bindir}     -Dversion-string=%{version}-%{release}     -Doptimize=ReleaseFast     -Dcpu=baseline     -Dpie=true     -Demit-docs
+zig build install --summary all     --prefix "%{buildroot}%{_prefix}"     -Dversion-string=%{version}-%{release}     -Doptimize=ReleaseFast     -Dcpu=baseline     -Dpie=true     -Demit-docs
 
 %install
 find %{buildroot}
