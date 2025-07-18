@@ -53,7 +53,13 @@ tar -xf %{SOURCE1} -C %{_builddir}
 export PATH=%{_builddir}/zig-linux-x86_64-0.13.0:$PATH
 
 %build
-%{_builddir}/zig-linux-x86_64-0.13.0/zig build install --summary all     --prefix "%{buildroot}%{_prefix}"     -Dversion-string=%{version}-%{release}     -Doptimize=ReleaseFast     -Dcpu=baseline     -Dpie=true     -Demit-docs
+%{_builddir}/zig-linux-x86_64-0.13.0/zig build install --summary all \
+    --prefix "%{buildroot}%{_prefix}" \
+    -Dversion-string=%{version}-%{release} \
+    -Doptimize=ReleaseFast \
+    -Dcpu=baseline \
+    -Dpie=true \
+    -Demit-docs
 
 %install
 find %{buildroot}
