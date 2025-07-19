@@ -7,7 +7,7 @@ Summary: A specification for CLIs
 
 License:    MIT
 URL:        https://github.com/jdx/usage
-Source:     %{url}/releases/download/v%{version}/%{name}-x86_64-unknown-linux-musl.tar.gz
+Source:     %{url}/releases/download/v%{version}/%{name}-x86_64-unknown-linux-gnu.tar.gz
 Source1:    https://raw.githubusercontent.com/jdx/usage/v%{version}/README.md
 
 %description

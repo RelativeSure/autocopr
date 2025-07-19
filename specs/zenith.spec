@@ -7,9 +7,9 @@ Release: 1%{?dist}
 Summary: Sort of like top or htop but with zoom-able charts, CPU, GPU, network, and disk usage
 
 License: MIT
-# https://github.com/bvaisvil/zenith/releases/download/0.14.1/zenith.x86_64-unknown-linux-musl.tgz
+# https://github.com/bvaisvil/zenith/releases/download/0.14.1/zenith.x86_64-unknown-linux-gnu.tgz
 URL:     https://github.com/bvaisvil/zenith
-Source:  %{url}/releases/download/%{version}/%{name}.x86_64-unknown-linux-musl.tgz
+Source:  %{url}/releases/download/%{version}/%{name}.x86_64-unknown-linux-gnu.tgz
 Source1: %{raw_ghuc}/%{version}/README.md
 Source2: %{raw_ghuc}/%{version}/LICENSE
 

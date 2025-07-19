@@ -7,7 +7,7 @@ Summary: dev tools, env vars, task runner
 
 License:    MIT
 URL:        https://github.com/jdx/mise
-Source:     %{url}/releases/download/v%{version}/%{name}-v%{version}-linux-x64-musl.tar.gz
+Source:     %{url}/releases/download/v%{version}/%{name}-v%{version}-linux-x64.tar.gz
 Source1:    https://raw.githubusercontent.com/jdx/mise/v%{version}/README.md
 Source2:    https://raw.githubusercontent.com/jdx/mise/v%{version}/completions/mise.bash
 Source3:    https://raw.githubusercontent.com/jdx/mise/v%{version}/completions/mise.fish

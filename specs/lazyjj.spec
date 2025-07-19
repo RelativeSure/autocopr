@@ -6,9 +6,9 @@ Release: 1%{?dist}
 Summary: TUI for Jujutsu/jj
 
 License: Apache-2.0
-# https://github.com/Cretezy/lazyjj/releases/download/v0.4.2/lazyjj-v0.4.2-x86_64-unknown-linux-musl.tar.gz
+# https://github.com/Cretezy/lazyjj/releases/download/v0.4.2/lazyjj-v0.4.2-x86_64-unknown-linux-gnu.tar.gz
 URL: https://github.com/Cretezy/lazyjj
-Source: %{url}/releases/download/v%{version}/%{name}-v%{version}-x86_64-unknown-linux-musl.tar.gz
+Source: %{url}/releases/download/v%{version}/%{name}-v%{version}-x86_64-unknown-linux-gnu.tar.gz
 Source1: https://raw.githubusercontent.com/Cretezy/lazyjj/v%{version}/README.md
 Source2: https://raw.githubusercontent.com/Cretezy/lazyjj/v%{version}/LICENSE
 

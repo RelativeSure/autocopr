@@ -5,10 +5,10 @@ Version: 2.63.0
 Release: 1%{?dist}
 Summary: Manage your dotfiles across multiple diverse machines, securely.
 
-# https://github.com/twpayne/chezmoi/releases/download/v2.54.0/chezmoi_2.54.0_linux-musl_amd64.tar.gz
+# https://github.com/twpayne/chezmoi/releases/download/v2.54.0/chezmoi_2.54.0_linux-amd64.tar.gz
 License: MIT
 URL: https://github.com/twpayne/chezmoi
-Source: %{url}/releases/download/v%{version}/%{name}_%{version}_linux-musl_amd64.tar.gz
+Source: %{url}/releases/download/v%{version}/%{name}_%{version}_linux_amd64.tar.gz
 Source1: https://raw.githubusercontent.com/twpayne/chezmoi/v%{version}/README.md
 Source2: https://raw.githubusercontent.com/twpayne/chezmoi/v%{version}/LICENSE
 
