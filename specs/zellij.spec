@@ -7,7 +7,7 @@ Summary: A terminal workspace with batteries included
 
 License:    MIT
 URL:        https://github.com/zellij-org/zellij
-Source:     %{url}/releases/download/v%{version}/%{name}-x86_64-unknown-linux-musl.tar.gz
+Source:     %{url}/releases/download/v%{version}/%{name}-x86_64-unknown-linux-gnu.tar.gz
 Source1:    https://raw.githubusercontent.com/zellij-org/zellij/v%{version}/docs/MANPAGE.md
 
 BuildRequires: pandoc

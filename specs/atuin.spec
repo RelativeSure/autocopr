@@ -7,7 +7,7 @@ Summary: Magical shell history
 
 License:    MIT
 URL:        https://github.com/atuinsh/atuin
-Source:     %{url}/releases/download/v%{version}/%{name}-x86_64-unknown-linux-musl.tar.gz
+Source:     %{url}/releases/download/v%{version}/%{name}-x86_64-unknown-linux-gnu.tar.gz
 Source1:    https://raw.githubusercontent.com/atuinsh/atuin/v%{version}/README.md
 Source2:    https://raw.githubusercontent.com/atuinsh/atuin/v%{version}/CHANGELOG.md
 
@@ -28,7 +28,7 @@ cp %{SOURCE2} .
 
 %install
 # Ensure the source binary is in the expected location
-install -p -D %{name}-x86_64-unknown-linux-musl/%{name} %{buildroot}%{_bindir}/%{name}
+install -p -D %{name}-x86_64-unknown-linux-gnu/%{name} %{buildroot}%{_bindir}/%{name}
 
 
 %files
