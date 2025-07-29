@@ -12,12 +12,13 @@ Source1:    https://raw.githubusercontent.com/imsnif/bandwhich/v%{version}/READM
 Source2:    https://raw.githubusercontent.com/imsnif/bandwhich/v%{version}/CHANGELOG.md
 Source3:    https://raw.githubusercontent.com/imsnif/bandwhich/v%{version}/LICENSE.md
 
-BuildRequires: glibc
-BuildRequires: gcc
-BuildRequires: python3-kobo-rpmlib
 
 %description
-%{summary}
+bandwhich sniffs a given network interface and records IP packet size,
+cross referencing it with the /proc filesystem on linux. It is responsive
+to the terminal window size, displaying less info if there is no room for
+it. It will also attempt to resolve ips to their host name in the
+background using reverse DNS on a best effort basis.
 
 %prep
 %autosetup -c
@@ -26,12 +27,27 @@ cp %{SOURCE2} CHANGELOG.md
 cp %{SOURCE3} LICENSE.md
 
 %build
+./%{name} --generate-completions bash > %{name}.bash
+./%{name} --generate-completions zsh > _%{name}
+./%{name} --generate-completions fish > %{name}.fish
 
 %install
-install -p -D %{name} %{buildroot}%{_bindir}/%{name}
+install -p -D -m 0755 %{name} %{buildroot}%{_bindir}/%{name}
+install -pvD -m 0644 %{name}.bash %{buildroot}%{bash_completions_dir}/%{name}
+install -pvD -m 0644 _%{name} %{buildroot}%{zsh_completions_dir}/_%{name}
+install -pvD -m 0644 %{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
 
 %files
 %doc README.md
 %doc CHANGELOG.md
 %license LICENSE.md
 %{_bindir}/%{name}
+%{bash_completions_dir}/%{name}
+%{zsh_completions_dir}/_%{name}
+%{fish_completions_dir}/%{name}.fish
+
+%check
+%{buildroot}%{_bindir}/%{name} --version
+
+%changelog
+%autochangelog
