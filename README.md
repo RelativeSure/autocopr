@@ -23,6 +23,12 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![atuin status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/atuin/status_image/last_build.png)
 
+### [bandwhich](specs/bandwhich.spec) v0.23.1
+
+[Upstream](https://github.com/imsnif/bandwhich)
+
+![bandwhich status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bandwhich/status_image/last_build.png)
+
 ### [bottom](specs/bottom.spec) v0.10.2
 
 [Upstream](https://github.com/ClementTsang/bottom)
