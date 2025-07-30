@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    has
-Version: 1.5.0
+Version: 1.5.1
 Release: 1%{?dist}
 Summary: checks presence of various command line tools and their versions on the path
 
