@@ -77,7 +77,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![ghostty status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/ghostty/status_image/last_build.png)
 
-### [has](specs/has.spec) v1.5.0
+### [has](specs/has.spec) v1.5.1
 
 [Upstream](https://github.com/kdabir/has)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2025.7.29
+### [mise](specs/mise.spec) v2025.7.31
 
 [Upstream](https://github.com/jdx/mise)
 
