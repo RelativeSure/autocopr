@@ -26,25 +26,25 @@ cp %{SOURCE1} README.md
 cp %{SOURCE2} CHANGELOG.md
 cp %{SOURCE3} LICENSE.md
 
-%build
-./%{name} --generate-completions bash > %{name}.bash
-./%{name} --generate-completions zsh > _%{name}
-./%{name} --generate-completions fish > %{name}.fish
+#%build
+#./%{name} --generate-completions bash > %{name}.bash
+#./%{name} --generate-completions zsh > _%{name}
+#./%{name} --generate-completions fish > %{name}.fish
 
 %install
 install -p -D -m 0755 %{name} %{buildroot}%{_bindir}/%{name}
-install -pvD -m 0644 %{name}.bash %{buildroot}%{bash_completions_dir}/%{name}
-install -pvD -m 0644 _%{name} %{buildroot}%{zsh_completions_dir}/_%{name}
-install -pvD -m 0644 %{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
+#install -pvD -m 0644 %{name}.bash %{buildroot}%{bash_completions_dir}/%{name}
+#install -pvD -m 0644 _%{name} %{buildroot}%{zsh_completions_dir}/_%{name}
+#install -pvD -m 0644 %{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
 
 %files
 %doc README.md
 %doc CHANGELOG.md
 %license LICENSE.md
 %{_bindir}/%{name}
-%{bash_completions_dir}/%{name}
-%{zsh_completions_dir}/_%{name}
-%{fish_completions_dir}/%{name}.fish
+#%{bash_completions_dir}/%{name}
+#%{zsh_completions_dir}/_%{name}
+#%{fish_completions_dir}/%{name}.fish
 
 %check
 %{buildroot}%{_bindir}/%{name} --version
