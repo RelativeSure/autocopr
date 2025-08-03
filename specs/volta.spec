@@ -9,8 +9,8 @@ License: BSD 2-CLAUSE
 # https://github.com/volta-cli/volta/releases/download/v2.0.1/volta-2.0.1-linux.tar.gz
 URL:     https://github.com/volta-cli/volta
 Source:  %{url}/releases/download/v%{version}/%{name}-%{version}-linux.tar.gz
-Source1: https://raw.githubusercontent.com/volta-cli/volta/v%{version}/README.md
-Source2: https://raw.githubusercontent.com/volta-cli/volta/v%{version}/LICENSE
+Source1: https://raw.githubusercontent.com/%{name}-cli/%{name}/v%{version}/README.md
+Source2: https://raw.githubusercontent.com/%{name}-cli/%{name}/v%{version}/LICENSE
 
 %description
 %{summary}
@@ -24,8 +24,8 @@ cp %{SOURCE2} LICENSE
 
 %install
 install -p -D %{name} %{buildroot}%{_bindir}/%{name}
-install -p -D volta-migrate %{buildroot}%{_bindir}/%{name}-migrate
-install -p -D volta-shim %{buildroot}%{_bindir}/%{name}-shim
+install -p -D %{name}-migrate %{buildroot}%{_bindir}/%{name}-migrate
+install -p -D %{name}-shim %{buildroot}%{_bindir}/%{name}-shim
 
 %files
 %doc CONFIGURATION.md
