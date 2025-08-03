@@ -2,7 +2,7 @@
 
 Name:    volta
 Version: 2.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: JS Toolchains as Code
 
 License: BSD 2-CLAUSE
