@@ -24,8 +24,8 @@ cp %{SOURCE2} LICENSE
 
 %install
 install -p -D %{name} %{buildroot}%{_bindir}/%{name}
-install -p -D %{name} %{buildroot}%{_bindir}/%{name}-migrate
-install -p -D %{name} %{buildroot}%{_bindir}/%{name}-shim
+install -p -D volta-migrate %{buildroot}%{_bindir}/%{name}-migrate
+install -p -D volta-shim %{buildroot}%{_bindir}/%{name}-shim
 
 %files
 %doc CONFIGURATION.md
