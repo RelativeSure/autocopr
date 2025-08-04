@@ -7,7 +7,7 @@ Summary: An extremely fast Python package and project manager, written in Rust.
 
 License:    MIT
 URL:        https://github.com/astral-sh/uv
-Source:     %{url}/releases/download/%{version}/%{name}-x86_64-unknown-linux-musl.tar.gz
+Source:     %{url}/releases/download/%{version}/%{name}-x86_64-unknown-linux-gnu.tar.gz
 Source1:    https://raw.githubusercontent.com/astral-sh/uv/%{version}/README.md
 
 %description
@@ -34,7 +34,7 @@ cp %{SOURCE1} CONFIGURATION.md
 
 %install
 # Ensure the source binary is in the expected location
-install -p -D %{name}-x86_64-unknown-linux-musl/%{name} %{buildroot}%{_bindir}/%{name}
+install -p -D %{name}-x86_64-unknown-linux-gnu/%{name} %{buildroot}%{_bindir}/%{name}
 
 %files
 %doc CONFIGURATION.md
