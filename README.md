@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2025.8.4
+### [mise](specs/mise.spec) v2025.8.5
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.8.4
+### [uv](specs/uv.spec) v0.8.5
 
 [Upstream](https://github.com/astral-sh/uv)
 
@@ -197,7 +197,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![volta status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/volta/status_image/last_build.png)
 
-### [zellij](specs/zellij.spec) v0.42.2
+### [zellij](specs/zellij.spec) v0.43.0
 
 [Upstream](https://github.com/zellij-org/zellij)
 
