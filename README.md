@@ -29,13 +29,13 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bandwhich status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bandwhich/status_image/last_build.png)
 
-### [bottom](specs/bottom.spec) v0.10.2
+### [bottom](specs/bottom.spec) v0.11.0
 
 [Upstream](https://github.com/ClementTsang/bottom)
 
 ![bottom status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png)
 
-### [chezmoi](specs/chezmoi.spec) v2.63.1
+### [chezmoi](specs/chezmoi.spec) v2.64.0
 
 [Upstream](https://github.com/twpayne/chezmoi)
 
@@ -83,7 +83,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![has status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/has/status_image/last_build.png)
 
-### [jj](specs/jj.spec) v0.31.0
+### [jj](specs/jj.spec) v0.32.0
 
 [Upstream](https://github.com/martinvonz/jj)
 
@@ -113,7 +113,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lazydocker status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazydocker/status_image/last_build.png)
 
-### [lazygit](specs/lazygit.spec) v0.54.0
+### [lazygit](specs/lazygit.spec) v0.54.1
 
 [Upstream](https://github.com/jesseduffield/lazygit)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2025.8.5
+### [mise](specs/mise.spec) v2025.8.7
 
 [Upstream](https://github.com/jdx/mise)
 
