@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.8.6
+### [uv](specs/uv.spec) v0.8.8
 
 [Upstream](https://github.com/astral-sh/uv)
 
@@ -197,7 +197,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![volta status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/volta/status_image/last_build.png)
 
-### [zellij](specs/zellij.spec) v0.43.0
+### [zellij](specs/zellij.spec) v0.43.1
 
 [Upstream](https://github.com/zellij-org/zellij)
 
