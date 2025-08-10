@@ -6,9 +6,9 @@ Release: 1%{?dist}
 Summary: Upgrade all the things
 
 License: GPL-3.0
-# https://github.com/topgrade-rs/topgrade/releases/download/v16.0.1/topgrade-v16.0.1-x86_64-unknown-linux-musl.tar.gz
+# https://github.com/topgrade-rs/topgrade/releases/download/v16.0.1/topgrade-v16.0.1-x86_64-unknown-linux-gnu.tar.gz
 URL:     https://github.com/topgrade-rs/topgrade
-Source:  %{url}/releases/download/v%{version}/%{name}-v%{version}-x86_64-unknown-linux-musl.tar.gz
+Source:  %{url}/releases/download/v%{version}/%{name}-v%{version}-x86_64-unknown-linux-gnu.tar.gz
 Source1: https://raw.githubusercontent.com/topgrade-rs/topgrade/v%{version}/README.md
 Source2: https://raw.githubusercontent.com/topgrade-rs/topgrade/v%{version}/LICENSE
 
