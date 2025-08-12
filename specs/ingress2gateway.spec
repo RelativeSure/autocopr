@@ -19,6 +19,7 @@ A tool to convert Ingress resources to Gateway API resources.
 %autosetup -n ingress2gateway-%{version}
 
 %build
+cd cmd/ingress2gateway
 export CGO_CPPFLAGS="${CPPFLAGS}"
 export CGO_CFLAGS="${CFLAGS}"
 export CGO_CXXFLAGS="${CXXFLAGS}"
@@ -28,12 +29,13 @@ go build \
     -buildmode=pie \
     -mod=readonly \
     -modcacherw \
-    -ldflags "-linkmode=external -X main.version=%{version}" \
-    ./cmd/ingress2gateway
+    -ldflags "-linkmode=external -X main.version=%{version}"
 
 %install
 rm -rf %{buildroot}
+cd cmd/ingress2gateway
 install -D -m 0755 ingress2gateway %{buildroot}%{_bindir}/ingress2gateway
+cd -
 install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
 %verifyscript
