@@ -6,6 +6,10 @@ Release: 1%{?dist}
 Summary: An extremely fast Python package and project manager, written in Rust.
 
 License:    MIT
+%if 0%{?rhel}
+BuildRequires: musl
+Requires: musl
+%endif
 URL:        https://github.com/astral-sh/uv
 Source:     %{url}/releases/download/%{version}/%{name}-x86_64-unknown-linux-musl.tar.gz
 Source1:    https://raw.githubusercontent.com/astral-sh/uv/%{version}/README.md
@@ -35,7 +39,9 @@ cp %{SOURCE1} CONFIGURATION.md
 %install
 # Ensure the source binary is in the expected location
 install -p -D %{name}-x86_64-unknown-linux-musl/%{name} %{buildroot}%{_bindir}/%{name}
+install -p -D %{name}-x86_64-unknown-linux-musl/uvx %{buildroot}%{_bindir}/uvx
 
 %files
 %doc CONFIGURATION.md
 %{_bindir}/%{name}
+%{_bindir}/uvx
