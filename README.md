@@ -53,7 +53,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![eza status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/eza/status_image/last_build.png)
 
-### [fastly](specs/fastly.spec) v11.5.0
+### [fastly](specs/fastly.spec) v12.0.0
 
 [Upstream](https://github.com/fastly/cli)
 
@@ -119,7 +119,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lazygit status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazygit/status_image/last_build.png)
 
-### [lazyjj](specs/lazyjj.spec) v0.5.0
+### [lazyjj](specs/lazyjj.spec) v0.6.1
 
 [Upstream](https://github.com/Cretezy/lazyjj)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2025.9.7
+### [mise](specs/mise.spec) v2025.9.8
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.8.15
+### [uv](specs/uv.spec) v0.8.17
 
 [Upstream](https://github.com/astral-sh/uv)
 
