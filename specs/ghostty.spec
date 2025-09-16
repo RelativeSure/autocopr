@@ -5,7 +5,7 @@
 
 Name:           ghostty
 Version:        1.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
 
 License:        MIT
@@ -56,6 +56,14 @@ Requires(postun): gtk-update-icon-cache
 
 %prep
 %setup -q -n ghostty-%{version}
+sed -i '/^Type=notify-reload$/a \
+PassEnvironment=DISPLAY\
+PassEnvironment=WAYLAND_DISPLAY\
+PassEnvironment=XAUTHORITY\
+PassEnvironment=XDG_CURRENT_DESKTOP\
+PassEnvironment=XDG_SESSION_TYPE\
+PassEnvironment=GDK_SCALE GDK_DPI_SCALE QT_SCALE_FACTOR QT_AUTO_SCREEN_SCALE_FACTOR' \
+    dist/linux/systemd.service.in
 
 %build
 export ZIG_GLOBAL_CACHE_DIR="%{_builddir}/.zig-cache"
