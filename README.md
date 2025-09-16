@@ -71,7 +71,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![fnm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/fnm/status_image/last_build.png)
 
-### [ghostty](specs/ghostty.spec) v1.1.3
+### [ghostty](specs/ghostty.spec) v1.2.0
 
 [Upstream](https://github.com/ghostty-org/ghostty)
 
