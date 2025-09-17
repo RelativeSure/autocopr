@@ -5,7 +5,7 @@
 
 Name:           ghostty
 Version:        1.2.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
 
 License:        MIT
@@ -64,6 +64,7 @@ PassEnvironment=XDG_CURRENT_DESKTOP\
 PassEnvironment=XDG_SESSION_TYPE\
 PassEnvironment=GDK_SCALE GDK_DPI_SCALE QT_SCALE_FACTOR QT_AUTO_SCREEN_SCALE_FACTOR' \
     dist/linux/systemd.service.in
+sed -i 's/ --initial-window=false//' dist/linux/dbus.service.in dist/linux/systemd.service.in
 
 %build
 export ZIG_GLOBAL_CACHE_DIR="%{_builddir}/.zig-cache"
