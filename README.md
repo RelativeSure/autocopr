@@ -59,7 +59,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![fastly status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/fastly/status_image/last_build.png)
 
-### [fish](specs/fish.spec) v4.0.6
+### [fish](specs/fish.spec) v4.0.8
 
 [Upstream](https://github.com/fish-shell/fish-shell)
 
@@ -89,7 +89,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![jj status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/jj/status_image/last_build.png)
 
-### [k9s](specs/k9s.spec) v0.50.10
+### [k9s](specs/k9s.spec) v0.50.11
 
 [Upstream](https://github.com/derailed/k9s)
 
