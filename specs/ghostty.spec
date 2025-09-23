@@ -5,17 +5,14 @@
 
 Name:           ghostty
 Version:        1.2.0
-Release:        2%{?dist}
+Release:        4%{?dist}
 Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
-
 
 License:        MIT
 URL:            https://github.com/ghostty-org/ghostty
 Source0:        https://github.com/ghostty-org/ghostty/archive/refs/tags/v%{version}.tar.gz
 
-
 ExclusiveArch: x86_64 aarch64
-
 
 BuildRequires: blueprint-compiler
 BuildRequires: fontconfig-devel
@@ -34,7 +31,6 @@ BuildRequires: wayland-protocols-devel
 BuildRequires: zig
 BuildRequires: zlib-ng-devel
 
-
 Requires: fontconfig
 Requires: freetype
 Requires: glib2
@@ -46,14 +42,11 @@ Requires: oniguruma
 Requires: pixman
 Requires: zlib-ng
 
-
 %description
 %{summary}.
 
-
 %prep
 %setup -q -n ghostty-%{version}
-
 
 %build
 DESTDIR=%{buildroot} zig build \
