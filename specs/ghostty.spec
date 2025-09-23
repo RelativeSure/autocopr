@@ -1,141 +1,114 @@
 ###
-# Inspiration taken from https://gitlab.com/pgill/ghostty-rpm
+# Inspiration taken from https://github.com/scottames/copr/blob/main/ghostty/ghostty.spec
 ###
 %global debug_package %{nil}
 
 Name:           ghostty
 Version:        1.2.0
-Release:        3%{?dist}
+Release:        2%{?dist}
 Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
+
 
 License:        MIT
 URL:            https://github.com/ghostty-org/ghostty
-Source0:        %{url}/archive/refs/tags/v%{version}.tar.gz
+Source0:        https://github.com/ghostty-org/ghostty/archive/refs/tags/v%{version}.tar.gz
 
-ExclusiveArch:  x86_64
 
-BuildRequires:  appstream
-BuildRequires:  blueprint-compiler >= 0.16.0
-BuildRequires:  desktop-file-utils
-BuildRequires:  fontconfig-devel
-BuildRequires:  freetype-devel
-BuildRequires:  glib2-devel
-BuildRequires:  gtk4-devel
-BuildRequires:  gtk4-layer-shell-devel
-BuildRequires:  harfbuzz-devel
-BuildRequires:  libadwaita-devel
-BuildRequires:  libpng-devel
-BuildRequires:  oniguruma-devel
-BuildRequires:  pandoc-cli
-BuildRequires:  pixman-devel
-BuildRequires:  pkg-config
-BuildRequires:  systemd-rpm-macros
-BuildRequires:  wayland-protocols-devel
-BuildRequires:  zig >= 0.14.0
-BuildRequires:  zlib-ng-devel
+ExclusiveArch: x86_64 aarch64
 
-Requires:       fontconfig
-Requires:       freetype
-Requires:       glib2
-Requires:       gtk4
-Requires:       gtk4-layer-shell
-Requires:       harfbuzz
-Requires:       hicolor-icon-theme
-Requires:       libadwaita
-Requires:       libpng
-Requires:       oniguruma
-Requires:       pixman
-Requires:       zlib-ng
-Requires(post): desktop-file-utils
-Requires(post): gtk-update-icon-cache
-Requires(postun): desktop-file-utils
-Requires(postun): gtk-update-icon-cache
+
+BuildRequires: blueprint-compiler
+BuildRequires: fontconfig-devel
+BuildRequires: freetype-devel
+BuildRequires: glib2-devel
+BuildRequires: gtk4-devel
+BuildRequires: gtk4-layer-shell-devel
+BuildRequires: harfbuzz-devel
+BuildRequires: libadwaita-devel
+BuildRequires: libpng-devel
+BuildRequires: oniguruma-devel
+BuildRequires: pandoc-cli
+BuildRequires: pixman-devel
+BuildRequires: pkg-config
+BuildRequires: wayland-protocols-devel
+BuildRequires: zig
+BuildRequires: zlib-ng-devel
+
+
+Requires: fontconfig
+Requires: freetype
+Requires: glib2
+Requires: gtk4
+Requires: harfbuzz
+Requires: libadwaita
+Requires: libpng
+Requires: oniguruma
+Requires: pixman
+Requires: zlib-ng
+
 
 %description
-%{summary}
+%{summary}.
+
 
 %prep
 %setup -q -n ghostty-%{version}
-sed -i '/^Type=notify-reload$/a \
-PassEnvironment=DISPLAY\
-PassEnvironment=WAYLAND_DISPLAY\
-PassEnvironment=XAUTHORITY\
-PassEnvironment=XDG_CURRENT_DESKTOP\
-PassEnvironment=XDG_SESSION_TYPE\
-PassEnvironment=GDK_SCALE GDK_DPI_SCALE QT_SCALE_FACTOR QT_AUTO_SCREEN_SCALE_FACTOR' \
-    dist/linux/systemd.service.in
-sed -i 's/ --initial-window=false//' dist/linux/dbus.service.in dist/linux/systemd.service.in
+
 
 %build
-export ZIG_GLOBAL_CACHE_DIR="%{_builddir}/.zig-cache"
-export HOME="%{_builddir}"
-export DESTDIR="%{_builddir}/.destdir"
-zig build \
+DESTDIR=%{buildroot} zig build \
     --summary all \
-    -Dversion-string=%{version}-%{release} \
-    -Doptimize=ReleaseFast \
-    -Dcpu=baseline \
-    -Dpie=true \
-    -Demit-docs \
-    --prefix "%{_prefix}"
-
-%install
-rm -rf %{buildroot}
-export ZIG_GLOBAL_CACHE_DIR="%{_builddir}/.zig-cache"
-export HOME="%{_builddir}"
-export DESTDIR="%{buildroot}"
-zig build install \
-    --summary all \
-    -Dversion-string=%{version}-%{release} \
-    -Doptimize=ReleaseFast \
-    -Dcpu=baseline \
-    -Dpie=true \
-    -Demit-docs \
     --prefix "%{_prefix}" \
-    --system "%{_builddir}/.zig-cache/p"
+    -Dversion-string=%{version}-%{release} \
+    -Doptimize=ReleaseFast \
+    -Dcpu=baseline \
+    -Dpie=true \
+    -Demit-docs
 
-%check
-desktop-file-validate %{buildroot}%{_datadir}/applications/com.mitchellh.ghostty.desktop
-appstreamcli validate --no-net %{buildroot}%{_datadir}/metainfo/com.mitchellh.ghostty.metainfo.xml
-
-%post
-update-desktop-database -q %{_datadir}/applications || :
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor || :
-
-%postun
-update-desktop-database -q %{_datadir}/applications || :
-gtk-update-icon-cache -q %{_datadir}/icons/hicolor || :
-
+%if 0%{?fedora} >= 42
+    rm -f "%{buildroot}%{_prefix}/share/terminfo/g/ghostty"
+%endif
 
 %files
 %license LICENSE
 %{_bindir}/ghostty
-%{_datadir}/applications/com.mitchellh.ghostty.desktop
-%{_datadir}/bash-completion/completions/ghostty.bash
-%{_datadir}/bat/syntaxes/ghostty.sublime-syntax
-%{_datadir}/dbus-1/services/com.mitchellh.ghostty.service
-%{_datadir}/fish/vendor_completions.d/ghostty.fish
-%{_datadir}/ghostty
-%{_datadir}/icons/hicolor/*/apps/com.mitchellh.ghostty.png
-%{_datadir}/kio/servicemenus/com.mitchellh.ghostty.desktop
-%{_datadir}/man/man1/ghostty.1*
-%{_datadir}/man/man5/ghostty.5*
-%{_datadir}/metainfo/com.mitchellh.ghostty.metainfo.xml
-%{_datadir}/nautilus-python/extensions/ghostty.py
-%{_datadir}/nvim/site/compiler/ghostty.vim
-%{_datadir}/nvim/site/ftdetect/ghostty.vim
-%{_datadir}/nvim/site/ftplugin/ghostty.vim
-%{_datadir}/nvim/site/syntax/ghostty.vim
-%{_datadir}/locale/*/LC_MESSAGES/com.mitchellh.ghostty.mo
-%{_datadir}/terminfo/g/ghostty
-%{_datadir}/terminfo/x/xterm-ghostty
-%{_datadir}/vim/vimfiles/compiler/ghostty.vim
-%{_datadir}/vim/vimfiles/ftdetect/ghostty.vim
-%{_datadir}/vim/vimfiles/ftplugin/ghostty.vim
-%{_datadir}/vim/vimfiles/syntax/ghostty.vim
-%{_datadir}/zsh/site-functions/_ghostty
-%{_userunitdir}/app-com.mitchellh.ghostty.service
+%{_prefix}/share/applications/com.mitchellh.ghostty.desktop
+%{_prefix}/share/bash-completion/completions/ghostty.bash
+%{_prefix}/share/bat/syntaxes/ghostty.sublime-syntax
+%{_prefix}/share/fish/vendor_completions.d/ghostty.fish
+%{_prefix}/share/ghostty
+%{_prefix}/share/icons/hicolor/1024x1024/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/128x128/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/128x128@2/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/16x16/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/16x16@2/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/256x256/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/256x256@2/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/32x32/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/32x32@2/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/icons/hicolor/512x512/apps/com.mitchellh.ghostty.png
+%{_prefix}/share/kio/servicemenus/com.mitchellh.ghostty.desktop
+%{_prefix}/share/man/man1/ghostty.1
+%{_prefix}/share/man/man5/ghostty.5
+%{_prefix}/share/nautilus-python/extensions/ghostty.py
+%{_prefix}/share/nvim/site/compiler/ghostty.vim
+%{_prefix}/share/nvim/site/ftdetect/ghostty.vim
+%{_prefix}/share/nvim/site/ftplugin/ghostty.vim
+%{_prefix}/share/nvim/site/syntax/ghostty.vim
+%{_prefix}/share/vim/vimfiles/compiler/ghostty.vim
+%{_prefix}/share/vim/vimfiles/ftdetect/ghostty.vim
+%{_prefix}/share/vim/vimfiles/ftplugin/ghostty.vim
+%{_prefix}/share/vim/vimfiles/syntax/ghostty.vim
+%{_prefix}/share/zsh/site-functions/_ghostty
+%{_prefix}/share/dbus-1/services/com.mitchellh.ghostty.service
+%{_prefix}/share/locale/*/LC_MESSAGES/com.mitchellh.ghostty.mo
+%{_prefix}/share/metainfo/com.mitchellh.ghostty.metainfo.xml
+%{_prefix}/share/systemd/user/app-com.mitchellh.ghostty.service
 
+%{_prefix}/share/terminfo/x/xterm-ghostty
+%if 0%{?fedora} < 42
+    %{_prefix}/share/terminfo/g/ghostty
+%endif
 
 %changelog
 %autochangelog
