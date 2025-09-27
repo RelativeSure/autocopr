@@ -1,4 +1,4 @@
-name: Update spec files
+name: Update spec files workflow
 on:
   workflow_dispatch:
 
