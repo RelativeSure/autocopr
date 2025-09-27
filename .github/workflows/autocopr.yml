@@ -1,0 +1,26 @@
+name: Update spec files
+on:
+  workflow_dispatch:
+
+  schedule:
+    # Runs at 12:00am UTC -> 5:00pm PDT
+    - cron: "0 0 * * *"
+
+# revoke default token permissions
+permissions: {}
+
+jobs:
+  update:
+    name: update
+    runs-on: ubuntu-latest
+    permissions:
+      # required for "push" mode, to push commits with updated specs to this repo
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: aidandenlinger/autocopr@action # TODO: once released, depend on main or a tag/commit instead
+        with:
+          mode: "dry-run" # Automatically push spec updates. Alternative options: "check", "dry-run". see action.yml for more.
+          root_loc: "./specs"
