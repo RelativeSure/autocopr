@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    k9s
-Version: 0.50.12
+Version: 0.50.13
 Release: 1%{?dist}
 Summary: Kubernetes CLI To Manage Your Clusters In Style!
 
