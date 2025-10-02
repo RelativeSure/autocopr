@@ -11,7 +11,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### Status badges on COPR builds
 
-### [act-cli](specs/act-cli.spec) v0.2.81
+### [act-cli](specs/act-cli.spec) v0.2.82
 
 [Upstream](https://github.com/nektos/act)
 
@@ -83,7 +83,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![has status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/has/status_image/last_build.png)
 
-### [jj](specs/jj.spec) v0.33.0
+### [jj](specs/jj.spec) v0.34.0
 
 [Upstream](https://github.com/martinvonz/jj)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2025.9.25
+### [mise](specs/mise.spec) v2025.10.0
 
 [Upstream](https://github.com/jdx/mise)
 
