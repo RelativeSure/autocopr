@@ -4,7 +4,7 @@
 %global debug_package %{nil}
 
 Name:           ghostty
-Version:        1.2.0
+Version:        1.2.1
 Release:        4%{?dist}
 Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
 
