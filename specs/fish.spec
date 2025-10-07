@@ -18,6 +18,7 @@ BuildRequires: gcc
 BuildRequires: gcc-c++
 BuildRequires: ncurses-devel
 BuildRequires: pcre2-devel
+BuildRequires: gettext-devel
 
 %description
 Fish is a smart and user-friendly command line shell for Linux, macOS, and the rest
