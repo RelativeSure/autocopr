@@ -55,10 +55,10 @@ fi
 # Config files and folders
 %dir %{_sysconfdir}/fish/
 %config(noreplace) %{_sysconfdir}/fish/config.fish
-%{_datadir}/applications/fish.desktop
+#%{_datadir}/applications/fish.desktop
 %{_datadir}/fish/
 %{_mandir}/man1/fish*.1*
-%{_datadir}/pixmaps/fish.png
+#%{_datadir}/pixmaps/fish.png
 %{_datadir}/pkgconfig/fish.pc
 
 %post
