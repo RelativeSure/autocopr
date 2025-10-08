@@ -20,7 +20,7 @@ jobs:
 
       - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6
         with:
-          python-version: "3.13" # Need python version for cache
+          python-version: "3.14" # Need python version for cache
           cache: "pip" # caching pip dependencies
 
       - name: Cache GraphQL API IDs
