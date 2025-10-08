@@ -29,13 +29,13 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bandwhich status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bandwhich/status_image/last_build.png)
 
-### [bottom](specs/bottom.spec) v0.11.1
+### [bottom](specs/bottom.spec) v0.11.2
 
 [Upstream](https://github.com/ClementTsang/bottom)
 
 ![bottom status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png)
 
-### [chezmoi](specs/chezmoi.spec) v2.65.2
+### [chezmoi](specs/chezmoi.spec) v2.66.0
 
 [Upstream](https://github.com/twpayne/chezmoi)
 
@@ -59,7 +59,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![fastly status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/fastly/status_image/last_build.png)
 
-### [fish](specs/fish.spec) v4.1.1
+### [fish](specs/fish.spec) v4.1.2
 
 [Upstream](https://github.com/fish-shell/fish-shell)
 
@@ -89,7 +89,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![jj status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/jj/status_image/last_build.png)
 
-### [k9s](specs/k9s.spec) v0.50.14
+### [k9s](specs/k9s.spec) v0.50.15
 
 [Upstream](https://github.com/derailed/k9s)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2025.10.4
+### [mise](specs/mise.spec) v2025.10.5
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.8.23
+### [uv](specs/uv.spec) v0.9.0
 
 [Upstream](https://github.com/astral-sh/uv)
 
