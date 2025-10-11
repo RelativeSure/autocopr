@@ -2,7 +2,7 @@
 %global binary_name spf
 
 Name:    superfile
-Version: 1.3.3
+Version: 1.4.0
 Release: 1%{?dist}
 Summary: Pretty fancy and modern terminal file manager
 
