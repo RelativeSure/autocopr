@@ -143,13 +143,13 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2025.10.8
+### [mise](specs/mise.spec) v2025.10.9
 
 [Upstream](https://github.com/jdx/mise)
 
 ![mise status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/mise/status_image/last_build.png)
 
-### [msedit](specs/msedit.spec) v1.2.0
+### [msedit](specs/msedit.spec) v1.2.1
 
 [Upstream](https://github.com/microsoft/edit)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.9.2
+### [uv](specs/uv.spec) v0.9.3
 
 [Upstream](https://github.com/astral-sh/uv)
 
