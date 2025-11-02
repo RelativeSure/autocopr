@@ -113,7 +113,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lazydocker status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazydocker/status_image/last_build.png)
 
-### [lazygit](specs/lazygit.spec) v0.55.1
+### [lazygit](specs/lazygit.spec) v0.56.0
 
 [Upstream](https://github.com/jesseduffield/lazygit)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2025.10.21
+### [mise](specs/mise.spec) v2025.11.1
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -173,7 +173,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 
-### [topgrade](specs/topgrade.spec) v16.0.4
+### [topgrade](specs/topgrade.spec) v16.1.2
 
 [Upstream](https://github.com/topgrade-rs/topgrade)
 
