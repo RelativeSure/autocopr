@@ -35,7 +35,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bottom status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png)
 
-### [chezmoi](specs/chezmoi.spec) v2.66.1
+### [chezmoi](specs/chezmoi.spec) v2.67.0
 
 [Upstream](https://github.com/twpayne/chezmoi)
 
@@ -179,7 +179,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v2.5.2
+### [usage](specs/usage.spec) v2.6.0
 
 [Upstream](https://github.com/jdx/usage)
 
