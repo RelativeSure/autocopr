@@ -29,7 +29,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bandwhich status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bandwhich/status_image/last_build.png)
 
-### [bottom](specs/bottom.spec) v0.11.2
+### [bottom](specs/bottom.spec) v0.11.3
 
 [Upstream](https://github.com/ClementTsang/bottom)
 
@@ -83,7 +83,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![has status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/has/status_image/last_build.png)
 
-### [jj](specs/jj.spec) v0.34.0
+### [jj](specs/jj.spec) v0.35.0
 
 [Upstream](https://github.com/martinvonz/jj)
 
