@@ -179,7 +179,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v2.6.0
+### [usage](specs/usage.spec) v2.7.0
 
 [Upstream](https://github.com/jdx/usage)
 
