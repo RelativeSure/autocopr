@@ -29,7 +29,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bandwhich status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bandwhich/status_image/last_build.png)
 
-### [bottom](specs/bottom.spec) v0.11.3
+### [bottom](specs/bottom.spec) v0.11.4
 
 [Upstream](https://github.com/ClementTsang/bottom)
 
@@ -161,7 +161,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![nvm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/nvm/status_image/last_build.png)
 
-### [starship](specs/starship.spec) v1.24.0
+### [starship](specs/starship.spec) v1.24.1
 
 [Upstream](https://github.com/starship/starship)
 
