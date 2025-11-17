@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    starship
-Version: 1.24.0
+Version: 1.24.1
 Release: 1%{?dist}
 Summary: The minimal, blazing-fast, and infinitely customizable prompt for any shell
 
