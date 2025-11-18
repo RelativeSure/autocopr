@@ -173,7 +173,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 
-### [topgrade](specs/topgrade.spec) v16.2.1
+### [topgrade](specs/topgrade.spec) v16.3.0
 
 [Upstream](https://github.com/topgrade-rs/topgrade)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.9.9
+### [uv](specs/uv.spec) v0.9.10
 
 [Upstream](https://github.com/astral-sh/uv)
 
