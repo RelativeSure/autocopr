@@ -173,7 +173,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 
-### [topgrade](specs/topgrade.spec) v16.5.0
+### [topgrade](specs/topgrade.spec) v16.6.0
 
 [Upstream](https://github.com/topgrade-rs/topgrade)
 
