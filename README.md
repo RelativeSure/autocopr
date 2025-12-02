@@ -11,7 +11,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### Status badges on COPR builds
 
-### [act-cli](specs/act-cli.spec) v0.2.82
+### [act-cli](specs/act-cli.spec) v0.2.83
 
 [Upstream](https://github.com/nektos/act)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.9.13
+### [uv](specs/uv.spec) v0.9.14
 
 [Upstream](https://github.com/astral-sh/uv)
 
