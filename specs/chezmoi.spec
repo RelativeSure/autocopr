@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    chezmoi
-Version: 2.67.1
+Version: 2.68.0
 Release: 1%{?dist}
 Summary: Manage your dotfiles across multiple diverse machines, securely.
 
