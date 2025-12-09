@@ -137,13 +137,13 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lstr status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lstr/status_image/last_build.png)
 
-### [lua-language-server](specs/lua-language-server.spec) v3.16.0
+### [lua-language-server](specs/lua-language-server.spec) v3.16.1
 
 [Upstream](https://github.com/LuaLS/lua-language-server)
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2025.12.0
+### [mise](specs/mise.spec) v2025.12.1
 
 [Upstream](https://github.com/jdx/mise)
 
