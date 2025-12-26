@@ -29,7 +29,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bandwhich status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bandwhich/status_image/last_build.png)
 
-### [bottom](specs/bottom.spec) v0.11.4
+### [bottom](specs/bottom.spec) v0.12.1
 
 [Upstream](https://github.com/ClementTsang/bottom)
 
@@ -137,7 +137,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lstr status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lstr/status_image/last_build.png)
 
-### [lua-language-server](specs/lua-language-server.spec) v3.16.3
+### [lua-language-server](specs/lua-language-server.spec) v3.16.4
 
 [Upstream](https://github.com/LuaLS/lua-language-server)
 
