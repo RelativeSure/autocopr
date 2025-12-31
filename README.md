@@ -59,7 +59,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![fastly status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/fastly/status_image/last_build.png)
 
-### [fish](specs/fish.spec) v4.3.1
+### [fish](specs/fish.spec) v4.3.2
 
 [Upstream](https://github.com/fish-shell/fish-shell)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2025.12.12
+### [mise](specs/mise.spec) v2025.12.13
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -161,7 +161,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![nvm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/nvm/status_image/last_build.png)
 
-### [starship](specs/starship.spec) v1.24.1
+### [starship](specs/starship.spec) v1.24.2
 
 [Upstream](https://github.com/starship/starship)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.9.20
+### [uv](specs/uv.spec) v0.9.21
 
 [Upstream](https://github.com/astral-sh/uv)
 
@@ -203,7 +203,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![zellij status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/zellij/status_image/last_build.png)
 
-### [zenith](specs/zenith.spec) v0.14.1
+### [zenith](specs/zenith.spec) v0.14.2
 
 [Upstream](https://github.com/bvaisvil/zenith)
 
