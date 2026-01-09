@@ -83,7 +83,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![has status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/has/status_image/last_build.png)
 
-### [jj](specs/jj.spec) v0.36.0
+### [jj](specs/jj.spec) v0.37.0
 
 [Upstream](https://github.com/martinvonz/jj)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.1.0
+### [mise](specs/mise.spec) v2026.1.1
 
 [Upstream](https://github.com/jdx/mise)
 
