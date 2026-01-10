@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    topgrade
-Version: 16.7.0
+Version: 16.8.0
 Release: 1%{?dist}
 Summary: Upgrade all the things
 
