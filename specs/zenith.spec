@@ -2,7 +2,7 @@
 %global raw_ghuc https://raw.githubusercontent.com/bvaisvil/zenith/
 
 Name:    zenith
-Version: 0.14.2
+Version: 0.14.3
 Release: 1%{?dist}
 Summary: Sort of like top or htop but with zoom-able charts, CPU, GPU, network, and disk usage
 
