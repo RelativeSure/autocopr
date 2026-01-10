@@ -35,7 +35,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bottom status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png)
 
-### [chezmoi](specs/chezmoi.spec) v2.69.0
+### [chezmoi](specs/chezmoi.spec) v2.69.1
 
 [Upstream](https://github.com/twpayne/chezmoi)
 
@@ -173,7 +173,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 
-### [topgrade](specs/topgrade.spec) v16.7.0
+### [topgrade](specs/topgrade.spec) v16.8.0
 
 [Upstream](https://github.com/topgrade-rs/topgrade)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.9.22
+### [uv](specs/uv.spec) v0.9.24
 
 [Upstream](https://github.com/astral-sh/uv)
 
@@ -203,7 +203,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![zellij status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/zellij/status_image/last_build.png)
 
-### [zenith](specs/zenith.spec) v0.14.2
+### [zenith](specs/zenith.spec) v0.14.3
 
 [Upstream](https://github.com/bvaisvil/zenith)
 
