@@ -89,7 +89,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![jj status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/jj/status_image/last_build.png)
 
-### [k9s](specs/k9s.spec) v0.50.16
+### [k9s](specs/k9s.spec) v0.50.18
 
 [Upstream](https://github.com/derailed/k9s)
 
