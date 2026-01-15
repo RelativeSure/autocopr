@@ -41,7 +41,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![chezmoi status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/chezmoi/status_image/last_build.png)
 
-### [cilium-cli](specs/cilium-cli.spec) v0.18.9
+### [cilium-cli](specs/cilium-cli.spec) v0.19.0
 
 [Upstream](https://github.com/cilium/cilium-cli)
 
@@ -179,7 +179,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v2.11.0
+### [usage](specs/usage.spec) v2.12.0
 
 [Upstream](https://github.com/jdx/usage)
 
