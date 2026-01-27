@@ -179,13 +179,13 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v2.13.1
+### [usage](specs/usage.spec) v2.15.0
 
 [Upstream](https://github.com/jdx/usage)
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.9.26
+### [uv](specs/uv.spec) v0.9.27
 
 [Upstream](https://github.com/astral-sh/uv)
 
