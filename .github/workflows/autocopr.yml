@@ -1,4 +1,4 @@
-name: Update spec files
+name: GH Actions - Update spec files
 on:
   # Allows for manually running an update from the actions tab
   workflow_dispatch:
