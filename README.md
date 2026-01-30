@@ -155,7 +155,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![msedit status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/msedit/status_image/last_build.png)
 
-### [nvm](specs/nvm.spec) v0.40.3
+### [nvm](specs/nvm.spec) v0.40.4
 
 [Upstream](https://github.com/nvm-sh/nvm)
 
@@ -179,13 +179,13 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v2.15.1
+### [usage](specs/usage.spec) v2.16.0
 
 [Upstream](https://github.com/jdx/usage)
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.9.27
+### [uv](specs/uv.spec) v0.9.28
 
 [Upstream](https://github.com/astral-sh/uv)
 
