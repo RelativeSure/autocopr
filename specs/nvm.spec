@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name:    nvm
-Version: 0.40.3
-Release: 2%{?dist}
+Version: 0.40.4
+Release: 1%{?dist}
 Summary: Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions
 
 License: MIT
