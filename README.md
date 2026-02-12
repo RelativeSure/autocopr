@@ -17,7 +17,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![act-cli status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/act-cli/status_image/last_build.png)
 
-### [atuin](specs/atuin.spec) v18.12.0
+### [atuin](specs/atuin.spec) v18.12.1
 
 [Upstream](https://github.com/atuinsh/atuin)
 
@@ -35,7 +35,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bottom status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png)
 
-### [chezmoi](specs/chezmoi.spec) v2.69.3
+### [chezmoi](specs/chezmoi.spec) v2.69.4
 
 [Upstream](https://github.com/twpayne/chezmoi)
 
@@ -179,7 +179,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v2.16.1
+### [usage](specs/usage.spec) v2.16.2
 
 [Upstream](https://github.com/jdx/usage)
 
