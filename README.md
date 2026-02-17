@@ -59,7 +59,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![fastly status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/fastly/status_image/last_build.png)
 
-### [fish](specs/fish.spec) v4.4.0
+### [fish](specs/fish.spec) v4.5.0
 
 [Upstream](https://github.com/fish-shell/fish-shell)
 
@@ -179,13 +179,13 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v2.16.2
+### [usage](specs/usage.spec) v2.17.0
 
 [Upstream](https://github.com/jdx/usage)
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.10.2
+### [uv](specs/uv.spec) v0.10.3
 
 [Upstream](https://github.com/astral-sh/uv)
 
