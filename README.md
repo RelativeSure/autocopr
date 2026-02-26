@@ -41,7 +41,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![chezmoi status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/chezmoi/status_image/last_build.png)
 
-### [cilium-cli](specs/cilium-cli.spec) v0.19.1
+### [cilium-cli](specs/cilium-cli.spec) v0.19.2
 
 [Upstream](https://github.com/cilium/cilium-cli)
 
@@ -53,7 +53,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![eza status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/eza/status_image/last_build.png)
 
-### [fastly](specs/fastly.spec) v13.3.0
+### [fastly](specs/fastly.spec) v14.0.3
 
 [Upstream](https://github.com/fastly/cli)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.2.19
+### [mise](specs/mise.spec) v2026.2.20
 
 [Upstream](https://github.com/jdx/mise)
 
