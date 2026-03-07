@@ -65,7 +65,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![fish status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/fish/status_image/last_build.png)
 
-### [fnm](specs/fnm.spec) v1.38.1
+### [fnm](specs/fnm.spec) v1.39.0
 
 [Upstream](https://github.com/Schniz/fnm)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.10.8
+### [uv](specs/uv.spec) v0.10.9
 
 [Upstream](https://github.com/astral-sh/uv)
 
