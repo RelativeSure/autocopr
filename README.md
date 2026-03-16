@@ -107,7 +107,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![kubie status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/kubie/status_image/last_build.png)
 
-### [lazydocker](specs/lazydocker.spec) v0.24.4
+### [lazydocker](specs/lazydocker.spec) v0.25.0
 
 [Upstream](https://github.com/jesseduffield/lazydocker)
 
