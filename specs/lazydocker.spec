@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    lazydocker
-Version: 0.24.4
+Version: 0.25.0
 Release: 1%{?dist}
 Summary: The lazier way to manage everything docker
 
