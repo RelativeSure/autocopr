@@ -53,7 +53,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![eza status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/eza/status_image/last_build.png)
 
-### [fastly](specs/fastly.spec) v14.1.0
+### [fastly](specs/fastly.spec) v14.1.1
 
 [Upstream](https://github.com/fastly/cli)
 
