@@ -11,13 +11,13 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ### Status badges on COPR builds
 
-### [act-cli](specs/act-cli.spec) v0.2.84
+### [act-cli](specs/act-cli.spec) v0.2.85
 
 [Upstream](https://github.com/nektos/act)
 
 ![act-cli status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/act-cli/status_image/last_build.png)
 
-### [atuin](specs/atuin.spec) v18.13.3
+### [atuin](specs/atuin.spec) v18.13.4
 
 [Upstream](https://github.com/atuinsh/atuin)
 
@@ -101,7 +101,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![kubeswitch status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/kubeswitch/status_image/last_build.png)
 
-### [kubie](specs/kubie.spec) v0.26.1
+### [kubie](specs/kubie.spec) v0.27.0
 
 [Upstream](https://github.com/sbstp/kubie)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.3.12
+### [mise](specs/mise.spec) v2026.3.13
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -179,13 +179,13 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v3.1.0
+### [usage](specs/usage.spec) v3.2.0
 
 [Upstream](https://github.com/jdx/usage)
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.10.12
+### [uv](specs/uv.spec) v0.11.0
 
 [Upstream](https://github.com/astral-sh/uv)
 
@@ -197,7 +197,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![volta status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/volta/status_image/last_build.png)
 
-### [zellij](specs/zellij.spec) v0.43.1
+### [zellij](specs/zellij.spec) v0.44.0
 
 [Upstream](https://github.com/zellij-org/zellij)
 
