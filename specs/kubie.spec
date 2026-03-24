@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    kubie
-Version: 0.26.1
+Version: 0.27.0
 Release: 1%{?dist}
 Summary: A more powerful alternative to kubectx and kubens
 
