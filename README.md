@@ -17,7 +17,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![act-cli status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/act-cli/status_image/last_build.png)
 
-### [atuin](specs/atuin.spec) v18.13.4
+### [atuin](specs/atuin.spec) v18.13.5
 
 [Upstream](https://github.com/atuinsh/atuin)
 
@@ -53,7 +53,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![eza status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/eza/status_image/last_build.png)
 
-### [fastly](specs/fastly.spec) v14.1.1
+### [fastly](specs/fastly.spec) v14.2.0
 
 [Upstream](https://github.com/fastly/cli)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.3.13
+### [mise](specs/mise.spec) v2026.3.14
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.11.0
+### [uv](specs/uv.spec) v0.11.1
 
 [Upstream](https://github.com/astral-sh/uv)
 
