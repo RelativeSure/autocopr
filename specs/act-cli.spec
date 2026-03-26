@@ -2,7 +2,7 @@
 # Inspirated from https://github.com/goncalossilva/rpm-act/blob/main/act-cli.spec
 
 Name:    act-cli
-Version: 0.2.85
+Version: 0.2.86
 Release: 1%{?dist}
 Summary: Run GitHub Actions locally.
 
