@@ -35,7 +35,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bottom status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bottom/status_image/last_build.png)
 
-### [chezmoi](specs/chezmoi.spec) v2.70.0
+### [chezmoi](specs/chezmoi.spec) v2.70.1
 
 [Upstream](https://github.com/twpayne/chezmoi)
 
@@ -137,7 +137,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lstr status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lstr/status_image/last_build.png)
 
-### [lua-language-server](specs/lua-language-server.spec) v3.18.0
+### [lua-language-server](specs/lua-language-server.spec) v3.18.1
 
 [Upstream](https://github.com/LuaLS/lua-language-server)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.11.4
+### [uv](specs/uv.spec) v0.11.5
 
 [Upstream](https://github.com/astral-sh/uv)
 
