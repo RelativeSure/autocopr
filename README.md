@@ -107,7 +107,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![kubie status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/kubie/status_image/last_build.png)
 
-### [lazydocker](specs/lazydocker.spec) v0.25.0
+### [lazydocker](specs/lazydocker.spec) v0.25.2
 
 [Upstream](https://github.com/jesseduffield/lazydocker)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.4.17
+### [mise](specs/mise.spec) v2026.4.18
 
 [Upstream](https://github.com/jdx/mise)
 
