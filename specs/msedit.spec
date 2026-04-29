@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    msedit
-Version: 1.2.1
+Version: 2.0.0
 Release: 1%{?dist}
 Summary: A simple editor for simple needs.
 
