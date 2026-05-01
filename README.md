@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.4.27
+### [mise](specs/mise.spec) v2026.4.28
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -161,7 +161,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![nvm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/nvm/status_image/last_build.png)
 
-### [starship](specs/starship.spec) v1.25.0
+### [starship](specs/starship.spec) v1.25.1
 
 [Upstream](https://github.com/starship/starship)
 
