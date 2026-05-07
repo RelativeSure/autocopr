@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    fish
-Version: 4.6.0
+Version: 4.7.0
 Release: 1%{?dist}
 Summary: The user-friendly command line shell.
 
