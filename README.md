@@ -53,7 +53,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![eza status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/eza/status_image/last_build.png)
 
-### [fastly](specs/fastly.spec) v14.3.1
+### [fastly](specs/fastly.spec) v15.0.0
 
 [Upstream](https://github.com/fastly/cli)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.5.2
+### [mise](specs/mise.spec) v2026.5.3
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.11.11
+### [uv](specs/uv.spec) v0.11.12
 
 [Upstream](https://github.com/astral-sh/uv)
 
@@ -203,7 +203,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![zellij status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/zellij/status_image/last_build.png)
 
-### [zenith](specs/zenith.spec) v0.14.3
+### [zenith](specs/zenith.spec) v0.15.0
 
 [Upstream](https://github.com/bvaisvil/zenith)
 
