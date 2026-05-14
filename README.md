@@ -53,7 +53,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![eza status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/eza/status_image/last_build.png)
 
-### [fastly](specs/fastly.spec) v15.0.0
+### [fastly](specs/fastly.spec) v15.1.0
 
 [Upstream](https://github.com/fastly/cli)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.5.6
+### [mise](specs/mise.spec) v2026.5.7
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -197,7 +197,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![volta status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/volta/status_image/last_build.png)
 
-### [zellij](specs/zellij.spec) v0.44.2
+### [zellij](specs/zellij.spec) v0.44.3
 
 [Upstream](https://github.com/zellij-org/zellij)
 
