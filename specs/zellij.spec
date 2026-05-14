@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    zellij
-Version: 0.44.2
+Version: 0.44.3
 Release: 1%{?dist}
 Summary: A terminal workspace with batteries included
 
