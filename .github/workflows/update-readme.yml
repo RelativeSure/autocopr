@@ -51,7 +51,7 @@ jobs:
           git commit -a -m "Update README.md" || true
 
       - name: Push changes
-        uses: ad-m/github-push-action@fdfe7e83ff42edf5d49846b69f3c78d806169d51 # master
+        uses: ad-m/github-push-action@881a6320fdb16eb5318c5054f31c218aec2b324c # master
         with:
           github_token: ${{ secrets.KUBEARCHITECTBOT_TOKEN || secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
