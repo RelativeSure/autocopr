@@ -83,7 +83,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![has status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/has/status_image/last_build.png)
 
-### [jj](specs/jj.spec) v0.41.0
+### [jj](specs/jj.spec) v0.42.0
 
 [Upstream](https://github.com/martinvonz/jj)
 
@@ -113,7 +113,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lazydocker status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazydocker/status_image/last_build.png)
 
-### [lazygit](specs/lazygit.spec) v0.62.1
+### [lazygit](specs/lazygit.spec) v0.62.2
 
 [Upstream](https://github.com/jesseduffield/lazygit)
 
@@ -155,7 +155,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![msedit status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/msedit/status_image/last_build.png)
 
-### [nvm](specs/nvm.spec) v0.40.4
+### [nvm](specs/nvm.spec) v0.40.5
 
 [Upstream](https://github.com/nvm-sh/nvm)
 
