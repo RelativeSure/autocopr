@@ -167,7 +167,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![starship status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/starship/status_image/last_build.png)
 
-### [superfile](specs/superfile.spec) v1.5.0
+### [superfile](specs/superfile.spec) v1.6.0
 
 [Upstream](https://github.com/yorukot/superfile)
 
