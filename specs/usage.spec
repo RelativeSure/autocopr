@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    usage
-Version: 3.4.0
+Version: 3.5.0
 Release: 1%{?dist}
 Summary: A specification for CLIs
 
