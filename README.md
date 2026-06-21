@@ -29,7 +29,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bandwhich status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bandwhich/status_image/last_build.png)
 
-### [bottom](specs/bottom.spec) v0.12.3
+### [bottom](specs/bottom.spec) v0.14.0
 
 [Upstream](https://github.com/ClementTsang/bottom)
 
@@ -173,7 +173,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 
-### [topgrade](specs/topgrade.spec) v17.6.1
+### [topgrade](specs/topgrade.spec) v17.6.2
 
 [Upstream](https://github.com/topgrade-rs/topgrade)
 
