@@ -161,7 +161,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![nvm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/nvm/status_image/last_build.png)
 
-### [starship](specs/starship.spec) v1.25.1
+### [starship](specs/starship.spec) v1.26.0
 
 [Upstream](https://github.com/starship/starship)
 
