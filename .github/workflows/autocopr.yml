@@ -21,6 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
-      - uses: aidandenlinger/autocopr@3bf4fde911140dffbb665b0ff1ae41702a0a20bc # v1
+      - uses: aidandenlinger/autocopr@612099e079443983d61b82290a885975a03a5b32 # v1
         with:
           mode: "push"
