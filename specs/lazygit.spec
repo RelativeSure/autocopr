@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    lazygit
-Version: 0.62.2
+Version: 0.63.0
 Release: 1%{?dist}
 Summary: simple terminal UI for git commands
 
