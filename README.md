@@ -29,7 +29,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bandwhich status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bandwhich/status_image/last_build.png)
 
-### [bottom](specs/bottom.spec) v0.14.3
+### [bottom](specs/bottom.spec) v0.14.4
 
 [Upstream](https://github.com/ClementTsang/bottom)
 
@@ -47,7 +47,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![cilium-cli status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/cilium-cli/status_image/last_build.png)
 
-### [eza](specs/eza.spec) v0.23.4
+### [eza](specs/eza.spec) v0.23.5
 
 [Upstream](https://github.com/eza-community/eza)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.7.3
+### [mise](specs/mise.spec) v2026.7.5
 
 [Upstream](https://github.com/jdx/mise)
 
