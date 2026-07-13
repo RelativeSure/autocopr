@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: lstr
-Version: 0.2.1
+Version: 0.3.0
 Release: 1%{?dist}
 Summary: A fast, minimalist directory tree viewer, written in Rust.
 
