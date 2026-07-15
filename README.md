@@ -17,7 +17,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![act-cli status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/act-cli/status_image/last_build.png)
 
-### [atuin](specs/atuin.spec) v18.17.0
+### [atuin](specs/atuin.spec) v18.17.1
 
 [Upstream](https://github.com/atuinsh/atuin)
 
@@ -41,7 +41,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![chezmoi status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/chezmoi/status_image/last_build.png)
 
-### [cilium-cli](specs/cilium-cli.spec) v0.19.5
+### [cilium-cli](specs/cilium-cli.spec) v0.19.6
 
 [Upstream](https://github.com/cilium/cilium-cli)
 
@@ -59,7 +59,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![fastly status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/fastly/status_image/last_build.png)
 
-### [fish](specs/fish.spec) v4.8.0
+### [fish](specs/fish.spec) v4.8.1
 
 [Upstream](https://github.com/fish-shell/fish-shell)
 
@@ -131,7 +131,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lazynpm status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazynpm/status_image/last_build.png)
 
-### [lstr](specs/lstr.spec) v0.3.0
+### [lstr](specs/lstr.spec) v0.4.0
 
 [Upstream](https://github.com/bgreenwell/lstr)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.7.5
+### [mise](specs/mise.spec) v2026.7.6
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -179,7 +179,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v3.5.4
+### [usage](specs/usage.spec) v3.5.5
 
 [Upstream](https://github.com/jdx/usage)
 
