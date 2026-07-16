@@ -113,7 +113,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lazydocker status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazydocker/status_image/last_build.png)
 
-### [lazygit](specs/lazygit.spec) v0.63.0
+### [lazygit](specs/lazygit.spec) v0.63.1
 
 [Upstream](https://github.com/jesseduffield/lazygit)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.7.6
+### [mise](specs/mise.spec) v2026.7.7
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -155,7 +155,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![msedit status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/msedit/status_image/last_build.png)
 
-### [nvm](specs/nvm.spec) v0.40.5
+### [nvm](specs/nvm.spec) v0.40.6
 
 [Upstream](https://github.com/nvm-sh/nvm)
 
@@ -173,7 +173,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![superfile status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/superfile/status_image/last_build.png)
 
-### [topgrade](specs/topgrade.spec) v17.7.0
+### [topgrade](specs/topgrade.spec) v17.8.0
 
 [Upstream](https://github.com/topgrade-rs/topgrade)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.11.28
+### [uv](specs/uv.spec) v0.11.29
 
 [Upstream](https://github.com/astral-sh/uv)
 
