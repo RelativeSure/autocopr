@@ -17,7 +17,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![act-cli status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/act-cli/status_image/last_build.png)
 
-### [atuin](specs/atuin.spec) v18.17.1
+### [atuin](specs/atuin.spec) v18.18.1
 
 [Upstream](https://github.com/atuinsh/atuin)
 
@@ -29,7 +29,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bandwhich status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bandwhich/status_image/last_build.png)
 
-### [bottom](specs/bottom.spec) v0.14.6
+### [bottom](specs/bottom.spec) v0.14.7
 
 [Upstream](https://github.com/ClementTsang/bottom)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.7.14
+### [mise](specs/mise.spec) v2026.7.15
 
 [Upstream](https://github.com/jdx/mise)
 
