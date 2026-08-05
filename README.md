@@ -53,7 +53,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![eza status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/eza/status_image/last_build.png)
 
-### [fastly](specs/fastly.spec) v15.4.0
+### [fastly](specs/fastly.spec) v15.5.0
 
 [Upstream](https://github.com/fastly/cli)
 
@@ -113,7 +113,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lazydocker status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lazydocker/status_image/last_build.png)
 
-### [lazygit](specs/lazygit.spec) v0.63.1
+### [lazygit](specs/lazygit.spec) v0.64.0
 
 [Upstream](https://github.com/jesseduffield/lazygit)
 
@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.8.1
+### [mise](specs/mise.spec) v2026.8.2
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -179,7 +179,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v4.1.0
+### [usage](specs/usage.spec) v5.0.0
 
 [Upstream](https://github.com/jdx/usage)
 
