@@ -83,7 +83,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![has status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/has/status_image/last_build.png)
 
-### [jj](specs/jj.spec) v0.43.0
+### [jj](specs/jj.spec) v0.44.0
 
 [Upstream](https://github.com/martinvonz/jj)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.12.1
+### [uv](specs/uv.spec) v0.12.2
 
 [Upstream](https://github.com/astral-sh/uv)
 
