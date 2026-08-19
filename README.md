@@ -155,7 +155,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![msedit status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/msedit/status_image/last_build.png)
 
-### [nvm](specs/nvm.spec) v0.40.6
+### [nvm](specs/nvm.spec) v0.40.7
 
 [Upstream](https://github.com/nvm-sh/nvm)
 
