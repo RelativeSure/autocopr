@@ -2,7 +2,7 @@
 %global binary_name btm
 
 Name:    bottom
-Version: 0.14.8
+Version: 0.14.9
 Release: 1%{?dist}
 Summary: Yet another cross-platform graphical process and system monitor
 
