@@ -29,7 +29,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![bandwhich status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/bandwhich/status_image/last_build.png)
 
-### [bottom](specs/bottom.spec) v0.14.8
+### [bottom](specs/bottom.spec) v0.14.9
 
 [Upstream](https://github.com/ClementTsang/bottom)
 
@@ -41,7 +41,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![chezmoi status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/chezmoi/status_image/last_build.png)
 
-### [cilium-cli](specs/cilium-cli.spec) v0.19.7
+### [cilium-cli](specs/cilium-cli.spec) v0.20.0
 
 [Upstream](https://github.com/cilium/cilium-cli)
 
@@ -185,7 +185,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![usage status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/usage/status_image/last_build.png)
 
-### [uv](specs/uv.spec) v0.12.6
+### [uv](specs/uv.spec) v0.12.7
 
 [Upstream](https://github.com/astral-sh/uv)
 
