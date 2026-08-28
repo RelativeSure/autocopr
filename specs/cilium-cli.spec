@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:    cilium-cli
-Version: 0.19.7
+Version: 0.20.0
 Release: 1%{?dist}
 Summary: CLI to install, manage & troubleshoot Kubernetes clusters running Cilium
 
