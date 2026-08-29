@@ -179,7 +179,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![topgrade status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/topgrade/status_image/last_build.png)
 
-### [usage](specs/usage.spec) v6.4.1
+### [usage](specs/usage.spec) v6.5.0
 
 [Upstream](https://github.com/jdx/usage)
 
@@ -197,7 +197,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![volta status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/volta/status_image/last_build.png)
 
-### [zellij](specs/zellij.spec) v0.45.0
+### [zellij](specs/zellij.spec) v0.45.1
 
 [Upstream](https://github.com/zellij-org/zellij)
 
