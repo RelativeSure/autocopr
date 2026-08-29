@@ -1,4 +1,5 @@
 import logging
+import os
 import subprocess
 from pathlib import Path
 
@@ -7,6 +8,7 @@ import autocopr.latestver
 import autocopr.specdata
 import autocopr.update
 import yaml
+from autocopr.cli import Mode
 
 
 def load_config(config_file):
@@ -25,19 +27,24 @@ def load_config(config_file):
 
 
 def main():
-    """
-    Updates version information in all `.spec` files within a specified directory.
-
-    Parses command-line arguments to determine the target directory, verbosity, and update options. Validates the environment for git operations if required. Recursively parses all `.spec` files, exits if any fail to parse, and retrieves the latest version information for each spec. If not in dry-run mode, updates spec files where newer versions are available, optionally performing in-place edits and git pushes. Prints a summary of version changes and provides instructions or status messages based on the chosen options.
-    """
     args = autocopr.cli.create_parser().parse_args()
-    root_dir = Path(args.directory)
+    root_dir = Path(args.directory).absolute().resolve()
 
     if args.verbose:
         logging.basicConfig(level=logging.INFO)
 
+    if not root_dir.is_dir():
+        logging.error(
+            f"Provided root directory {root_dir} is not a directory. "
+            "Please provide a directory to start searching for spec files from. "
+            "Exiting..."
+        )
+        exit(1)
+
+    os.chdir(root_dir)
+
     if (
-        args.push
+        args.mode == Mode.Push
         and subprocess.run(
             ["git", "rev-parse", "--is-inside-work-tree"], capture_output=True
         ).returncode
@@ -47,21 +54,29 @@ def main():
         logging.error("Cannot use --push when not running in a git repository")
         exit(1)
 
-    # Load config file
+    # Load config file for exclusions, in addition to the --ignore flag
     config = load_config("config.yaml")
     exclude_files = set(config.get("exclude_files", []))
 
-    # Parse spec files, excluding those in exclude_files
-    all_specs = root_dir.glob("**/*.spec")
-    non_filtered_specs = [
-        autocopr.specdata.parse_spec(spec)
-        for spec in all_specs
-        if spec.name not in exclude_files
-    ]
+    paths_to_ignore = set(root_dir / file for file in args.ignore)
 
-    if None in non_filtered_specs:
-        logging.warning("A spec/specs failed to parse, exiting...")
-        exit(1)
+    if args.ignore:
+        logging.info(f"Ignoring {paths_to_ignore} due to --ignore flag")
+
+    if exclude_files:
+        logging.info(f"Excluding {exclude_files} due to config.yaml exclude_files")
+
+    paths_to_parse = (
+        path
+        for path in root_dir.glob("**/*.spec")
+        if path not in paths_to_ignore and path.name not in exclude_files
+    )
+
+    non_filtered_specs = [
+        spec
+        for spec_path in paths_to_parse
+        if (spec := autocopr.specdata.parse_spec(spec_path)) is not None
+    ]
 
     specs = [spec for spec in non_filtered_specs if spec is not None]
 
@@ -80,25 +95,42 @@ def main():
         for (spec, latest) in latest_vers
     ]
 
-    if not args.dry_run:
-        for spec, latest in latest_vers:
-            if spec.version != latest.ver:
-                autocopr.update.update_version(
-                    spec, latest, inplace=args.in_place, push=args.push
-                )
-
     print("\n".join(update_summary))
 
-    if args.dry_run:
-        print("To update the spec files, run again without the dry-run flag.")
-    elif not args.in_place:
-        print(
-            "If any specs were updated, the original spec files now have a "
-            ".bk suffix, and the spec files are updated with the newest "
-            "version."
-        )
-    else:
-        print("Any updates have been applied to the spec files.")
+    had_updates = [
+        (spec, latest) for (spec, latest) in latest_vers if spec.version != latest.ver
+    ]
+
+    if len(had_updates) == 0:
+        print("All spec files are up to date!")
+        exit(0)
+
+    match args.mode:
+        case Mode.Update | Mode.Push:
+            for spec, latest in had_updates:
+                autocopr.update.update_version(
+                    spec, latest, push=(args.mode == Mode.Push), verbose=args.verbose
+                )
+
+            if args.mode == Mode.Update:
+                print(
+                    "All spec files are now up to date. If updated, "
+                    "the original spec file is backed up as a .bak file."
+                )
+            else:
+                print(
+                    "All spec files are now up to date, and the updates have been "
+                    "pushed."
+                )
+
+        case Mode.DryRun | Mode.Check:
+            print(
+                f"{[spec.name for (spec, _) in had_updates]} "
+                f"{'is' if len(had_updates) == 1 else 'are'} outdated."
+            )
+            if args.mode == Mode.Check:
+                print("Exiting with an error because we are in check mode.")
+                exit(1)
 
 
 if __name__ == "__main__":

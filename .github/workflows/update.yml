@@ -18,10 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
         with:
-          python-version: "3.14" # Need python version for cache
-          cache: "pip" # caching pip dependencies
+          version: "0.12.1"
 
       - name: Cache GraphQL API IDs
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
@@ -36,15 +35,12 @@ jobs:
           # to start from! Entries are never invalidated, only added
           restore-keys: graphql-ids
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
       - name: Set git user to github-actions[bot]
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Check and update spec files
-        run: python -m autocopr.autocopr --verbose --in-place --push specs
+        run: uv run --frozen -m autocopr.autocopr --verbose --mode push specs
         env:
           GITHUB_TOKEN: ${{ secrets.KUBEARCHITECTBOT_TOKEN || secrets.GITHUB_TOKEN }}

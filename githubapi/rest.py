@@ -1,20 +1,18 @@
 import logging
-from typing import Optional
 
 import requests
+
 from githubapi.latest import Latest, OwnerName, clean_tag
 
 
-def get_latest_version(spec: OwnerName, session: requests.Session) -> Optional[Latest]:
-    """
-    Retrieves the latest release version of a GitHub repository using the GitHub API.
-
-    Args:
-        spec: An object representing the GitHub repository identifier.
-
-    Returns:
-        A Latest object containing the cleaned version string and release URL, or None if the repository has no releases or the API response is missing expected fields.
-    """
+def get_latest_version(spec: OwnerName, session: requests.Session) -> Latest | None:
+    """Given SpecData with a github url, returns the latest version. Forces
+    usage of a session because all uses of this function will use the same
+    API. Returns None if there is no latest version (either the repo has no
+    releases, or you are rate limited by Github. Unauthenticated users only get
+    60 requests per hour -
+    https://docs.github.com/en/rest/overview/resources-in-the-rest-api?apiVersion=2022-11-28#rate-limits-for-requests-from-personal-accounts
+    )"""
 
     url = f"https://api.github.com/repos/{spec.id()}/releases/latest"
     logging.info(f"Querying {url}")

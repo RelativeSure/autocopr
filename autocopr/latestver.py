@@ -1,16 +1,16 @@
 import logging
 from pathlib import Path
-from typing import Optional
+
+import requests
 
 import githubapi.graphql
 import githubapi.rest
-import requests
 from autocopr.specdata import SpecData
 from githubapi.latest import Latest
 
 
 def get_latest_versions(
-    specs: list[SpecData], id_cache: Path, token: Optional[str], rest: Optional[bool]
+    specs: list[SpecData], id_cache: Path, token: str | None, rest: bool | None
 ) -> list[tuple[SpecData, Latest]]:
     """Given a list of specs, a location to potentially load and store a cache
     of GraphQL ids, and optionally a Github token and a boolean to force usage
@@ -24,9 +24,10 @@ def get_latest_versions(
 
         if token is None:
             logging.warning(
-                "The REST API will rate limit you to 60 requests per hour without a Github token. "
-                "You can use the REST API with a token by using the --rest flag and using the "
-                "GITHUB_TOKEN environment variable or --github-token flag."
+                "The REST API will rate limit you to 60 requests per hour without a "
+                "GitHub token. You can use the REST API with a token by using the "
+                "--rest flag and using the GITHUB_TOKEN environment variable or "
+                "--github-token flag."
             )
 
         return _rest(specs, token)
@@ -47,7 +48,7 @@ def get_latest_versions(
         "using REST api instead of GraphQL."
     )
     logging.warning(
-        "The REST API requires more connections, gathers more data than is "
+        "The REST API requires more requests, gathers more data than is "
         "needed, and you are limited to 60 requests per hour without a token."
     )
 
@@ -57,33 +58,23 @@ def get_latest_versions(
 def _graphql(
     specs: list[SpecData], token: str, id_cache: Path
 ) -> list[tuple[SpecData, Latest]]:
-    """
-    Fetches the latest version information for each spec using the GitHub GraphQL API.
-
-    If any spec's latest version cannot be retrieved, logs a warning and exits the program.
-    Returns a list of (SpecData, Latest) tuples for successfully fetched specs.
-    """
+    """Use the graphql API. Will exit the program if fetching fails."""
     ownerNames = [spec.ownerName for spec in specs]
     latest = githubapi.graphql.latest_versions(ownerNames, token, id_cache)
 
     missing_specs = [spec.loc for spec in specs if spec.ownerName not in latest]
 
     if len(missing_specs) != 0:
-        logging.warning(f"{missing_specs} had errors, exiting...")
+        logging.error(f"{missing_specs} had errors, exiting...")
         exit(1)
 
     return [(spec, latest[key]) for spec in specs if (key := spec.ownerName) in latest]
 
 
 def _rest(
-    specs: list[SpecData], token: Optional[str] = None
+    specs: list[SpecData], token: str | None = None
 ) -> list[tuple[SpecData, Latest]]:
-    """
-    Fetches the latest version information for each spec using the GitHub REST API.
-
-    If any spec fails to retrieve its latest version, logs a warning and exits the program.
-    Returns a list of (SpecData, Latest) tuples for successfully fetched specs.
-    """
+    """Use the REST api. Will exit the program if fetching fails."""
     with requests.Session() as s:
         if token:
             s.headers.update({"Authorization": f"Bearer {token}"})
@@ -99,7 +90,7 @@ def _rest(
                 latest_vers.append((spec, latest_ver))
 
         if len(errors) != 0:
-            logging.warning(f"{errors} had errors, exiting...")
+            logging.error(f"{errors} had errors, exiting...")
             exit(1)
 
         return latest_vers
