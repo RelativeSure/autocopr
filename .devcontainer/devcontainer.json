@@ -21,8 +21,7 @@
         "github.vscode-github-actions",
         "ms-python.python",
         "yzhang.markdown-all-in-one",
-        "1dot75cm.rpmspec",
-        "circleci.circleci"
+        "1dot75cm.rpmspec"
       ]
     }
   }

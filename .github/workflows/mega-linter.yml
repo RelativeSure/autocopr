@@ -7,9 +7,6 @@ name: MegaLinter
 # Requests to main
 on:
   workflow_dispatch:
-  # Comment this line to trigger action only on pull-requests
-  # (not recommended if you don't pay for GH Actions)
-  # Following lines has been commented because of migration to CircleCI
   push:
     branches:
       - main
