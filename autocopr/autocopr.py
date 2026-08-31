@@ -41,6 +41,12 @@ def main():
         )
         exit(1)
 
+    # Load config file for exclusions, in addition to the --ignore flag. This
+    # must happen before chdir below - config.yaml lives alongside this
+    # script's invocation (e.g. the repo root), not necessarily in root_dir.
+    config = load_config(Path("config.yaml").absolute())
+    exclude_files = set(config.get("exclude_files", []))
+
     os.chdir(root_dir)
 
     if (
@@ -53,10 +59,6 @@ def main():
         # We're not in a git repository, exit
         logging.error("Cannot use --push when not running in a git repository")
         exit(1)
-
-    # Load config file for exclusions, in addition to the --ignore flag
-    config = load_config("config.yaml")
-    exclude_files = set(config.get("exclude_files", []))
 
     paths_to_ignore = set(root_dir / file for file in args.ignore)
 
