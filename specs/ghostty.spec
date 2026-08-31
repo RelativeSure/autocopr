@@ -28,7 +28,7 @@ BuildRequires: pandoc-cli
 BuildRequires: pixman-devel
 BuildRequires: pkg-config
 BuildRequires: wayland-protocols-devel
-BuildRequires: zig
+BuildRequires: zig = 0.15.2
 BuildRequires: zlib-ng-devel
 
 Requires: fontconfig
