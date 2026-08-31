@@ -1,10 +1,9 @@
 import logging
 from pathlib import Path
 
-import requests
-
 import githubapi.graphql
 import githubapi.rest
+import requests
 from autocopr.specdata import SpecData
 from githubapi.latest import Latest
 
