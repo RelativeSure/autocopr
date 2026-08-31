@@ -1,7 +1,7 @@
 # Autocopr forked repo
 
 ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/RelativeSure/autocopr?utm_source=oss&utm_medium=github&utm_campaign=RelativeSure%2Fautocopr&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews&style=for-the-badge)
-![CircleCI](https://img.shields.io/circleci/build/github/RelativeSure/autocopr?style=for-the-badge&label=CircleCI)
+![MegaLinter](https://img.shields.io/github/actions/workflow/status/RelativeSure/autocopr/mega-linter.yml?style=for-the-badge&label=MegaLinter)
 
 ## Description
 
