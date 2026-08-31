@@ -15,6 +15,7 @@ Source0:        https://github.com/ghostty-org/ghostty/archive/refs/tags/v%{vers
 ExclusiveArch: x86_64 aarch64
 
 BuildRequires: blueprint-compiler
+BuildRequires: bzip2-devel
 BuildRequires: fontconfig-devel
 BuildRequires: freetype-devel
 BuildRequires: glib2-devel
@@ -45,18 +46,35 @@ Requires: zlib-ng
 %description
 %{summary}.
 
+%package        devel
+Summary:        Development files for libghostty-vt
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+
+%description    devel
+This package provides the development files for libghostty-vt.
+
 %prep
 %setup -q -n ghostty-%{version}
 
 %build
+# Link the system fontconfig/freetype/harfbuzz rather than letting zig vendor
+# them. Without -fsys=, zig statically links its own copies *and* exports their
+# symbols from the executable, while GTK4 separately pulls in the system libs.
+# The executable wins global symbol resolution, so GTK's Fc*/FT_*/hb_* calls are
+# interposed into the vendored copies while operating on system-lib state.
 DESTDIR=%{buildroot} zig build \
     --summary all \
     --prefix "%{_prefix}" \
+    -fsys=fontconfig \
+    -fsys=freetype \
+    -fsys=harfbuzz \
     -Dversion-string=%{version}-%{release} \
     -Doptimize=ReleaseFast \
     -Dcpu=baseline \
     -Dpie=true \
-    -Demit-docs
+    -Dstrip=false \
+    -Demit-docs \
+    -Demit-themes=true
 
 %if 0%{?fedora} >= 42
     rm -f "%{buildroot}%{_prefix}/share/terminfo/g/ghostty"
@@ -97,11 +115,19 @@ DESTDIR=%{buildroot} zig build \
 %{_prefix}/share/locale/*/LC_MESSAGES/com.mitchellh.ghostty.mo
 %{_prefix}/share/metainfo/com.mitchellh.ghostty.metainfo.xml
 %{_prefix}/share/systemd/user/app-com.mitchellh.ghostty.service
+%{_prefix}/lib/libghostty-vt.so.0
+%{_prefix}/lib/libghostty-vt.so.0.1.0
 
 %{_prefix}/share/terminfo/x/xterm-ghostty
 %if 0%{?fedora} < 42
     %{_prefix}/share/terminfo/g/ghostty
 %endif
+
+%files devel
+%{_prefix}/include/ghostty/vt.h
+%{_prefix}/include/ghostty/vt/
+%{_prefix}/lib/libghostty-vt.so
+%{_prefix}/share/pkgconfig/libghostty-vt.pc
 
 %changelog
 %autochangelog
