@@ -3,7 +3,6 @@ import logging
 from pathlib import Path
 
 import requests
-
 from githubapi.latest import Latest, OwnerName, clean_tag
 
 # The GraphQL API allows us to specify exactly what we want, instead of
