@@ -3,14 +3,28 @@
 ###
 %global debug_package %{nil}
 
+# Ghostty 1.3.1 requires Zig 0.15.2 exactly (build.zig hard-errors on any other
+# version) and Fedora's zig package has already moved past it (Zig lacks a
+# stable API across minor versions, and Fedora doesn't keep old ones around).
+# Zig 0.16 support only exists on ghostty's unreleased main branch. So the
+# matching Zig toolchain is vendored here as a build-only tool rather than
+# taken from the distro, the same way Source0 is already fetched over the
+# network during the (network-enabled) buildsrpm stage and then used offline
+# in the isolated mock chroot.
+%global zigver 0.15.2
+%global zig_sha256_x86_64 02aa270f183da276e5b5920b1dac44a63f1a49e55050ebde3aecc9eb82f93239
+%global zig_sha256_aarch64 958ed7d1e00d0ea76590d27666efbf7a932281b3d7ba0c6b01b0ff26498f667f
+
 Name:           ghostty
 Version:        1.3.1
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
 
 License:        MIT
 URL:            https://github.com/ghostty-org/ghostty
 Source0:        https://github.com/ghostty-org/ghostty/archive/refs/tags/v%{version}.tar.gz
+Source1:        https://ziglang.org/download/%{zigver}/zig-x86_64-linux-%{zigver}.tar.xz
+Source2:        https://ziglang.org/download/%{zigver}/zig-aarch64-linux-%{zigver}.tar.xz
 
 ExclusiveArch: x86_64 aarch64
 
@@ -29,7 +43,7 @@ BuildRequires: pandoc-cli
 BuildRequires: pixman-devel
 BuildRequires: pkg-config
 BuildRequires: wayland-protocols-devel
-BuildRequires: zig >= 0.15.2
+BuildRequires: xz
 BuildRequires: zlib-ng-devel
 
 Requires: fontconfig
@@ -56,7 +70,23 @@ This package provides the development files for libghostty-vt.
 %prep
 %setup -q -n ghostty-%{version}
 
+%ifarch x86_64
+echo "%{zig_sha256_x86_64}  %{SOURCE1}" | sha256sum -c -
+%endif
+%ifarch aarch64
+echo "%{zig_sha256_aarch64}  %{SOURCE2}" | sha256sum -c -
+%endif
+mkdir -p ../zig-toolchain
+%ifarch x86_64
+tar -xf %{SOURCE1} -C ../zig-toolchain --strip-components=1
+%endif
+%ifarch aarch64
+tar -xf %{SOURCE2} -C ../zig-toolchain --strip-components=1
+%endif
+
 %build
+export PATH="%{_builddir}/zig-toolchain:$PATH"
+
 # Link the system fontconfig/freetype/harfbuzz rather than letting zig vendor
 # them. Without -fsys=, zig statically links its own copies *and* exports their
 # symbols from the executable, while GTK4 separately pulls in the system libs.
