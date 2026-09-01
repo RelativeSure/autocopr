@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: COPR builds
+    url: https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/
+    about: Check the live build status for a package before filing a bug report.
