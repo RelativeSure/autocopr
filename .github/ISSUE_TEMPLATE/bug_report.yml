@@ -1,0 +1,71 @@
+name: Bug report
+description: Report a problem with a package build, the autocopr tool, or the repo itself
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report. Please fill out the details below.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the problem is.
+    validations:
+      required: true
+
+  - type: input
+    id: package
+    attributes:
+      label: Affected package (if applicable)
+      description: Name of the package/spec file this bug relates to, e.g. `atuin`
+      placeholder: package-name
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happened? Include error messages, build logs, or stack traces.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce the issue?
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Fedora/EL version, dnf/copr version, autocopr version/commit, etc.
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Anything else that might help (links, screenshots, related issues).
+    validations:
+      required: false
