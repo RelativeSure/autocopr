@@ -5,7 +5,7 @@ Version: 17.9.0
 Release: 1%{?dist}
 Summary: Upgrade all the things
 
-License: GPL-3.0
+License: GPL-3.0-or-later
 # https://github.com/topgrade-rs/topgrade/releases/download/v16.0.1/topgrade-v16.0.1-x86_64-unknown-linux-musl.tar.gz
 URL:     https://github.com/topgrade-rs/topgrade
 Source:  %{url}/releases/download/v%{version}/%{name}-v%{version}-x86_64-unknown-linux-musl.tar.gz
@@ -13,9 +13,10 @@ Source1: https://raw.githubusercontent.com/topgrade-rs/topgrade/v%{version}/READ
 Source2: https://raw.githubusercontent.com/topgrade-rs/topgrade/v%{version}/LICENSE
 
 %description
-Keeping your system up to date usually involves invoking multiple package managers.
-This results in big, non-portable shell one-liners saved in your shell.
-To remedy this, Topgrade detects which tools you use and runs the appropriate commands to update them.
+Keeping your system up to date usually involves invoking multiple package
+managers. This results in big, non-portable shell one-liners saved in your
+shell. To remedy this, Topgrade detects which tools you use and runs the
+appropriate commands to update them.
 
 %prep
 %autosetup -c
@@ -31,6 +32,9 @@ install -p -D %{name} %{buildroot}%{_bindir}/%{name}
 %doc CONFIGURATION.md
 %license LICENSE
 %{_bindir}/%{name}
+
+%check
+%{buildroot}%{_bindir}/%{name} --version
 
 %changelog
 %autochangelog
