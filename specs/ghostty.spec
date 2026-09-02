@@ -87,7 +87,7 @@ Source28:       https://deps.files.ghostty.org/zlib-1220fed0c74e1019b3ee29edae20
 Name:           ghostty
 Version:        1.3.1
 Release:        7%{?dist}
-Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
+Summary:        Fast, feature-rich, cross-platform terminal emulator
 
 License:        MIT
 URL:            https://github.com/ghostty-org/ghostty
@@ -118,17 +118,15 @@ BuildRequires: zstd
 
 Requires: fontconfig
 Requires: freetype
-Requires: glib2
 Requires: gtk4
 Requires: harfbuzz
-Requires: libadwaita
-Requires: libpng
 Requires: oniguruma
 Requires: pixman
 Requires: zlib-ng
 
 %description
-%{summary}.
+%{summary},
+using platform-native UI and GPU acceleration.
 
 %package        devel
 Summary:        Development files for libghostty-vt
@@ -201,7 +199,15 @@ DESTDIR=%{buildroot} zig build \
     rm -f "%{buildroot}%{_prefix}/share/terminfo/g/ghostty"
 %endif
 
-%files
+# An %install section would run against a freshly-emptied %%{buildroot}
+# (rpm always clears it first), wiping out the DESTDIR install this
+# %%build already did above (zig build doesn't cleanly separate a build
+# step from a DESTDIR-install step) - so %%find_lang runs here instead,
+# against the real populated buildroot, and %%install is intentionally
+# omitted.
+%find_lang com.mitchellh.ghostty
+
+%files -f com.mitchellh.ghostty.lang
 %license LICENSE
 %{_bindir}/ghostty
 %{_prefix}/share/applications/com.mitchellh.ghostty.desktop
@@ -233,7 +239,6 @@ DESTDIR=%{buildroot} zig build \
 %{_prefix}/share/vim/vimfiles/syntax/ghostty.vim
 %{_prefix}/share/zsh/site-functions/_ghostty
 %{_prefix}/share/dbus-1/services/com.mitchellh.ghostty.service
-%{_prefix}/share/locale/*/LC_MESSAGES/com.mitchellh.ghostty.mo
 %{_prefix}/share/metainfo/com.mitchellh.ghostty.metainfo.xml
 %{_prefix}/share/systemd/user/app-com.mitchellh.ghostty.service
 %{_prefix}/lib/libghostty-vt.so.0
