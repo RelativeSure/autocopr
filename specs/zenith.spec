@@ -4,12 +4,12 @@
 Name:    zenith
 Version: 0.15.0
 Release: 1%{?dist}
-Summary: Sort of like top or htop but with zoom-able charts, CPU, GPU, network, and disk usage
+Summary: Terminal system monitor with zoom-able charts for CPU, GPU, network, and disk
 
 License: MIT
-# https://github.com/bvaisvil/zenith/releases/download/0.14.1/zenith.x86_64-unknown-linux-musl.tgz
+# https://github.com/bvaisvil/zenith/releases/download/0.15.0/zenith-Linux-musl-x86_64.tar.gz
 URL:     https://github.com/bvaisvil/zenith
-Source:  %{url}/releases/download/%{version}/%{name}.x86_64-unknown-linux-musl.tgz
+Source:  %{url}/releases/download/%{version}/%{name}-Linux-musl-x86_64.tar.gz
 Source1: %{raw_ghuc}/%{version}/README.md
 Source2: %{raw_ghuc}/%{version}/LICENSE
 
@@ -30,6 +30,9 @@ install -p -D %{name} %{buildroot}%{_bindir}/%{name}
 %doc CONFIGURATION.md
 %license LICENSE
 %{_bindir}/%{name}
+
+%check
+%{buildroot}%{_bindir}/%{name} --version
 
 %changelog
 %autochangelog
