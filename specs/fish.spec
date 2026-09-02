@@ -3,7 +3,7 @@
 Name:    fish
 Version: 4.8.1
 Release: 1%{?dist}
-Summary: The user-friendly command line shell.
+Summary: The user-friendly command line shell
 
 License: MIT
 URL:     https://github.com/fish-shell/fish-shell
@@ -19,11 +19,17 @@ BuildRequires: gcc-c++
 BuildRequires: ncurses-devel
 BuildRequires: pcre2-devel
 BuildRequires: gettext-devel
+BuildRequires: python3-sphinx
 
 %description
-Fish is a smart and user-friendly command line shell for Linux, macOS, and the rest
-of the family. Fish includes features like syntax highlighting, autosuggestions,
-and tab completions that just work, with nothing to learn or configure.
+Fish is a smart and user-friendly command line shell for Linux, macOS,
+and the rest of the family. Fish includes features like syntax
+highlighting, autosuggestions, and tab completions that just work,
+with nothing to learn or configure.
+
+This is a COPR-only build and intentionally shadows the official
+Fedora fish package (src.fedoraproject.org/rpms/fish) for users of
+this repo who want a newer release.
 
 
 %prep
@@ -45,9 +51,9 @@ if [ -f %{buildroot}/usr/etc/fish/config.fish ]; then
 fi
 
 %files
-# Documentation
+# Documentation (license.html is packaged separately as %%license below)
+%exclude %{_docdir}/fish/license.html
 %doc %{_docdir}/fish
-%doc CONTRIBUTING.rst README.rst
 %license LICENSE
 # Executable files
 %attr(0755,root,root) %{_bindir}/fish
@@ -56,10 +62,12 @@ fi
 # Config files and folders
 %dir %{_sysconfdir}/fish/
 %config(noreplace) %{_sysconfdir}/fish/config.fish
-#%{_datadir}/applications/fish.desktop
+# fish.desktop and fish.png are not installed by %%install; left commented for reference
+# %%{_datadir}/applications/fish.desktop
+%exclude %{_datadir}/fish/man
 %{_datadir}/fish/
 %{_mandir}/man1/fish*.1*
-#%{_datadir}/pixmaps/fish.png
+# %%{_datadir}/pixmaps/fish.png
 %{_datadir}/pkgconfig/fish.pc
 
 %post
@@ -71,9 +79,11 @@ fi
 %postun
 # Remove fish from the list of allowed shells in /etc/shells
 if [ "$1" = 0 ]; then
-    grep -v %{_bindir}/fish %{_sysconfdir}/shells >%{_sysconfdir}/fish.tmp
-    mv %{_sysconfdir}/fish.tmp %{_sysconfdir}/shells
+    sed -i "\|^%{_bindir}/fish\$|d" %{_sysconfdir}/shells
 fi
+
+%check
+%{buildroot}%{_bindir}/fish --version
 
 %changelog
 %autochangelog
