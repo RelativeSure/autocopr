@@ -31,6 +31,9 @@ install -p -D %{name}-linux-amd64 %{buildroot}%{_bindir}/%{name}
 install -pvD -m 0644 %{name}.bash %{buildroot}%{bash_completions_dir}/%{name}.bash
 install -pvD -m 0644 %{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
 
+%check
+%{buildroot}%{_bindir}/%{name} --version
+
 %files
 %doc CONFIGURATION.md
 %license LICENSE
