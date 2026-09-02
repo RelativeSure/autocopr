@@ -11,6 +11,17 @@ URL: https://github.com/Cretezy/lazyjj
 # (both v0.6.0 and v0.6.1 ship zero release assets), so build from source
 # instead of downloading a release tarball. See GitHub issue #440.
 Source0: %{url}/archive/refs/tags/v%{version}.tar.gz
+# Cargo.toml (still, as of v0.6.1) pins ansi-to-tui to a commit in the
+# Cretezy/ansi-to-tui git repo, which no longer exists (the project was
+# transferred to the ratatui org and is now published to crates.io). This
+# is a vendored Cargo.lock with that one entry repointed at the matching
+# crates.io release (7.0.0, the last major depending on ratatui ^0.29 same
+# as lazyjj, before ansi-to-tui 8.x split onto the incompatible
+# ratatui-core crate) via `cargo update -p ansi-to-tui --precise 7.0.0`
+# after making the same Cargo.toml edit applied in %%prep below - every
+# other dependency stays pinned exactly as upstream's own lockfile had it,
+# so the build stays reproducible instead of re-resolving the whole graph.
+Source1: %{name}-%{version}-Cargo.lock
 
 BuildRequires: cargo
 BuildRequires: rust
@@ -21,21 +32,14 @@ BuildRequires: openssl-devel
 
 %prep
 %autosetup -n %{name}-%{version}
-# Cargo.toml pins ansi-to-tui to a commit in the Cretezy/ansi-to-tui git repo,
-# which no longer exists (the project was transferred to the ratatui org and
-# is now published to crates.io). Repoint the dependency at the matching
-# crates.io release (7.x, the last major depending on ratatui ^0.29 same as
-# lazyjj, before ansi-to-tui 8.x split onto the incompatible ratatui-core
-# crate) so the build doesn't need to reach a dead git URL, and drop the
-# stale lockfile entry so Cargo re-resolves it.
 sed -i 's|ansi-to-tui = { git = "https://github.com/Cretezy/ansi-to-tui.git", rev = "74bd97e" }|ansi-to-tui = "7"|' Cargo.toml
-rm -f Cargo.lock
+cp %{SOURCE1} Cargo.lock
 
 %build
-cargo build --release
+cargo build --release --locked
 
 %install
-cargo install --path . --root %{buildroot}
+cargo install --path . --root %{buildroot} --locked
 install -Dm0755 %{buildroot}/bin/%{name} %{buildroot}%{_bindir}/%{name}
 rm -f %{buildroot}/bin/%{name}
 rm -f %{buildroot}/.crates.toml %{buildroot}/.crates2.json
