@@ -3,7 +3,8 @@
 Name:    has
 Version: 1.5.2
 Release: 1%{?dist}
-Summary: checks presence of various command line tools and their versions on the path
+Summary: Checks presence of command line tools and their versions on the path
+BuildArch: noarch
 
 License: MIT
 URL:     https://github.com/kdabir/has
@@ -14,7 +15,8 @@ BuildRequires: git
 BuildRequires: make
 
 %description
-has checks presence of various command line tools on the PATH and reports their installed version.
+has checks presence of various command line tools on the PATH and
+reports their installed version.
 
 %prep
 %autosetup -n has-%{version}
@@ -26,6 +28,12 @@ has checks presence of various command line tools on the PATH and reports their 
 rm -rf %{buildroot}
 make install PREFIX=%{buildroot}%{_prefix}
 
+%check
+%{buildroot}%{_bindir}/has --version
+
 %files
 %license LICENSE
 %{_bindir}/has
+
+%changelog
+%autochangelog
