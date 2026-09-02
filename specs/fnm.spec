@@ -5,7 +5,7 @@ Version: 1.39.0
 Release: 1%{?dist}
 Summary: Fast and simple Node.js version manager, built in Rust
 
-License: GPL v3
+License: GPL-3.0-only
 URL:     https://github.com/Schniz/fnm
 Source0: %{url}/archive/refs/tags/v%{version}.tar.gz
 
@@ -30,6 +30,13 @@ BuildRequires: perl-IPC-Cmd
 %endif
 
 
+# cargo install both compiles and places the binary in one step; a separate
+# cargo build here followed by --offline cargo install would re-resolve
+# dependencies independently and can fail (e.g. on yanked crate versions
+# that only surface without network access), so %%build is intentionally
+# left empty rather than split into two cargo invocations.
+%build
+
 %install
 export CARGO_PROFILE_RELEASE_BUILD_OVERRIDE_OPT_LEVEL=3
 %if 0%{?el8}
@@ -42,8 +49,13 @@ rm -f %{buildroot}%{_prefix}/.crates.toml \
     %{buildroot}%{_prefix}/.crates2.json
 strip --strip-all %{buildroot}%{_bindir}/*
 
+%check
+%{buildroot}%{_bindir}/%{name} --version
 
 %files
-#%license LICENSE.md
-#%doc README.md
+%license LICENSE
+%doc README.md
 %{_bindir}/%{name}
+
+%changelog
+%autochangelog
