@@ -3,7 +3,7 @@
 Name:    msedit
 Version: 2.0.0
 Release: 1%{?dist}
-Summary: A simple editor for simple needs.
+Summary: A simple editor for simple needs
 
 License: MIT
 URL:     https://github.com/microsoft/edit
@@ -33,8 +33,16 @@ cargo build --config .cargo/release.toml --release --verbose
 install -D -m 0755 target/release/edit %{buildroot}%{_bindir}/msedit
 install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 install -D -m 0644 README.md %{buildroot}%{_datadir}/doc/%{name}/README.md
+install -D -m 0644 assets/manpage/edit.1 %{buildroot}%{_mandir}/man1/msedit.1
+
+%check
+%{buildroot}%{_bindir}/msedit --version
 
 %files
 %{_bindir}/msedit
 %license %{_datadir}/licenses/%{name}/LICENSE
 %doc %{_datadir}/doc/%{name}/README.md
+%{_mandir}/man1/msedit.1*
+
+%changelog
+%autochangelog
