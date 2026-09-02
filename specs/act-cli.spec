@@ -4,7 +4,7 @@
 Name:    act-cli
 Version: 0.2.89
 Release: 1%{?dist}
-Summary: Run GitHub Actions locally.
+Summary: Run GitHub Actions locally
 
 License: MIT
 URL:     https://github.com/nektos/act
@@ -12,6 +12,7 @@ Source0: https://github.com/nektos/act/archive/v%{version}.tar.gz
 
 BuildRequires: golang >= 1.24
 BuildRequires: git
+BuildRequires: gcc
 Requires:      (moby or podman or docker or docker-ce or docker-ce-cli or docker-ee)
 
 %description
@@ -44,9 +45,15 @@ install -m 0755 act %{buildroot}%{_bindir}/act
 mkdir -p %{buildroot}%{_datadir}/licenses/%{name}/
 install -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/
 
-%verifyscript
+%check
 %{buildroot}%{_bindir}/act --version
+
+%verifyscript
+%{_bindir}/act --version
 
 %files
 %{_bindir}/act
 %license %{_datadir}/licenses/%{name}/LICENSE
+
+%changelog
+%autochangelog
