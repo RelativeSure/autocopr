@@ -3,7 +3,7 @@
 Name:    nvm
 Version: 0.40.7
 Release: 1%{?dist}
-Summary: Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions
+Summary: POSIX-compliant bash script to manage multiple node.js versions
 
 License: MIT
 URL:     https://github.com/nvm-sh/nvm
@@ -39,9 +39,12 @@ install -d -m 755 %{buildroot}%{_datadir}/nvm
 install -m 644 nvm.sh %{buildroot}%{_datadir}/nvm/
 install -m 755 nvm-exec %{buildroot}%{_datadir}/nvm/
 
-# Install bash completion to the standard completion directory
+# Install bash completion to the standard completion directory.
+# This is a sourced completion script, not an executable, so it must not
+# carry a shebang line (strip it to avoid rpmlint's non-executable-script).
 install -d -m 755 %{buildroot}%{_datadir}/bash-completion/completions
 install -m 644 bash_completion %{buildroot}%{_datadir}/bash-completion/completions/nvm
+sed -i '1{/^#!/d}' %{buildroot}%{_datadir}/bash-completion/completions/nvm
 
 # Bash/sh loader in /etc/profile.d
 install -d -m 755 %{buildroot}%{_sysconfdir}/profile.d
@@ -88,12 +91,18 @@ fi
 EOF
 chmod 644 %{buildroot}%{_sysconfdir}/zshrc.d/nvm.zsh
 
+%check
+# nvm.sh is a POSIX-compliant bash script, not a compiled binary or library
+# with a test suite to run here; sanity-check its syntax instead.
+bash -n %{buildroot}%{_datadir}/nvm/nvm.sh
+
 %files
 %doc README.md
 %license LICENSE.md
 %{_datadir}/nvm/
 %{_datadir}/bash-completion/completions/nvm
 %config(noreplace) %{_sysconfdir}/profile.d/nvm.sh
+%dir %{_sysconfdir}/zshrc.d
 %config(noreplace) %{_sysconfdir}/zshrc.d/nvm.zsh
 
 %changelog
