@@ -16,8 +16,10 @@ BuildRequires: gcc
 BuildRequires: python3-kobo-rpmlib
 
 %description
-Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.
-Additionally, it provides optional and fully encrypted synchronization of your history between machines, via an Atuin server.
+Atuin replaces your existing shell history with a SQLite database,
+and records additional context for your commands. Additionally, it
+provides optional and fully encrypted synchronization of your
+history between machines, via an Atuin server.
 
 %prep
 %autosetup -c
@@ -30,8 +32,14 @@ cp %{SOURCE2} .
 # Ensure the source binary is in the expected location
 install -p -D %{name}-x86_64-unknown-linux-musl/%{name} %{buildroot}%{_bindir}/%{name}
 
+%check
+%{buildroot}%{_bindir}/%{name} --version
 
 %files
 %doc CONFIGURATION.md
 %doc CHANGELOG.md
+%license %{name}-x86_64-unknown-linux-musl/LICENSE
 %{_bindir}/%{name}
+
+%changelog
+%autochangelog
