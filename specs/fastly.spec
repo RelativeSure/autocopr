@@ -5,7 +5,7 @@ Version: 16.0.0
 Release: 1%{?dist}
 Summary: Build, deploy and configure Fastly services from your terminal
 
-License: MIT
+License: Apache-2.0
 URL:     https://github.com/fastly/cli
 #https://github.com/fastly/cli/releases/download/v11.2.0/fastly_v11.2.0_linux-amd64.tar.gz
 Source:  %{url}/releases/download/v%{version}/fastly_v%{version}_linux-amd64.tar.gz
@@ -22,6 +22,9 @@ cp %{SOURCE2} LICENSE
 
 %install
 install -v -p -D %{name} %{buildroot}%{_bindir}/%{name}
+
+%check
+%{buildroot}%{_bindir}/%{name} version
 
 %files
 %doc README.md
