@@ -36,8 +36,11 @@ rm -rf %{buildroot}
 install -D -m 0755 cilium %{buildroot}%{_bindir}/cilium
 install -D -m 0644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 
-%verifyscript
+%check
 %{buildroot}%{_bindir}/cilium version
+
+%verifyscript
+%{_bindir}/cilium version
 
 %files
 %{_bindir}/cilium
