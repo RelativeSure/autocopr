@@ -3,7 +3,7 @@
 Name:    lazygit
 Version: 0.64.1
 Release: 1%{?dist}
-Summary: simple terminal UI for git commands
+Summary: Simple terminal UI for git commands
 
 License: MIT
 URL: https://github.com/jesseduffield/lazygit
@@ -23,6 +23,9 @@ cp %{SOURCE2} LICENSE
 
 %install
 install -p -D %{name} %{buildroot}%{_bindir}/%{name}
+
+%check
+%{buildroot}%{_bindir}/%{name} --version
 
 %files
 %doc CONFIGURATION.md
