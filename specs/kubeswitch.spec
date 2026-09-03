@@ -3,7 +3,7 @@
 Name:    kubeswitch
 Version: 0.9.3
 Release: 1%{?dist}
-Summary: The kubectx for operators.
+Summary: The kubectx for operators
 
 License: Apache-2.0
 URL:     https://github.com/danielfoehrKn/kubeswitch
@@ -20,6 +20,10 @@ cp %{SOURCE2} .
 
 %install
 install -D -m 0755 %{SOURCE0} %{buildroot}%{_bindir}/kubeswitch
+strip %{buildroot}%{_bindir}/kubeswitch
+
+%check
+%{buildroot}%{_bindir}/kubeswitch --version
 
 %files
 %{_bindir}/kubeswitch

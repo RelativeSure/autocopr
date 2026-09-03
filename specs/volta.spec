@@ -5,7 +5,7 @@ Version: 2.0.2
 Release: 2%{?dist}
 Summary: JS Toolchains as Code
 
-License: BSD 2-CLAUSE
+License: BSD-2-Clause
 # https://github.com/volta-cli/volta/releases/download/v2.0.1/volta-2.0.1-linux.tar.gz
 URL:     https://github.com/volta-cli/volta
 Source:  %{url}/releases/download/v%{version}/%{name}-%{version}-linux.tar.gz
@@ -33,6 +33,9 @@ install -p -D %{name}-shim %{buildroot}%{_bindir}/%{name}-shim
 %{_bindir}/%{name}
 %{_bindir}/%{name}-migrate
 %{_bindir}/%{name}-shim
+
+%check
+%{buildroot}%{_bindir}/%{name} --version
 
 %changelog
 %autochangelog

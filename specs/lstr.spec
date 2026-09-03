@@ -3,7 +3,7 @@
 Name: lstr
 Version: 0.4.0
 Release: 1%{?dist}
-Summary: A fast, minimalist directory tree viewer, written in Rust.
+Summary: A fast, minimalist directory tree viewer, written in Rust
 
 License: MIT
 URL: https://github.com/bgreenwell/lstr
@@ -13,6 +13,7 @@ BuildRequires: cargo
 BuildRequires: rust
 BuildRequires: openssl-devel
 BuildRequires: zlib-devel
+BuildRequires: git
 
 %description
 %{summary}
@@ -29,8 +30,12 @@ install -Dm0755 %{buildroot}/bin/lstr %{buildroot}%{_bindir}/lstr
 rm -f %{buildroot}/bin/lstr
 rm -f %{buildroot}/.crates.toml %{buildroot}/.crates2.json
 
+%check
+cargo test --release
+
 %files
 %{_bindir}/lstr
+%license LICENSE
 %doc README.md
 
 %changelog

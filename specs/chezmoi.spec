@@ -3,7 +3,7 @@
 Name:    chezmoi
 Version: 2.72.1
 Release: 1%{?dist}
-Summary: Manage your dotfiles across multiple diverse machines, securely.
+Summary: Manage your dotfiles across multiple diverse machines, securely
 
 # https://github.com/twpayne/chezmoi/releases/download/v2.54.0/chezmoi_2.54.0_linux-musl_amd64.tar.gz
 License: MIT
@@ -27,6 +27,9 @@ install -p -D %{name} %{buildroot}%{_bindir}/%{name}
 install -pvD -m 0644 completions/%{name}-completion.bash %{buildroot}%{bash_completions_dir}/%{name}.bash
 install -pvD -m 0644 completions/%{name}.zsh %{buildroot}%{zsh_completions_dir}/%{name}.zsh
 install -pvD -m 0644 completions/%{name}.fish %{buildroot}%{fish_completions_dir}/%{name}.fish
+
+%check
+%{buildroot}%{_bindir}/%{name} --version
 
 %files
 %doc CONFIGURATION.md

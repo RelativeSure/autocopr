@@ -87,7 +87,7 @@ Source28:       https://deps.files.ghostty.org/zlib-1220fed0c74e1019b3ee29edae20
 Name:           ghostty
 Version:        1.3.1
 Release:        7%{?dist}
-Summary:        Fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration
+Summary:        Fast, feature-rich, cross-platform terminal emulator
 
 License:        MIT
 URL:            https://github.com/ghostty-org/ghostty
@@ -118,17 +118,15 @@ BuildRequires: zstd
 
 Requires: fontconfig
 Requires: freetype
-Requires: glib2
 Requires: gtk4
 Requires: harfbuzz
-Requires: libadwaita
-Requires: libpng
 Requires: oniguruma
 Requires: pixman
 Requires: zlib-ng
 
 %description
-%{summary}.
+%{summary},
+using platform-native UI and GPU acceleration.
 
 %package        devel
 Summary:        Development files for libghostty-vt
@@ -183,7 +181,14 @@ export ZIG_GLOBAL_CACHE_DIR=%{_builddir}/zig-global-cache
 # symbols from the executable, while GTK4 separately pulls in the system libs.
 # The executable wins global symbol resolution, so GTK's Fc*/FT_*/hb_* calls are
 # interposed into the vendored copies while operating on system-lib state.
-DESTDIR=%{buildroot} zig build \
+# Install into a local staging dir rather than %%{buildroot} directly: zig
+# build compiles and installs in one invocation with no separate "compile
+# then copy" step, and %%install always runs against a freshly-emptied
+# %%{buildroot} (rpm clears it first), so a DESTDIR=%%{buildroot} here would
+# get wiped out before %%files ever sees it. Staging locally keeps %%build
+# from touching %%{buildroot} at all, so %%install can do a plain, ordinary
+# copy into it instead.
+DESTDIR=%{_builddir}/ghostty-install zig build \
     --summary all \
     --prefix "%{_prefix}" \
     -fsys=fontconfig \
@@ -198,10 +203,17 @@ DESTDIR=%{buildroot} zig build \
     -Demit-themes=true
 
 %if 0%{?fedora} >= 42
-    rm -f "%{buildroot}%{_prefix}/share/terminfo/g/ghostty"
+    rm -f "%{_builddir}/ghostty-install%{_prefix}/share/terminfo/g/ghostty"
 %endif
 
-%files
+%install
+cp -a %{_builddir}/ghostty-install/. %{buildroot}/
+%find_lang com.mitchellh.ghostty
+
+%check
+%{buildroot}%{_bindir}/ghostty --version
+
+%files -f com.mitchellh.ghostty.lang
 %license LICENSE
 %{_bindir}/ghostty
 %{_prefix}/share/applications/com.mitchellh.ghostty.desktop
@@ -220,8 +232,8 @@ DESTDIR=%{buildroot} zig build \
 %{_prefix}/share/icons/hicolor/32x32@2/apps/com.mitchellh.ghostty.png
 %{_prefix}/share/icons/hicolor/512x512/apps/com.mitchellh.ghostty.png
 %{_prefix}/share/kio/servicemenus/com.mitchellh.ghostty.desktop
-%{_prefix}/share/man/man1/ghostty.1
-%{_prefix}/share/man/man5/ghostty.5
+%{_prefix}/share/man/man1/ghostty.1*
+%{_prefix}/share/man/man5/ghostty.5*
 %{_prefix}/share/nautilus-python/extensions/ghostty.py
 %{_prefix}/share/nvim/site/compiler/ghostty.vim
 %{_prefix}/share/nvim/site/ftdetect/ghostty.vim
@@ -233,7 +245,6 @@ DESTDIR=%{buildroot} zig build \
 %{_prefix}/share/vim/vimfiles/syntax/ghostty.vim
 %{_prefix}/share/zsh/site-functions/_ghostty
 %{_prefix}/share/dbus-1/services/com.mitchellh.ghostty.service
-%{_prefix}/share/locale/*/LC_MESSAGES/com.mitchellh.ghostty.mo
 %{_prefix}/share/metainfo/com.mitchellh.ghostty.metainfo.xml
 %{_prefix}/share/systemd/user/app-com.mitchellh.ghostty.service
 %{_prefix}/lib/libghostty-vt.so.0

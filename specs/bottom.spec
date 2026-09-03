@@ -33,10 +33,16 @@ install -pvD -m 0644 completion/_%{binary_name} %{buildroot}%{zsh_completions_di
 # Manpage
 install -v -p -D -m 0644 %{binary_name}.1.gz %{buildroot}%{_mandir}/man1/%{binary_name}.1.gz
 
+%check
+%{buildroot}%{_bindir}/%{binary_name} --version
+
 %files
 %{_bindir}/%{binary_name}
 %{bash_completions_dir}/%{binary_name}
 %{fish_completions_dir}/%{binary_name}.fish
 %{zsh_completions_dir}/_%{binary_name}
 %{_mandir}/man1/%{binary_name}.1.gz
+
+%changelog
+%autochangelog
 

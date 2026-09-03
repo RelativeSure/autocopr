@@ -30,5 +30,8 @@ install -p -D dist/%{name}-linux-v%{version}-amd64/%{binary_name} %{buildroot}%{
 %license LICENSE
 %{_bindir}/%{binary_name}
 
+%check
+%{buildroot}%{_bindir}/%{binary_name} --version
+
 %changelog
 %autochangelog

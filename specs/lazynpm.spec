@@ -3,7 +3,7 @@
 Name:    lazynpm
 Version: 0.1.4
 Release: 1%{?dist}
-Summary: terminal UI for npm
+Summary: Terminal UI for npm
 
 License: MIT
 URL: https://github.com/jesseduffield/lazynpm
@@ -23,6 +23,9 @@ cp %{SOURCE2} LICENSE
 
 %install
 install -p -D %{name} %{buildroot}%{_bindir}/%{name}
+
+%check
+%{buildroot}%{_bindir}/%{name} --version
 
 %files
 %doc CONFIGURATION.md

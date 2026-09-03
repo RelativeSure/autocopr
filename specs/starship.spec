@@ -43,3 +43,9 @@ install -pvD -m 0644 _%{name} %{buildroot}%{zsh_completions_dir}/_%{name}
 %{_bindir}/%{name}
 %{bash_completions_dir}/%{name}
 %{zsh_completions_dir}/_%{name}
+
+%check
+%{buildroot}%{_bindir}/%{name} --version
+
+%changelog
+%autochangelog

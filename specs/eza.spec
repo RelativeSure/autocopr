@@ -44,6 +44,9 @@ install -pvD -m 0644 target/man-%{version}/%{name}.1.gz %{buildroot}%{_mandir}/m
 install -pvD -m 0644 target/man-%{version}/%{name}_colors.5.gz %{buildroot}%{_mandir}/man5/%{name}_colors.5.gz
 install -pvD -m 0644 target/man-%{version}/%{name}_colors-explanation.5.gz %{buildroot}%{_mandir}/man5/%{name}_colors-explanation.5.gz
 
+%check
+%{buildroot}%{_bindir}/%{name} --version
+
 %files
 %{_bindir}/%{name}
 %{bash_completions_dir}/%{name}
