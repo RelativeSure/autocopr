@@ -214,6 +214,18 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 > [!WARNING]
 > The list below contains packages from thirdparty sources.
 
+### dua-cli
+
+![dua-cli status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/dua-cli/status_image/last_build.png)
+
+[Upstream](https://src.fedoraproject.org/rpms/rust-dua-cli)
+
+### feh
+
+![feh status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/feh/status_image/last_build.png)
+
+[Upstream](https://src.fedoraproject.org/rpms/feh)
+
 ### python-neovim
 
 ![python-neovim status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/python-neovim/status_image/last_build.png)
