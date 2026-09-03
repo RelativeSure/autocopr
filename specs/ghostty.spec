@@ -181,7 +181,14 @@ export ZIG_GLOBAL_CACHE_DIR=%{_builddir}/zig-global-cache
 # symbols from the executable, while GTK4 separately pulls in the system libs.
 # The executable wins global symbol resolution, so GTK's Fc*/FT_*/hb_* calls are
 # interposed into the vendored copies while operating on system-lib state.
-DESTDIR=%{buildroot} zig build \
+# Install into a local staging dir rather than %%{buildroot} directly: zig
+# build compiles and installs in one invocation with no separate "compile
+# then copy" step, and %%install always runs against a freshly-emptied
+# %%{buildroot} (rpm clears it first), so a DESTDIR=%%{buildroot} here would
+# get wiped out before %%files ever sees it. Staging locally keeps %%build
+# from touching %%{buildroot} at all, so %%install can do a plain, ordinary
+# copy into it instead.
+DESTDIR=%{_builddir}/ghostty-install zig build \
     --summary all \
     --prefix "%{_prefix}" \
     -fsys=fontconfig \
@@ -196,16 +203,15 @@ DESTDIR=%{buildroot} zig build \
     -Demit-themes=true
 
 %if 0%{?fedora} >= 42
-    rm -f "%{buildroot}%{_prefix}/share/terminfo/g/ghostty"
+    rm -f "%{_builddir}/ghostty-install%{_prefix}/share/terminfo/g/ghostty"
 %endif
 
-# An %install section would run against a freshly-emptied %%{buildroot}
-# (rpm always clears it first), wiping out the DESTDIR install this
-# %%build already did above (zig build doesn't cleanly separate a build
-# step from a DESTDIR-install step) - so %%find_lang runs here instead,
-# against the real populated buildroot, and %%install is intentionally
-# omitted.
+%install
+cp -a %{_builddir}/ghostty-install/. %{buildroot}/
 %find_lang com.mitchellh.ghostty
+
+%check
+%{buildroot}%{_bindir}/ghostty --version
 
 %files -f com.mitchellh.ghostty.lang
 %license LICENSE
@@ -226,8 +232,8 @@ DESTDIR=%{buildroot} zig build \
 %{_prefix}/share/icons/hicolor/32x32@2/apps/com.mitchellh.ghostty.png
 %{_prefix}/share/icons/hicolor/512x512/apps/com.mitchellh.ghostty.png
 %{_prefix}/share/kio/servicemenus/com.mitchellh.ghostty.desktop
-%{_prefix}/share/man/man1/ghostty.1
-%{_prefix}/share/man/man5/ghostty.5
+%{_prefix}/share/man/man1/ghostty.1*
+%{_prefix}/share/man/man5/ghostty.5*
 %{_prefix}/share/nautilus-python/extensions/ghostty.py
 %{_prefix}/share/nvim/site/compiler/ghostty.vim
 %{_prefix}/share/nvim/site/ftdetect/ghostty.vim
