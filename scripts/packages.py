@@ -92,6 +92,18 @@ def thirdparty_packages_dict():
     package_definitions = [
         # Add packages here in alphabetical order
         (
+            "dua-cli",
+            "https://src.fedoraproject.org/rpms/rust-dua-cli",
+            None,
+            "rust-dua-cli.spec",
+        ),
+        (
+            "feh",
+            "https://src.fedoraproject.org/rpms/feh",
+            None,
+            "feh.spec",
+        ),
+        (
             "python-neovim",
             "https://github.com/agriffis/pynvim",
             "copr",
