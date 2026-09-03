@@ -89,6 +89,12 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![has status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/has/status_image/last_build.png)
 
+### [ingress2gateway](specs/ingress2gateway.spec) v1.2.0
+
+[Upstream](https://github.com/kubernetes-sigs/ingress2gateway)
+
+![ingress2gateway status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/ingress2gateway/status_image/last_build.png)
+
 ### [jj](specs/jj.spec) v0.44.0
 
 [Upstream](https://github.com/martinvonz/jj)
