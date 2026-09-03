@@ -143,7 +143,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
-### [mise](specs/mise.spec) v2026.9.0
+### [mise](specs/mise.spec) v2026.9.1
 
 [Upstream](https://github.com/jdx/mise)
 
@@ -203,7 +203,7 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![zellij status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/zellij/status_image/last_build.png)
 
-### [zenith](specs/zenith.spec) v0.15.0
+### [zenith](specs/zenith.spec) v0.15.1
 
 [Upstream](https://github.com/bvaisvil/zenith)
 
