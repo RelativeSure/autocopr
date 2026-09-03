@@ -155,6 +155,12 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![lua-language-server status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lua-language-server/status_image/last_build.png)
 
+### [lucky-commit](specs/lucky-commit.spec) v2.2.5
+
+[Upstream](https://github.com/not-an-aardvark/lucky-commit)
+
+![lucky-commit status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/lucky-commit/status_image/last_build.png)
+
 ### [mise](specs/mise.spec) v2026.9.1
 
 [Upstream](https://github.com/jdx/mise)
