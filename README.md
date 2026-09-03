@@ -77,6 +77,12 @@ This COPR repo is for personal and work use. Please go ahead and use this copr r
 
 ![ghostty status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/ghostty/status_image/last_build.png)
 
+### [git-cliff](specs/git-cliff.spec) v2.14.1
+
+[Upstream](https://github.com/orhun/git-cliff)
+
+![git-cliff status](https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/package/git-cliff/status_image/last_build.png)
+
 ### [has](specs/has.spec) v1.5.2
 
 [Upstream](https://github.com/kdabir/has)
