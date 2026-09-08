@@ -113,7 +113,11 @@ def thirdparty_packages_dict():
         (
             "rust-tealdeer",
             "https://src.fedoraproject.org/rpms/rust-tealdeer",
-            None,
+            # The "rawhide" branch (the default when committish is None) was
+            # retired upstream (dead.package, no spec file), which broke the
+            # COPR build. Pin to the last branched Fedora release, which
+            # still carries a live spec.
+            "f44",
             "rust-tealdeer.spec",
         ),
         (
