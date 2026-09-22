@@ -7,7 +7,7 @@ on:
 
 jobs:
   cleanup-tags-pr:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       # To use this action, you must check out the repository
       - name: Checkout
